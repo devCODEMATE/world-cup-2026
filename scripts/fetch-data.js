@@ -1,3 +1,5 @@
+
+'use strict';
 // ══════════════════════════════════════════════
 //  fetch-data.js
 //  Runs via GitHub Actions every hour.
