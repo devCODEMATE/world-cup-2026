@@ -984,7 +984,7 @@ function buildGroups() {
       const pj = t.w + t.d + t.l;
 
       // Separator line between qualified and eliminated
-      const separator = i === 2
+      const separator = '';
         ? `<tr><td colspan="6" style="padding:0;border-top:2px dashed #FF6B1A;opacity:.4"></td></tr>`
         : '';
 
