@@ -149,3 +149,8 @@ async function main() {
 }
 
 main();
+
+const fixturesRes = await get(
+  `/fixtures?league=${LEAGUE}&season=${SEASON}`
+);
+console.log('Fixtures response:', JSON.stringify(fixturesRes).slice(0, 500));
