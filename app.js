@@ -979,16 +979,40 @@ function buildGroups() {
             <th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>PTS</th>
           </tr></thead>
           <tbody>`;
+
     teams.forEach((t, i) => {
       const pj = t.w + t.d + t.l;
-      html += `
-        <tr class="${i < 2 ? 'qualified' : ''}">
-          <td><div class="team-cell">${flagImg(t.c, true)}<span>${t.c}</span></div></td>
+
+      // Separator line between qualified and eliminated
+      const separator = i === 2
+        ? `<tr><td colspan="6" style="padding:0;border-top:2px dashed #FF6B1A;opacity:.4"></td></tr>`
+        : '';
+
+      // Badge for top 2
+      const badge = i === 0
+        ? `<span class="q-badge">1st</span>`
+        : i === 1
+        ? `<span class="q-badge">2nd</span>`
+        : '';
+
+      html += separator + `
+        <tr class="${i < 2 ? 'qualified' : 'eliminated'}">
+          <td>
+            <div class="team-cell">
+              ${flagImg(t.c, true)}
+              <span>${t.c}</span>
+              ${badge}
+            </div>
+          </td>
           <td>${pj}</td><td>${t.w}</td><td>${t.d}</td><td>${t.l}</td>
           <td class="pts-cell">${t.pts}</td>
         </tr>`;
     });
-    html += `</tbody></table></div>`;
+
+    html += `
+        </tbody></table>
+        <div class="qualified-note">✓ Top 2 advance to Round of 32</div>
+      </div>`;
   });
   document.getElementById('groups-list').innerHTML = html;
 }
