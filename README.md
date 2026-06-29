@@ -18,7 +18,7 @@
 
 | Matches | Groups | Search | Champion |
 |---------|--------|--------|----------|
-| ![Matches](images/matches-20260.png) | ![Groups](images/groups-2026.png) | ![Search](images/search-2026.png) | ![Champion](images/champion-2026.png) |
+| ![Matches](images/matches-20260.png) | ![Groups](images/group-2026.png) | ![Search](images/search-2026.png) | ![Champion](images/champion-2026.png) |
 
 </div>
 
