@@ -24,13 +24,7 @@
       <!-- Título dinámico — JS lo cambia según el tab activo -->
       <h1 id="page-title">Matches</h1>
 
-      <!-- Tabs de navegación -->
-      <nav class="tabs">
-        <button class="tab-btn active" data-tab="matches">Matches</button>
-        <button class="tab-btn" data-tab="groups">Groups</button>
-        <button class="tab-btn" data-tab="search">Search</button>
-        <button class="tab-btn" data-tab="champ">🏆</button>
-      </nav>
+
     </header>
 
     <!-- MAIN — zona scrolleable -->
@@ -98,7 +92,7 @@
           <circle cx="10.5" cy="10.5" r="6.5"/>
           <line x1="15.5" y1="15.5" x2="21" y2="21"/>
         </svg>
-        <span><Search></Search></span>
+        <span>Search</span>
       </button>
       <button class="nav-item" data-tab="champ">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -114,6 +108,7 @@
   </div><!-- /app -->
 
   <!-- JS al final del body — así el HTML ya está cargado -->
-  <script src="script.js"></script>
+   <div id="tooltip"></div>
+  <script src="app.js"></script>
 </body>
 </html>
