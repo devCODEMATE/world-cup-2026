@@ -985,8 +985,7 @@ function buildGroups() {
 
       // Separator line between qualified and eliminated
       const separator = '';
-        ? `<tr><td colspan="6" style="padding:0;border-top:2px dashed #FF6B1A;opacity:.4"></td></tr>`
-        : '';
+    
 
       // Badge for top 2
       const badge = i === 0
