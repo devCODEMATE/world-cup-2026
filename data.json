@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T15:48:28.253Z",
+  "updatedAt": "2026-06-30T16:42:36.331Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -2520,7 +2520,7 @@
       "hs": 0,
       "as": 1,
       "s": "done",
-      "g": "Round of 32",
+      "g": "R32",
       "round": "Round of 32",
       "ground": "Los Angeles (Inglewood)",
       "goals": [
@@ -2543,7 +2543,7 @@
       "hs": 1,
       "as": 1,
       "s": "done",
-      "g": "Round of 32",
+      "g": "R32",
       "round": "Round of 32",
       "ground": "Boston (Foxborough)",
       "goals": [
@@ -2572,7 +2572,7 @@
       "hs": 1,
       "as": 1,
       "s": "done",
-      "g": "Round of 32",
+      "g": "R32",
       "round": "Round of 32",
       "ground": "Monterrey (Guadalupe)",
       "goals": [
@@ -2601,7 +2601,7 @@
       "hs": 2,
       "as": 1,
       "s": "done",
-      "g": "Round of 32",
+      "g": "R32",
       "round": "Round of 32",
       "ground": "Houston",
       "goals": [
@@ -2636,7 +2636,7 @@
       "hs": 0,
       "as": 0,
       "s": "upcoming",
-      "g": "Round of 32",
+      "g": "R32",
       "round": "Round of 32",
       "ground": "New York/New Jersey (East Rutherford)",
       "goals": []
@@ -2652,7 +2652,7 @@
       "hs": 0,
       "as": 0,
       "s": "upcoming",
-      "g": "Round of 32",
+      "g": "R32",
       "round": "Round of 32",
       "ground": "Dallas (Arlington)",
       "goals": []
@@ -2668,7 +2668,7 @@
       "hs": 0,
       "as": 0,
       "s": "upcoming",
-      "g": "Round of 32",
+      "g": "R32",
       "round": "Round of 32",
       "ground": "Mexico City",
       "goals": []
@@ -2684,7 +2684,7 @@
       "hs": 0,
       "as": 0,
       "s": "upcoming",
-      "g": "Round of 32",
+      "g": "R32",
       "round": "Round of 32",
       "ground": "Atlanta",
       "goals": []
@@ -2700,7 +2700,7 @@
       "hs": 0,
       "as": 0,
       "s": "upcoming",
-      "g": "Round of 32",
+      "g": "R32",
       "round": "Round of 32",
       "ground": "San Francisco Bay Area (Santa Clara)",
       "goals": []
@@ -2716,7 +2716,7 @@
       "hs": 0,
       "as": 0,
       "s": "upcoming",
-      "g": "Round of 32",
+      "g": "R32",
       "round": "Round of 32",
       "ground": "Seattle",
       "goals": []
@@ -2732,7 +2732,7 @@
       "hs": 0,
       "as": 0,
       "s": "upcoming",
-      "g": "Round of 32",
+      "g": "R32",
       "round": "Round of 32",
       "ground": "Toronto",
       "goals": []
@@ -2748,7 +2748,7 @@
       "hs": 0,
       "as": 0,
       "s": "upcoming",
-      "g": "Round of 32",
+      "g": "R32",
       "round": "Round of 32",
       "ground": "Los Angeles (Inglewood)",
       "goals": []
@@ -2764,7 +2764,7 @@
       "hs": 0,
       "as": 0,
       "s": "upcoming",
-      "g": "Round of 32",
+      "g": "R32",
       "round": "Round of 32",
       "ground": "Vancouver",
       "goals": []
@@ -2780,7 +2780,7 @@
       "hs": 0,
       "as": 0,
       "s": "upcoming",
-      "g": "Round of 32",
+      "g": "R32",
       "round": "Round of 32",
       "ground": "Miami (Miami Gardens)",
       "goals": []
@@ -2796,7 +2796,7 @@
       "hs": 0,
       "as": 0,
       "s": "upcoming",
-      "g": "Round of 32",
+      "g": "R32",
       "round": "Round of 32",
       "ground": "Kansas City",
       "goals": []
@@ -2812,7 +2812,7 @@
       "hs": 0,
       "as": 0,
       "s": "upcoming",
-      "g": "Round of 32",
+      "g": "R32",
       "round": "Round of 32",
       "ground": "Dallas (Arlington)",
       "goals": []
