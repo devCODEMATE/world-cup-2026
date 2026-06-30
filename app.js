@@ -43,7 +43,7 @@ function updateCountdown() {
   const m = Math.floor((diff % 3600000)  / 60000);
   const s = Math.floor((diff % 60000)    / 1000);
   document.getElementById('countdown').textContent =
-    `${d}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+    `${String(d).padStart(2,'0')}:${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
 }
 setInterval(updateCountdown, 1000);
 updateCountdown();
@@ -780,7 +780,7 @@ function buildChamp() {
       const h=Math.floor((diff%86400000)/3600000);
       const m=Math.floor((diff%3600000)/60000);
       const s=Math.floor((diff%60000)/1000);
-      el2.textContent=`${d}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+      el2.textContent=`${String(d).padStart(2,'0')}:${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
     }
     syncChamp();
     setInterval(syncChamp, 1000);
@@ -923,6 +923,7 @@ const extraCSS = `
   .scorer-name{font-size:13px;font-weight:700;color:#ccc;flex:1}
   .scorer-team{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.5px}
   .scorer-goals{font-size:16px;font-weight:900;color:var(--orange);width:24px;text-align:right;flex-shrink:0}
+  .cd-sublabel{font-size:9px;color:var(--muted);letter-spacing:1px;margin-top:2px;font-variant-numeric:tabular-nums}
 `;
 const style = document.createElement('style');
 style.textContent = extraCSS;
