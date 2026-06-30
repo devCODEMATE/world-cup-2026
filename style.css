@@ -530,6 +530,10 @@ body {
   color: #3a3a3e;
   opacity: .7;
 }
+.group-table tr.eliminated td:first-child {
+  border-left: 3px solid var(--card);
+  padding-left: 9px;
+}
 
 .qualified-note {
   font-size: 10px;

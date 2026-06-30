@@ -857,6 +857,7 @@ const extraCSS = `
   .group-table td:first-child{text-align:left;padding-left:0}
   .group-table tr.qualified td{color:#ccc}
   .group-table tr.qualified td:first-child{border-left:3px solid var(--orange);padding-left:9px}
+  .group-table tr.eliminated td:first-child{border-left:3px solid #2a2a2e;padding-left:9px}
   .group-table tr.eliminated td{color:#3a3a3e;opacity:.7}
   .pts-cell{color:var(--orange)!important;font-weight:800!important}
   .team-cell{display:flex;align-items:center;gap:6px}
