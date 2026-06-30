@@ -473,6 +473,65 @@ function buildGroups() {
 }
 
 // ══════════════════════════════════════════════
+//  SEARCH / SCORERS SUB-TABS
+// ══════════════════════════════════════════════
+
+function setSearchSubtab(tab) {
+  const isSearch = tab === 'search';
+  document.getElementById('subtab-search-btn').classList.toggle('active', isSearch);
+  document.getElementById('subtab-scorers-btn').classList.toggle('active', !isSearch);
+  document.getElementById('subtab-search-content').style.display = isSearch ? 'block' : 'none';
+  document.getElementById('subtab-scorers-content').style.display = isSearch ? 'none' : 'block';
+  if (!isSearch) buildTopScorers();
+}
+
+// ══════════════════════════════════════════════
+//  RENDER — TOP SCORERS
+//  Calculated directly from each match's goal events —
+//  no separate API needed, just tally what's already in data.json
+// ══════════════════════════════════════════════
+
+function buildTopScorers() {
+  const el = document.getElementById('scorers-list');
+  if (!el) return;
+
+  const tally = {}; // key: "scorer|team" -> { scorer, team, goals, penalties }
+
+  MATCHES.forEach(m => {
+    (m.goals || []).forEach(g => {
+      // Skip own goals — they're not credited to the scorer's tally
+      if (!g.scorer || !g.team) return;
+      const key = `${g.scorer}|${g.team}`;
+      if (!tally[key]) tally[key] = { scorer: g.scorer, team: g.team, goals: 0, penalties: 0 };
+      tally[key].goals++;
+      if (g.penalty) tally[key].penalties++;
+    });
+  });
+
+  const ranked = Object.values(tally).sort((a, b) => b.goals - a.goals);
+
+  if (!ranked.length) {
+    el.innerHTML = `<div class="search-empty"><p>No goals recorded yet.</p></div>`;
+    return;
+  }
+
+  let html = `<div class="scorers-card">`;
+  ranked.slice(0, 20).forEach((p, i) => {
+    html += `
+      <div class="scorer-row">
+        <span class="scorer-rank">${i + 1}</span>
+        ${flagImg(p.team, true)}
+        <span class="scorer-name">${p.scorer}</span>
+        <span class="scorer-team">${p.team}</span>
+        <span class="scorer-goals">${p.goals}</span>
+      </div>`;
+  });
+  html += `</div>`;
+
+  el.innerHTML = html;
+}
+
+// ══════════════════════════════════════════════
 //  RENDER — SEARCH
 // ══════════════════════════════════════════════
 
@@ -854,6 +913,16 @@ const extraCSS = `
   .ko-tag-out{color:#a32d2d;background:rgba(163,45,45,.12)}
   .ko-result-pens{justify-content:center}
   .ko-tag-pens{color:var(--orange);background:rgba(255,107,26,.1)}
+  .subtab-toggle{display:flex;gap:6px;margin-bottom:14px}
+  .subtab-btn{flex:1;padding:9px 0;font-size:12px;font-weight:700;color:var(--muted);background:var(--card);border:none;border-radius:9px;cursor:pointer;transition:background .15s,color .15s}
+  .subtab-btn.active{background:var(--orange);color:#fff}
+  .scorers-card{background:var(--card);border-radius:var(--radius);overflow:hidden}
+  .scorer-row{display:flex;align-items:center;gap:10px;padding:11px 14px;border-top:1px solid #1e1e22}
+  .scorer-row:first-child{border-top:none}
+  .scorer-rank{font-size:12px;font-weight:800;color:var(--muted);width:18px;flex-shrink:0}
+  .scorer-name{font-size:13px;font-weight:700;color:#ccc;flex:1}
+  .scorer-team{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.5px}
+  .scorer-goals{font-size:16px;font-weight:900;color:var(--orange);width:24px;text-align:right;flex-shrink:0}
 `;
 const style = document.createElement('style');
 style.textContent = extraCSS;

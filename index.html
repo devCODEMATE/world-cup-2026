@@ -69,15 +69,26 @@
         <div id="groups-list"></div>
       </section>
 
-      <!-- Panel: Buscar -->
+      <!-- Panel: Buscar / Goleadores -->
       <section id="panel-search" class="panel">
-        <input
-          class="search-input"
-          id="search-input"
-          type="text"
-          placeholder="Argentina, BRA, Francia..."
-        />
-        <div id="search-result"></div>
+        <div class="subtab-toggle">
+          <button class="subtab-btn active" id="subtab-search-btn" onclick="setSearchSubtab('search')">Team Search</button>
+          <button class="subtab-btn" id="subtab-scorers-btn" onclick="setSearchSubtab('scorers')">Top Scorers</button>
+        </div>
+
+        <div id="subtab-search-content">
+          <input
+            class="search-input"
+            id="search-input"
+            type="text"
+            placeholder="Argentina, BRA, Francia..."
+          />
+          <div id="search-result"></div>
+        </div>
+
+        <div id="subtab-scorers-content" style="display:none">
+          <div id="scorers-list"></div>
+        </div>
       </section>
 
       <!-- Panel: Knockout (Round of 32) -->
