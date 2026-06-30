@@ -1,6 +1,6 @@
 # ⚽ World Cup 2026 App
 
-> A mobile-first World Cup 2026 tracker built from scratch with vanilla HTML, CSS & JavaScript — no frameworks, no libraries, just fundamentals.
+> A mobile-first World Cup 2026 tracker built from scratch with vanilla HTML, CSS & JavaScript — no frameworks, no libraries, just fundamentals. Now powered by real, automatically updating tournament data.
 
 🔴 **[Live Demo → devcodemate.github.io/world-cup-2026](https://devcodemate.github.io/world-cup-2026)**
 
@@ -8,7 +8,7 @@
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=flat&logo=github&logoColor=white)
-![API](https://img.shields.io/badge/API--Football-00A650?style=flat&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat&logo=githubactions&logoColor=white)
 
 ---
 
@@ -16,9 +16,13 @@
 
 <div align="center">
 
-| Matches | Groups | Search | Champion |
-|---------|--------|--------|----------|
-| ![Matches](images/matches-20260.png) | ![Groups](images/group-2026.png) | ![Search](images/search-2026.png) | ![Champion](images/champion-2026.png) |
+| Matches | Groups | Knockout |
+|---------|--------|----------|
+| ![Matches](images/matches-2026.png) | ![Groups](images/group-2026.png) | ![Knockout](images/knockout-2026.png) |
+
+| Search | Top Scorers | Champion |
+|--------|-------------|----------|
+| ![Search](images/search-2026.png) | ![Top Scorers](images/scorers-2026.png) | ![Champion](images/champion-2026.png) |
 
 </div>
 
@@ -28,25 +32,24 @@
 
 I'm Flo — a self-taught junior frontend developer building my first portfolio from scratch.
 
-This project started as a real question: *can I build something people actually want to use?*
+This project started as a real question: *can I build something people actually want to use, while the event it's about is literally happening?*
 
-The 2026 World Cup is happening right now. Millions of people are checking scores, tracking their team, following the road to the final. I decided to build my own tracker — not with a tutorial, not copying a template, but designing it from a wireframe and coding it piece by piece.
-
-This is the result: a real app, deployed, working, built by a junior dev who's learning every single day.
+The 2026 World Cup is underway right now. I decided to build my own live tracker — not from a tutorial, not copying a template, but designing it from a wireframe, coding it piece by piece, and connecting it to real automated data over the course of building it. This README documents that whole process, mistakes included, because I think the mistakes are the most useful part for anyone reading this.
 
 ---
 
 ## ✨ Features
 
-- **📅 Match schedule** — every game from group stage to Round of 32, with dates and local times
-- **🔴 Live results** — scores and results for all completed matches
-- **📊 Group standings** — all 12 groups (A–L) with W/D/L, GF, GA, GD and points — calculated automatically from match data
-- **🏆 Knockout stage** — Round of 32 bracket with upcoming matches and win probabilities
-- **🔍 Team search** — search any country, see their stats: points, wins, goals, recent results and next match
-- **📈 Win probability bars** — percentage chances for upcoming matches
-- **⚽ Match detail modal** — tap any match to see goals with scorer names and minutes
-- **⏱️ Countdown** — live timer counting down to the Final on July 19
-- **🏆 Champion screen** — animated figure with the winner's flag once the tournament ends
+- **📅 Live match schedule** — every game from group stage to Round of 32, with real dates, kickoff times, and venues
+- **🔴 Real results** — scores for all completed matches, pulled automatically, not typed in by hand
+- **📊 Group standings** — all 12 groups (A–L) with W/D/L, GF, GA, GD and points — calculated automatically from match results
+- **🥊 Knockout stage** — Round of 32 results with clear ✓ advances / ✗ eliminated indicators per team, plus upcoming fixtures
+- **⚽ Goal-by-goal detail** — tap any match to see who scored, in which minute, grouped by team
+- **⚡ Top Scorers ranking** — calculated live from every goal recorded across the tournament, no separate API needed
+- **📈 Win probability bars** — a formula I designed myself, based on each team's group-stage points and goal difference, not a paid prediction API
+- **🔍 Team search** — search any country, see their stats, group position, and next match
+- **⏱️ Live countdown** — to the Final on July 19
+- **🏆 Champion screen** — animated figure that reveals the winner's flag once the tournament ends, with the three 2026 host countries (USA · Mexico · Canada) featured
 - **🌍 Flag tooltips** — tap any flag to see the full country name
 - **📱 Mobile-first** — designed for phone, works on desktop too
 
@@ -58,9 +61,9 @@ This is the result: a real app, deployed, working, built by a junior dev who's l
 |------|-----|
 | Structure | Semantic HTML5 |
 | Styling | CSS3 — custom properties, flexbox, animations |
-| Logic | Vanilla JavaScript — DOM manipulation, template literals, array methods |
-| Data | Real match data — manually curated from FIFA official sources |
-| API Integration | API-Football (api-sports.io) via GitHub Actions — auto-updates data.json every hour |
+| Logic | Vanilla JavaScript — `fetch`, DOM manipulation, template literals, array methods |
+| Data | Real match data, sourced from [openfootball/worldcup.json](https://github.com/openfootball/worldcup.json), an open-source public domain dataset |
+| Automation | GitHub Actions — fetches fresh tournament data every hour and commits it automatically |
 | Icons | Inline SVG — hand-drawn, no icon library |
 | Flags | [flagcdn.com](https://flagcdn.com) — free flag CDN |
 | Deploy | GitHub Pages — auto-deploy on every push to `main` |
@@ -70,68 +73,54 @@ Every line of code written and understood by me.
 
 ---
 
-## 🤖 API & Automation
-
-This project integrates with the **API-Football** free tier to auto-update match data:
-
-- Match results, standings and upcoming fixtures are fetched automatically via **GitHub Actions**
-- A workflow runs every hour, calls the API with a secure key stored in GitHub Secrets, and commits an updated `data.json` to the repo
-- The API key is **never exposed in the code** — it lives in GitHub Secrets only
-- Built with the guidance of **AI tools** (Claude by Anthropic) to understand API integration patterns, GitHub Actions workflow structure, and professional dev practices
+## 🤖 How the data pipeline actually works
 
 ```
-API-Football → GitHub Actions (every hour) → data.json → App
+openfootball/worldcup.json → GitHub Actions (every hour) → data.json → app.js renders it
 ```
+
+A Node.js script (`scripts/fetch-data.cjs`) runs on a schedule via GitHub Actions. It pulls the latest tournament JSON, reshapes it into the format my app understands, and commits the result as `data.json`. The frontend then does a simple `fetch('data.json')` on load — no hardcoded match arrays anymore, no API key to manage, no rate limits to worry about.
+
+I originally built this on a paid sports API and burned a good chunk of a session discovering its free tier didn't cover the 2026 season at all. Switching to a public-domain dataset that anyone can verify on GitHub turned out to be both more honest and more resilient.
+
+---
+
+## 🪲 What actually went wrong (and what I learned)
+
+Building this wasn't a straight line, and I think that's worth being upfront about:
+
+- **Wrong data source first.** I integrated API-Football before realizing its free tier only covers older seasons (2022–2024), not 2026. Lesson: check a paid API's coverage *before* writing the integration, not after.
+- **A silent JavaScript syntax error.** Leftover code at the bottom of a script (`await` outside an `async` function) silently broke the entire automation for a while — `data.json` kept regenerating empty with no clear error. Adding diagnostic logging to print the API's actual error response was what finally surfaced the real problem.
+- **Node's module system bit me.** `fetch-data.js` failed in GitHub's runner with `ERR_AMBIGUOUS_MODULE_SYNTAX`. Renaming it to `.cjs` told Node explicitly "this is CommonJS" and fixed it for good — small detail, real lesson about how Node resolves module types.
+- **Git merge conflicts, more than once.** The hourly automation and my own commits both touched `data.json` at the same time more than once. I learned `git pull`, resolving conflicts with `git checkout --ours`, and `commit --amend` for fixing a sloppy commit message — all for real, under time pressure, not from a tutorial.
+- **A name mismatch almost broke team flags.** "Curaçao" (with the cedilla) didn't match my "Curacao" entry, and "Bosnia & Herzegovina" didn't match my abbreviated "Bosnia & Herz." — both silently failed to map to a flag until I wrote a script to diff the real team names against my dictionary.
+- **I overbuilt the bracket UI first try.** My first version of the Knockout stage was a horizontal scrolling bracket like FIFA's official site. It looked fine on a wide screen and unreadable on an actual phone. I scrapped it and went back to a clear, vertical, mobile-first list instead — a good reminder that "looks impressive in a screenshot" and "actually usable on the device people will use" aren't the same thing.
 
 ---
 
 ## 📐 How I built it — the process
 
 ### 1. Design before code
-I started with wireframes — sketching the layout, the color palette (black + `#FF6B1A` orange), the navigation pattern, and the mobile viewport before writing a single line of HTML.
-
-**Design decisions I made intentionally:**
-- Dark theme because sports apps live at night
-- Orange accent — reads energy and urgency
-- Bottom nav bar — where thumbs reach on mobile
-- Sticky header so the user always knows where they are
+Wireframes first — layout, color palette (black + `#FF6B1A` orange), navigation pattern, mobile viewport, before writing a single line of HTML.
 
 ### 2. Mobile-first CSS
-CSS written starting from the smallest screen. Desktop styles added with `@media (min-width)`.
-
-Key CSS concepts used:
-- **CSS custom properties** — change one variable, update the whole app
-- **`position: sticky`** — header stays visible while content scrolls
-- **`position: fixed`** — bottom nav stays at the bottom on any screen
-- **Flexbox** — match card layout and tab bar
-- **CSS animations** (`@keyframes`) — live dot pulse, floating champion figure
+CSS written starting from the smallest screen. Desktop styles added with `@media (min-width)`. Custom properties, `position: sticky/fixed`, flexbox, `@keyframes` animations.
 
 ### 3. JavaScript — data, render, navigate
-The JS is structured in three clear responsibilities:
-
 ```
 app.js
-├── DATA        → teams, matches, standings (real tournament data)
-├── RENDER      → functions that build HTML from data
-└── NAVIGATE    → tab switching, countdown, tooltip, modal logic
+├── DATA LOADING → fetch('data.json'), normalize into app format
+├── RENDER       → functions that build HTML from data
+└── NAVIGATE     → tab switching, countdown, modal, sub-tabs
 ```
 
-Key things learned by building this:
-- `querySelectorAll` + `forEach` to connect multiple buttons with `data-tab` attributes
-- Template literals to build HTML strings dynamically
-- `setInterval` for the live countdown
-- `Array.filter`, `Array.reduce`, `Array.find` for calculating team stats on the fly
-- Dynamic standings calculated automatically from match results — no hardcoding
-- Modal pattern with CSS transitions for match detail view
-
-### 4. API integration & GitHub Actions
-- Registered for a free API-Football account
-- Stored the API key securely in GitHub Secrets
-- Built a Node.js script (`scripts/fetch-data.js`) that calls the API and generates `data.json`
-- Created a GitHub Actions workflow (`.github/workflows/update-data.yml`) that runs the script every hour automatically
+### 4. Real automated data
+- Found and integrated [openfootball/worldcup.json](https://github.com/openfootball/worldcup.json), a public-domain dataset, no API key required
+- Wrote `scripts/fetch-data.cjs` to reshape that data into my app's format, including resolving team name mismatches and computing knockout-stage references
+- Set up a GitHub Actions workflow (`.github/workflows/update-data.yml`) that runs the script every hour and auto-commits the result
 
 ### 5. Git workflow
-Used Git from commit one — not as an afterthought.
+Used Git from commit one, with real branching and recovery from real mistakes along the way:
 
 ```
 feat: initial commit — world cup 2026 app
@@ -142,11 +131,16 @@ feat: add match detail modal with goals and stats
 feat: add knockout stage panel and real verified match data
 feat: add GitHub Actions workflow to auto-update data from API-Football
 fix: correct workflows folder name
-docs: add app screenshots
+feat: replace API-Football with openfootball public dataset
+fix: rename fetch-data.js to fetch-data.cjs to resolve Node module error
+feat: connect app.js with data.json
+feat: add logo-style header branding and regenerate data.json
+feat: improve knockout results, group goals by team, and add win probability
+feat: add top scorers sub-tab to search panel
 ```
 
 Worked with:
-- **Conventional Commits** — `feat:`, `fix:`, `docs:`, `style:`
+- **Conventional Commits** — `feat:`, `fix:`, `chore:`, `merge:`
 - **Feature branches** — never committing directly to `main`
 - **GitHub Pages** — auto-deploy on every push
 
@@ -160,12 +154,12 @@ world-cup-2026/
 │   └── workflows/
 │       └── update-data.yml   ← GitHub Actions: auto-update every hour
 ├── scripts/
-│   └── fetch-data.js         ← Node.js script: calls API, writes data.json
+│   └── fetch-data.cjs        ← Node.js script: pulls and reshapes real tournament data
 ├── images/                   ← App screenshots
 ├── index.html                ← App structure, semantic HTML, SVG icons
 ├── style.css                 ← Design tokens, layout, components, animations
-├── app.js                    ← Data, render functions, navigation logic
-├── data.json                 ← Auto-generated by GitHub Actions
+├── app.js                    ← Data fetching, render functions, navigation logic
+├── data.json                 ← Auto-generated every hour, real tournament data
 └── README.md                 ← You are here
 ```
 
@@ -195,6 +189,9 @@ cd world-cup-2026
 
 # Open with Live Server in VS Code
 # Right click index.html → Open with Live Server
+
+# To refresh the data locally:
+node scripts/fetch-data.cjs
 ```
 
 No `npm install`. No build step. No config. Just open and run.
@@ -205,25 +202,26 @@ No `npm install`. No build step. No config. Just open and run.
 
 **HTML** — Semantic elements, `data-*` attributes, inline SVG
 
-**CSS** — Custom properties, mobile-first media queries, `position: sticky/fixed`, flexbox, `@keyframes` animations, pseudo-elements
+**CSS** — Custom properties, mobile-first media queries, `position: sticky/fixed`, flexbox, `@keyframes` animations, pseudo-elements, `background-clip: text` for gradient typography
 
-**JavaScript** — DOM manipulation, event listeners, template literals, array methods (`filter`, `map`, `reduce`, `find`), `setInterval`, date calculations, dynamic HTML rendering, modal patterns
+**JavaScript** — `fetch` and async data loading, DOM manipulation, event listeners, template literals, array methods (`filter`, `map`, `reduce`, `find`, `sort`), `setInterval`, date calculations, dynamic HTML rendering, modal patterns, designing my own scoring/probability algorithm
 
-**Git & GitHub** — `init`, `add`, `commit`, `push`, `pull`, remote repositories, feature branches, Conventional Commits, GitHub Pages deployment, GitHub Actions, GitHub Secrets
+**Git & GitHub** — `init`, `add`, `commit`, `push`, `pull`, remote repositories, feature branches, Conventional Commits, `commit --amend`, resolving real merge conflicts, GitHub Pages deployment, GitHub Actions, GitHub Secrets
 
-**APIs** — REST API concepts, HTTP headers, API keys, rate limits, free tier usage
+**Data & APIs** — Evaluating whether a data source actually fits your use case before integrating it, working with public-domain datasets, designing data transformation pipelines, handling missing/incomplete data gracefully instead of faking it
 
-**GitHub Actions** — YAML workflow syntax, scheduled jobs (`cron`), environment secrets, automated commits
+**Node.js** — CommonJS vs ES Modules, debugging silent failures with diagnostic logging, scheduled automation via GitHub Actions cron
+
+**Product thinking** — Knowing when a feature (a real-time API, a fancy horizontal bracket) isn't worth the complexity it adds, and choosing the simpler, more honest, more usable version instead
 
 ---
 
 ## 🔮 What's next
 
-- [ ] Connect `app.js` to read `data.json` for fully live data
-- [ ] Update results as knockout stage progresses (Round of 16, QF, SF, Final)
-- [ ] Animate champion screen when winner is confirmed
-- [ ] Add full knockout bracket visualization
-- [ ] Refactor data into separate `data.js` file
+- [ ] Surface Round of 16 / Quarter-finals / Semi-finals once the bracket fills in
+- [ ] Animate the champion screen when the Final is decided
+- [ ] Penalty-shootout results once the data source publishes them
+- [ ] Possibly contribute fixes upstream to openfootball if I spot more data mismatches
 
 ---
 
@@ -231,11 +229,11 @@ No `npm install`. No build step. No config. Just open and run.
 
 I'm **Flo** — a junior frontend developer based in Argentina, building my portfolio one real project at a time.
 
-I'm not coming from a bootcamp or a CS degree. I'm coming from genuine curiosity, a lot of hours in VS Code, and a commitment to understanding *why* things work, not just *that* they work.
+I'm not coming from a bootcamp or a CS degree. I'm coming from genuine curiosity, a lot of hours in VS Code, and a commitment to understanding *why* things work, not just *that* they work — including when they break.
 
-Parts of this project were built with the guidance of **AI tools** — specifically Claude by Anthropic — to learn professional patterns around API integration, GitHub Actions, and dev workflows. Every decision was understood and implemented by me.
+Parts of this project were built with the guidance of **AI tools** — specifically Claude by Anthropic — to learn professional patterns around data pipelines, GitHub Actions, debugging, and dev workflows. Every decision, every mistake, and every fix was understood and implemented by me, in real time, while the actual 2026 World Cup was being played.
 
-This is my second deployed project. I'm looking for my first paid role — junior frontend, internship, or freelance work where I can keep learning while contributing real value.
+I'm looking for my first paid role — junior frontend, internship, or freelance work where I can keep learning while contributing real value.
 
 **Find me:**
 - 🐙 GitHub: [@devCODEMATE](https://github.com/devCODEMATE)
@@ -243,5 +241,5 @@ This is my second deployed project. I'm looking for my first paid role — junio
 ---
 
 <p align="center">
-  Built with 🧡 and a lot of <code>git commit</code>s by <strong>devCODEMATE</strong>
+  Built with 🧡 and a lot of <code>git commit</code>s by <strong>devCODEMATE</strong> — during the actual 2026 World Cup
 </p>
