@@ -1,6 +1,6 @@
 'use strict';
 // ══════════════════════════════════════════════
-//  fetch-data.js
+//  fetch-data.cjs
 //  Runs via GitHub Actions every hour.
 //  Pulls real World Cup 2026 data from openfootball
 //  (public domain, no API key required):

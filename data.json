@@ -1,6 +1,2837 @@
 {
-  "updatedAt": "2026-06-30T14:08:29.042Z",
-  "matches": [],
-  "groups": {},
-  "topScorers": []
+  "updatedAt": "2026-06-30T14:46:26.786Z",
+  "source": "openfootball/worldcup.json (public domain, updated ~daily)",
+  "matches": [
+    {
+      "id": 0,
+      "d": "2026-06-11",
+      "t": "13:00",
+      "h": "MEX",
+      "hName": "Mexico",
+      "a": "RSA",
+      "aName": "South Africa",
+      "hs": 2,
+      "as": 0,
+      "s": "done",
+      "g": "A",
+      "round": "Matchday 1",
+      "ground": "Mexico City",
+      "goals": [
+        {
+          "min": "9",
+          "scorer": "Julián Quiñones",
+          "team": "MEX",
+          "penalty": false
+        },
+        {
+          "min": "67",
+          "scorer": "Raúl Jiménez",
+          "team": "MEX",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "d": "2026-06-11",
+      "t": "20:00",
+      "h": "KOR",
+      "hName": "South Korea",
+      "a": "CZE",
+      "aName": "Czech Republic",
+      "hs": 2,
+      "as": 1,
+      "s": "done",
+      "g": "A",
+      "round": "Matchday 1",
+      "ground": "Guadalajara (Zapopan)",
+      "goals": [
+        {
+          "min": "67",
+          "scorer": "Hwang In-Beom",
+          "team": "KOR",
+          "penalty": false
+        },
+        {
+          "min": "80",
+          "scorer": "Oh Hyeon-Gyu",
+          "team": "KOR",
+          "penalty": false
+        },
+        {
+          "min": "59",
+          "scorer": "Ladislav Krejcí",
+          "team": "CZE",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "d": "2026-06-18",
+      "t": "12:00",
+      "h": "CZE",
+      "hName": "Czech Republic",
+      "a": "RSA",
+      "aName": "South Africa",
+      "hs": 1,
+      "as": 1,
+      "s": "done",
+      "g": "A",
+      "round": "Matchday 8",
+      "ground": "Atlanta",
+      "goals": [
+        {
+          "min": "6",
+          "scorer": "Michal Sadílek",
+          "team": "CZE",
+          "penalty": false
+        },
+        {
+          "min": "83",
+          "scorer": "Teboho Mokoena",
+          "team": "RSA",
+          "penalty": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "d": "2026-06-18",
+      "t": "19:00",
+      "h": "MEX",
+      "hName": "Mexico",
+      "a": "KOR",
+      "aName": "South Korea",
+      "hs": 1,
+      "as": 0,
+      "s": "done",
+      "g": "A",
+      "round": "Matchday 8",
+      "ground": "Guadalajara (Zapopan)",
+      "goals": [
+        {
+          "min": "50",
+          "scorer": "Luis Romo",
+          "team": "MEX",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "d": "2026-06-24",
+      "t": "19:00",
+      "h": "CZE",
+      "hName": "Czech Republic",
+      "a": "MEX",
+      "aName": "Mexico",
+      "hs": 0,
+      "as": 3,
+      "s": "done",
+      "g": "A",
+      "round": "Matchday 14",
+      "ground": "Mexico City",
+      "goals": [
+        {
+          "min": "55",
+          "scorer": "Mateo Chávez",
+          "team": "MEX",
+          "penalty": false
+        },
+        {
+          "min": "61",
+          "scorer": "Julián Quiñones",
+          "team": "MEX",
+          "penalty": false
+        },
+        {
+          "min": "90+4",
+          "scorer": "Álvaro Fidalgo",
+          "team": "MEX",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "d": "2026-06-24",
+      "t": "19:00",
+      "h": "RSA",
+      "hName": "South Africa",
+      "a": "KOR",
+      "aName": "South Korea",
+      "hs": 1,
+      "as": 0,
+      "s": "done",
+      "g": "A",
+      "round": "Matchday 14",
+      "ground": "Monterrey (Guadalupe)",
+      "goals": [
+        {
+          "min": "63",
+          "scorer": "Thapelo Maseko",
+          "team": "RSA",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "d": "2026-06-12",
+      "t": "15:00",
+      "h": "CAN",
+      "hName": "Canada",
+      "a": "BOS",
+      "aName": "Bosnia & Herzegovina",
+      "hs": 1,
+      "as": 1,
+      "s": "done",
+      "g": "B",
+      "round": "Matchday 2",
+      "ground": "Toronto",
+      "goals": [
+        {
+          "min": "78",
+          "scorer": "Cyle Larin",
+          "team": "CAN",
+          "penalty": false
+        },
+        {
+          "min": "21",
+          "scorer": "Jovo Lukić",
+          "team": "BOS",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "d": "2026-06-13",
+      "t": "12:00",
+      "h": "QAT",
+      "hName": "Qatar",
+      "a": "SUI",
+      "aName": "Switzerland",
+      "hs": 1,
+      "as": 1,
+      "s": "done",
+      "g": "B",
+      "round": "Matchday 3",
+      "ground": "San Francisco Bay Area (Santa Clara)",
+      "goals": [
+        {
+          "min": "90+4",
+          "scorer": "Miro Muheim",
+          "team": "QAT",
+          "penalty": false
+        },
+        {
+          "min": "17",
+          "scorer": "Breel Embolo",
+          "team": "SUI",
+          "penalty": true
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "d": "2026-06-18",
+      "t": "12:00",
+      "h": "SUI",
+      "hName": "Switzerland",
+      "a": "BOS",
+      "aName": "Bosnia & Herzegovina",
+      "hs": 4,
+      "as": 1,
+      "s": "done",
+      "g": "B",
+      "round": "Matchday 8",
+      "ground": "Los Angeles (Inglewood)",
+      "goals": [
+        {
+          "min": "74",
+          "scorer": "Johan Manzambi",
+          "team": "SUI",
+          "penalty": false
+        },
+        {
+          "min": "90",
+          "scorer": "Johan Manzambi",
+          "team": "SUI",
+          "penalty": false
+        },
+        {
+          "min": "84",
+          "scorer": "Rubén Vargas",
+          "team": "SUI",
+          "penalty": false
+        },
+        {
+          "min": "90+7",
+          "scorer": "Granit Xhaka",
+          "team": "SUI",
+          "penalty": true
+        },
+        {
+          "min": "90+3",
+          "scorer": "Ermin Mahmic",
+          "team": "BOS",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "d": "2026-06-18",
+      "t": "15:00",
+      "h": "CAN",
+      "hName": "Canada",
+      "a": "QAT",
+      "aName": "Qatar",
+      "hs": 6,
+      "as": 0,
+      "s": "done",
+      "g": "B",
+      "round": "Matchday 8",
+      "ground": "Vancouver",
+      "goals": [
+        {
+          "min": "16",
+          "scorer": "Cyle Larin",
+          "team": "CAN",
+          "penalty": false
+        },
+        {
+          "min": "29",
+          "scorer": "Jonathan David",
+          "team": "CAN",
+          "penalty": false
+        },
+        {
+          "min": "45+3",
+          "scorer": "Jonathan David",
+          "team": "CAN",
+          "penalty": false
+        },
+        {
+          "min": "64",
+          "scorer": "Nathan Saliba",
+          "team": "CAN",
+          "penalty": false
+        },
+        {
+          "min": "75",
+          "scorer": "Mohamed Manai",
+          "team": "CAN",
+          "penalty": false
+        },
+        {
+          "min": "90+2",
+          "scorer": "Jonathan David",
+          "team": "CAN",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "d": "2026-06-24",
+      "t": "12:00",
+      "h": "SUI",
+      "hName": "Switzerland",
+      "a": "CAN",
+      "aName": "Canada",
+      "hs": 2,
+      "as": 1,
+      "s": "done",
+      "g": "B",
+      "round": "Matchday 14",
+      "ground": "Vancouver",
+      "goals": [
+        {
+          "min": "46",
+          "scorer": "Rubén Vargas",
+          "team": "SUI",
+          "penalty": false
+        },
+        {
+          "min": "57",
+          "scorer": "Johan Manzambi",
+          "team": "SUI",
+          "penalty": false
+        },
+        {
+          "min": "76",
+          "scorer": "Promise David",
+          "team": "CAN",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "d": "2026-06-24",
+      "t": "12:00",
+      "h": "BOS",
+      "hName": "Bosnia & Herzegovina",
+      "a": "QAT",
+      "aName": "Qatar",
+      "hs": 3,
+      "as": 1,
+      "s": "done",
+      "g": "B",
+      "round": "Matchday 14",
+      "ground": "Seattle",
+      "goals": [
+        {
+          "min": "29",
+          "scorer": "Kerim Alajbegovic",
+          "team": "BOS",
+          "penalty": false
+        },
+        {
+          "min": "34",
+          "scorer": "Mahmoud Abunada",
+          "team": "BOS",
+          "penalty": false
+        },
+        {
+          "min": "80",
+          "scorer": "Ermin Mahmic",
+          "team": "BOS",
+          "penalty": false
+        },
+        {
+          "min": "42",
+          "scorer": "Hassan Al-Haydos",
+          "team": "QAT",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "d": "2026-06-13",
+      "t": "18:00",
+      "h": "BRA",
+      "hName": "Brazil",
+      "a": "MAR",
+      "aName": "Morocco",
+      "hs": 1,
+      "as": 1,
+      "s": "done",
+      "g": "C",
+      "round": "Matchday 3",
+      "ground": "New York/New Jersey (East Rutherford)",
+      "goals": [
+        {
+          "min": "32",
+          "scorer": "Vinícius Júnior",
+          "team": "BRA",
+          "penalty": false
+        },
+        {
+          "min": "21",
+          "scorer": "Ismael Saibari",
+          "team": "MAR",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "d": "2026-06-13",
+      "t": "21:00",
+      "h": "HTI",
+      "hName": "Haiti",
+      "a": "SCO",
+      "aName": "Scotland",
+      "hs": 0,
+      "as": 1,
+      "s": "done",
+      "g": "C",
+      "round": "Matchday 3",
+      "ground": "Boston (Foxborough)",
+      "goals": [
+        {
+          "min": "28",
+          "scorer": "John McGinn",
+          "team": "SCO",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "d": "2026-06-19",
+      "t": "18:00",
+      "h": "SCO",
+      "hName": "Scotland",
+      "a": "MAR",
+      "aName": "Morocco",
+      "hs": 0,
+      "as": 1,
+      "s": "done",
+      "g": "C",
+      "round": "Matchday 9",
+      "ground": "Boston (Foxborough)",
+      "goals": [
+        {
+          "min": "2",
+          "scorer": "Ismael Saibari",
+          "team": "MAR",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "d": "2026-06-19",
+      "t": "20:30",
+      "h": "BRA",
+      "hName": "Brazil",
+      "a": "HTI",
+      "aName": "Haiti",
+      "hs": 3,
+      "as": 0,
+      "s": "done",
+      "g": "C",
+      "round": "Matchday 9",
+      "ground": "Philadelphia",
+      "goals": [
+        {
+          "min": "23",
+          "scorer": "Matheus Cunha",
+          "team": "BRA",
+          "penalty": false
+        },
+        {
+          "min": "36",
+          "scorer": "Matheus Cunha",
+          "team": "BRA",
+          "penalty": false
+        },
+        {
+          "min": "45+3",
+          "scorer": "Vinícius Júnior",
+          "team": "BRA",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "d": "2026-06-24",
+      "t": "18:00",
+      "h": "SCO",
+      "hName": "Scotland",
+      "a": "BRA",
+      "aName": "Brazil",
+      "hs": 0,
+      "as": 3,
+      "s": "done",
+      "g": "C",
+      "round": "Matchday 14",
+      "ground": "Miami (Miami Gardens)",
+      "goals": [
+        {
+          "min": "7",
+          "scorer": "Vinícius Júnior",
+          "team": "BRA",
+          "penalty": false
+        },
+        {
+          "min": "45+3",
+          "scorer": "Vinícius Júnior",
+          "team": "BRA",
+          "penalty": false
+        },
+        {
+          "min": "60",
+          "scorer": "Matheus Cunha",
+          "team": "BRA",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "d": "2026-06-24",
+      "t": "18:00",
+      "h": "MAR",
+      "hName": "Morocco",
+      "a": "HTI",
+      "aName": "Haiti",
+      "hs": 4,
+      "as": 2,
+      "s": "done",
+      "g": "C",
+      "round": "Matchday 14",
+      "ground": "Atlanta",
+      "goals": [
+        {
+          "min": "39",
+          "scorer": "Achraf Hakimi",
+          "team": "MAR",
+          "penalty": false
+        },
+        {
+          "min": "45+1",
+          "scorer": "Ismael Saibari",
+          "team": "MAR",
+          "penalty": false
+        },
+        {
+          "min": "78",
+          "scorer": "Soufiane Rahimi",
+          "team": "MAR",
+          "penalty": false
+        },
+        {
+          "min": "89",
+          "scorer": "Gessime Yassine",
+          "team": "MAR",
+          "penalty": false
+        },
+        {
+          "min": "10",
+          "scorer": "Yassine Bounou",
+          "team": "HTI",
+          "penalty": false
+        },
+        {
+          "min": "43",
+          "scorer": "Wilson Isidor",
+          "team": "HTI",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "d": "2026-06-12",
+      "t": "18:00",
+      "h": "USA",
+      "hName": "USA",
+      "a": "PAR",
+      "aName": "Paraguay",
+      "hs": 4,
+      "as": 1,
+      "s": "done",
+      "g": "D",
+      "round": "Matchday 2",
+      "ground": "Los Angeles (Inglewood)",
+      "goals": [
+        {
+          "min": "7",
+          "scorer": "Damian Bobadilla",
+          "team": "USA",
+          "penalty": false
+        },
+        {
+          "min": "31",
+          "scorer": "Folarin Balogun",
+          "team": "USA",
+          "penalty": false
+        },
+        {
+          "min": "45+5",
+          "scorer": "Folarin Balogun",
+          "team": "USA",
+          "penalty": false
+        },
+        {
+          "min": "90+8",
+          "scorer": "Giovanni Reyna",
+          "team": "USA",
+          "penalty": false
+        },
+        {
+          "min": "73",
+          "scorer": "Mauricio",
+          "team": "PAR",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "d": "2026-06-13",
+      "t": "21:00",
+      "h": "AUS",
+      "hName": "Australia",
+      "a": "TUR",
+      "aName": "Turkey",
+      "hs": 2,
+      "as": 0,
+      "s": "done",
+      "g": "D",
+      "round": "Matchday 3",
+      "ground": "Vancouver",
+      "goals": [
+        {
+          "min": "27",
+          "scorer": "Nestory Irankunda",
+          "team": "AUS",
+          "penalty": false
+        },
+        {
+          "min": "75",
+          "scorer": "Connor Metcalfe",
+          "team": "AUS",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "d": "2026-06-19",
+      "t": "12:00",
+      "h": "USA",
+      "hName": "USA",
+      "a": "AUS",
+      "aName": "Australia",
+      "hs": 2,
+      "as": 0,
+      "s": "done",
+      "g": "D",
+      "round": "Matchday 9",
+      "ground": "Seattle",
+      "goals": [
+        {
+          "min": "11",
+          "scorer": "Cameron Burgess",
+          "team": "USA",
+          "penalty": false
+        },
+        {
+          "min": "43",
+          "scorer": "Alex Freeman",
+          "team": "USA",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "d": "2026-06-19",
+      "t": "20:00",
+      "h": "TUR",
+      "hName": "Turkey",
+      "a": "PAR",
+      "aName": "Paraguay",
+      "hs": 0,
+      "as": 1,
+      "s": "done",
+      "g": "D",
+      "round": "Matchday 9",
+      "ground": "San Francisco Bay Area (Santa Clara)",
+      "goals": [
+        {
+          "min": "2",
+          "scorer": "Matías Galarza",
+          "team": "PAR",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "d": "2026-06-25",
+      "t": "19:00",
+      "h": "TUR",
+      "hName": "Turkey",
+      "a": "USA",
+      "aName": "USA",
+      "hs": 3,
+      "as": 2,
+      "s": "done",
+      "g": "D",
+      "round": "Matchday 15",
+      "ground": "Los Angeles (Inglewood)",
+      "goals": [
+        {
+          "min": "10",
+          "scorer": "Arda Güler",
+          "team": "TUR",
+          "penalty": false
+        },
+        {
+          "min": "31",
+          "scorer": "Baris Alper Yilmaz",
+          "team": "TUR",
+          "penalty": false
+        },
+        {
+          "min": "90+8",
+          "scorer": "Kaan Ayhan",
+          "team": "TUR",
+          "penalty": false
+        },
+        {
+          "min": "3",
+          "scorer": "Auston Trusty",
+          "team": "USA",
+          "penalty": false
+        },
+        {
+          "min": "49",
+          "scorer": "Sebastian Berhalter",
+          "team": "USA",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "d": "2026-06-25",
+      "t": "19:00",
+      "h": "PAR",
+      "hName": "Paraguay",
+      "a": "AUS",
+      "aName": "Australia",
+      "hs": 0,
+      "as": 0,
+      "s": "done",
+      "g": "D",
+      "round": "Matchday 15",
+      "ground": "San Francisco Bay Area (Santa Clara)",
+      "goals": []
+    },
+    {
+      "id": 24,
+      "d": "2026-06-14",
+      "t": "12:00",
+      "h": "GER",
+      "hName": "Germany",
+      "a": "CUR",
+      "aName": "Curaçao",
+      "hs": 7,
+      "as": 1,
+      "s": "done",
+      "g": "E",
+      "round": "Matchday 4",
+      "ground": "Houston",
+      "goals": [
+        {
+          "min": "6",
+          "scorer": "Felix Nmecha",
+          "team": "GER",
+          "penalty": false
+        },
+        {
+          "min": "38",
+          "scorer": "Nico Schlotterbeck",
+          "team": "GER",
+          "penalty": false
+        },
+        {
+          "min": "45+5",
+          "scorer": "Kai Havertz",
+          "team": "GER",
+          "penalty": true
+        },
+        {
+          "min": "88",
+          "scorer": "Kai Havertz",
+          "team": "GER",
+          "penalty": false
+        },
+        {
+          "min": "47",
+          "scorer": "Jamal Musiala",
+          "team": "GER",
+          "penalty": false
+        },
+        {
+          "min": "68",
+          "scorer": "Nathaniel Brown",
+          "team": "GER",
+          "penalty": false
+        },
+        {
+          "min": "78",
+          "scorer": "Deniz Undav",
+          "team": "GER",
+          "penalty": false
+        },
+        {
+          "min": "21",
+          "scorer": "Livano Comenencia",
+          "team": "CUR",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "d": "2026-06-14",
+      "t": "19:00",
+      "h": "CIV",
+      "hName": "Ivory Coast",
+      "a": "ECU",
+      "aName": "Ecuador",
+      "hs": 1,
+      "as": 0,
+      "s": "done",
+      "g": "E",
+      "round": "Matchday 4",
+      "ground": "Philadelphia",
+      "goals": [
+        {
+          "min": "90",
+          "scorer": "Amad Diallo",
+          "team": "CIV",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "d": "2026-06-20",
+      "t": "16:00",
+      "h": "GER",
+      "hName": "Germany",
+      "a": "CIV",
+      "aName": "Ivory Coast",
+      "hs": 2,
+      "as": 1,
+      "s": "done",
+      "g": "E",
+      "round": "Matchday 10",
+      "ground": "Toronto",
+      "goals": [
+        {
+          "min": "68",
+          "scorer": "Deniz Undav",
+          "team": "GER",
+          "penalty": false
+        },
+        {
+          "min": "90+4",
+          "scorer": "Deniz Undav",
+          "team": "GER",
+          "penalty": false
+        },
+        {
+          "min": "30",
+          "scorer": "Franck Kessié",
+          "team": "CIV",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "d": "2026-06-20",
+      "t": "19:00",
+      "h": "ECU",
+      "hName": "Ecuador",
+      "a": "CUR",
+      "aName": "Curaçao",
+      "hs": 0,
+      "as": 0,
+      "s": "done",
+      "g": "E",
+      "round": "Matchday 10",
+      "ground": "Kansas City",
+      "goals": []
+    },
+    {
+      "id": 28,
+      "d": "2026-06-25",
+      "t": "16:00",
+      "h": "CUR",
+      "hName": "Curaçao",
+      "a": "CIV",
+      "aName": "Ivory Coast",
+      "hs": 0,
+      "as": 2,
+      "s": "done",
+      "g": "E",
+      "round": "Matchday 15",
+      "ground": "Philadelphia",
+      "goals": [
+        {
+          "min": "7",
+          "scorer": "Nicolas Pépé",
+          "team": "CIV",
+          "penalty": false
+        },
+        {
+          "min": "64",
+          "scorer": "Nicolas Pépé",
+          "team": "CIV",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "d": "2026-06-25",
+      "t": "16:00",
+      "h": "ECU",
+      "hName": "Ecuador",
+      "a": "GER",
+      "aName": "Germany",
+      "hs": 2,
+      "as": 1,
+      "s": "done",
+      "g": "E",
+      "round": "Matchday 15",
+      "ground": "New York/New Jersey (East Rutherford)",
+      "goals": [
+        {
+          "min": "9",
+          "scorer": "Nilson Angulo",
+          "team": "ECU",
+          "penalty": false
+        },
+        {
+          "min": "77",
+          "scorer": "Gonzalo Plata",
+          "team": "ECU",
+          "penalty": false
+        },
+        {
+          "min": "2",
+          "scorer": "Leroy Sané",
+          "team": "GER",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "d": "2026-06-14",
+      "t": "15:00",
+      "h": "NED",
+      "hName": "Netherlands",
+      "a": "JPN",
+      "aName": "Japan",
+      "hs": 2,
+      "as": 2,
+      "s": "done",
+      "g": "F",
+      "round": "Matchday 4",
+      "ground": "Dallas (Arlington)",
+      "goals": [
+        {
+          "min": "51",
+          "scorer": "Virgil van Dijk",
+          "team": "NED",
+          "penalty": false
+        },
+        {
+          "min": "64",
+          "scorer": "Crysencio Summerville",
+          "team": "NED",
+          "penalty": false
+        },
+        {
+          "min": "57",
+          "scorer": "Keito Nakamura",
+          "team": "JPN",
+          "penalty": false
+        },
+        {
+          "min": "88",
+          "scorer": "Daichi Kamada",
+          "team": "JPN",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "d": "2026-06-14",
+      "t": "20:00",
+      "h": "SWE",
+      "hName": "Sweden",
+      "a": "TUN",
+      "aName": "Tunisia",
+      "hs": 5,
+      "as": 1,
+      "s": "done",
+      "g": "F",
+      "round": "Matchday 4",
+      "ground": "Monterrey (Guadalupe)",
+      "goals": [
+        {
+          "min": "7",
+          "scorer": "Yasin Ayari",
+          "team": "SWE",
+          "penalty": false
+        },
+        {
+          "min": "90+6",
+          "scorer": "Yasin Ayari",
+          "team": "SWE",
+          "penalty": false
+        },
+        {
+          "min": "30",
+          "scorer": "Alexander Isak",
+          "team": "SWE",
+          "penalty": false
+        },
+        {
+          "min": "59",
+          "scorer": "Viktor Gyökeres",
+          "team": "SWE",
+          "penalty": false
+        },
+        {
+          "min": "84",
+          "scorer": "Mattias Svanberg",
+          "team": "SWE",
+          "penalty": false
+        },
+        {
+          "min": "43",
+          "scorer": "Omar Rekik",
+          "team": "TUN",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "d": "2026-06-20",
+      "t": "12:00",
+      "h": "NED",
+      "hName": "Netherlands",
+      "a": "SWE",
+      "aName": "Sweden",
+      "hs": 5,
+      "as": 1,
+      "s": "done",
+      "g": "F",
+      "round": "Matchday 10",
+      "ground": "Houston",
+      "goals": [
+        {
+          "min": "5",
+          "scorer": "Brian Brobbey",
+          "team": "NED",
+          "penalty": false
+        },
+        {
+          "min": "17",
+          "scorer": "Brian Brobbey",
+          "team": "NED",
+          "penalty": false
+        },
+        {
+          "min": "47",
+          "scorer": "Cody Gakpo",
+          "team": "NED",
+          "penalty": false
+        },
+        {
+          "min": "54",
+          "scorer": "Cody Gakpo",
+          "team": "NED",
+          "penalty": false
+        },
+        {
+          "min": "89",
+          "scorer": "Crysencio Summerville",
+          "team": "NED",
+          "penalty": false
+        },
+        {
+          "min": "59",
+          "scorer": "Anthony Elanga",
+          "team": "SWE",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "d": "2026-06-20",
+      "t": "22:00",
+      "h": "TUN",
+      "hName": "Tunisia",
+      "a": "JPN",
+      "aName": "Japan",
+      "hs": 0,
+      "as": 4,
+      "s": "done",
+      "g": "F",
+      "round": "Matchday 10",
+      "ground": "Monterrey (Guadalupe)",
+      "goals": [
+        {
+          "min": "4",
+          "scorer": "Daichi Kamada",
+          "team": "JPN",
+          "penalty": false
+        },
+        {
+          "min": "31",
+          "scorer": "Ayase Ueda",
+          "team": "JPN",
+          "penalty": false
+        },
+        {
+          "min": "83",
+          "scorer": "Ayase Ueda",
+          "team": "JPN",
+          "penalty": false
+        },
+        {
+          "min": "69",
+          "scorer": "Junya Ito",
+          "team": "JPN",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "d": "2026-06-25",
+      "t": "18:00",
+      "h": "JPN",
+      "hName": "Japan",
+      "a": "SWE",
+      "aName": "Sweden",
+      "hs": 1,
+      "as": 1,
+      "s": "done",
+      "g": "F",
+      "round": "Matchday 15",
+      "ground": "Dallas (Arlington)",
+      "goals": [
+        {
+          "min": "56",
+          "scorer": "Daizen Maeda",
+          "team": "JPN",
+          "penalty": false
+        },
+        {
+          "min": "62",
+          "scorer": "Anthony Elanga",
+          "team": "SWE",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "d": "2026-06-25",
+      "t": "18:00",
+      "h": "TUN",
+      "hName": "Tunisia",
+      "a": "NED",
+      "aName": "Netherlands",
+      "hs": 1,
+      "as": 3,
+      "s": "done",
+      "g": "F",
+      "round": "Matchday 15",
+      "ground": "Kansas City",
+      "goals": [
+        {
+          "min": "54",
+          "scorer": "Hazem Mastouri",
+          "team": "TUN",
+          "penalty": false
+        },
+        {
+          "min": "3",
+          "scorer": "Ellyes Skhiri",
+          "team": "NED",
+          "penalty": false
+        },
+        {
+          "min": "7",
+          "scorer": "Brian Brobbey",
+          "team": "NED",
+          "penalty": false
+        },
+        {
+          "min": "62",
+          "scorer": "Jan Paul van Hecke",
+          "team": "NED",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "d": "2026-06-15",
+      "t": "12:00",
+      "h": "BEL",
+      "hName": "Belgium",
+      "a": "EGY",
+      "aName": "Egypt",
+      "hs": 1,
+      "as": 1,
+      "s": "done",
+      "g": "G",
+      "round": "Matchday 5",
+      "ground": "Seattle",
+      "goals": [
+        {
+          "min": "66",
+          "scorer": "Mohamed Hany",
+          "team": "BEL",
+          "penalty": false
+        },
+        {
+          "min": "19",
+          "scorer": "Emam Ashour",
+          "team": "EGY",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "d": "2026-06-15",
+      "t": "18:00",
+      "h": "IRN",
+      "hName": "Iran",
+      "a": "NZL",
+      "aName": "New Zealand",
+      "hs": 2,
+      "as": 2,
+      "s": "done",
+      "g": "G",
+      "round": "Matchday 5",
+      "ground": "Los Angeles (Inglewood)",
+      "goals": [
+        {
+          "min": "32",
+          "scorer": "Ramin Rezaeian",
+          "team": "IRN",
+          "penalty": false
+        },
+        {
+          "min": "64",
+          "scorer": "Mohammad Mohebbi",
+          "team": "IRN",
+          "penalty": false
+        },
+        {
+          "min": "7",
+          "scorer": "Elijah Just",
+          "team": "NZL",
+          "penalty": false
+        },
+        {
+          "min": "54",
+          "scorer": "Elijah Just",
+          "team": "NZL",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "d": "2026-06-21",
+      "t": "12:00",
+      "h": "BEL",
+      "hName": "Belgium",
+      "a": "IRN",
+      "aName": "Iran",
+      "hs": 0,
+      "as": 0,
+      "s": "done",
+      "g": "G",
+      "round": "Matchday 11",
+      "ground": "Los Angeles (Inglewood)",
+      "goals": []
+    },
+    {
+      "id": 39,
+      "d": "2026-06-21",
+      "t": "18:00",
+      "h": "NZL",
+      "hName": "New Zealand",
+      "a": "EGY",
+      "aName": "Egypt",
+      "hs": 1,
+      "as": 3,
+      "s": "done",
+      "g": "G",
+      "round": "Matchday 11",
+      "ground": "Vancouver",
+      "goals": [
+        {
+          "min": "15",
+          "scorer": "Finn Surman",
+          "team": "NZL",
+          "penalty": false
+        },
+        {
+          "min": "58",
+          "scorer": "Mostafa Zico",
+          "team": "EGY",
+          "penalty": false
+        },
+        {
+          "min": "67",
+          "scorer": "Mohamed Salah",
+          "team": "EGY",
+          "penalty": false
+        },
+        {
+          "min": "82",
+          "scorer": "Trézéguet",
+          "team": "EGY",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "d": "2026-06-26",
+      "t": "20:00",
+      "h": "EGY",
+      "hName": "Egypt",
+      "a": "IRN",
+      "aName": "Iran",
+      "hs": 1,
+      "as": 1,
+      "s": "done",
+      "g": "G",
+      "round": "Matchday 16",
+      "ground": "Seattle",
+      "goals": [
+        {
+          "min": "5",
+          "scorer": "Mahmoud Saber",
+          "team": "EGY",
+          "penalty": false
+        },
+        {
+          "min": "14",
+          "scorer": "Ramin Rezaeian",
+          "team": "IRN",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "d": "2026-06-26",
+      "t": "20:00",
+      "h": "NZL",
+      "hName": "New Zealand",
+      "a": "BEL",
+      "aName": "Belgium",
+      "hs": 1,
+      "as": 5,
+      "s": "done",
+      "g": "G",
+      "round": "Matchday 16",
+      "ground": "Vancouver",
+      "goals": [
+        {
+          "min": "84",
+          "scorer": "Elijah Just",
+          "team": "NZL",
+          "penalty": false
+        },
+        {
+          "min": "28",
+          "scorer": "Leandro Trossard",
+          "team": "BEL",
+          "penalty": false
+        },
+        {
+          "min": "50",
+          "scorer": "Leandro Trossard",
+          "team": "BEL",
+          "penalty": false
+        },
+        {
+          "min": "66",
+          "scorer": "Kevin De Bruyne",
+          "team": "BEL",
+          "penalty": false
+        },
+        {
+          "min": "86",
+          "scorer": "Romelu Lukaku",
+          "team": "BEL",
+          "penalty": false
+        },
+        {
+          "min": "90+4",
+          "scorer": "Alexis Saelemaekers",
+          "team": "BEL",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "d": "2026-06-15",
+      "t": "12:00",
+      "h": "ESP",
+      "hName": "Spain",
+      "a": "CPV",
+      "aName": "Cape Verde",
+      "hs": 0,
+      "as": 0,
+      "s": "done",
+      "g": "H",
+      "round": "Matchday 5",
+      "ground": "Atlanta",
+      "goals": []
+    },
+    {
+      "id": 43,
+      "d": "2026-06-15",
+      "t": "18:00",
+      "h": "KSA",
+      "hName": "Saudi Arabia",
+      "a": "URU",
+      "aName": "Uruguay",
+      "hs": 1,
+      "as": 1,
+      "s": "done",
+      "g": "H",
+      "round": "Matchday 5",
+      "ground": "Miami (Miami Gardens)",
+      "goals": [
+        {
+          "min": "41",
+          "scorer": "Abdulelah Al-Amri",
+          "team": "KSA",
+          "penalty": false
+        },
+        {
+          "min": "80",
+          "scorer": "Maxi Araújo",
+          "team": "URU",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "d": "2026-06-21",
+      "t": "12:00",
+      "h": "ESP",
+      "hName": "Spain",
+      "a": "KSA",
+      "aName": "Saudi Arabia",
+      "hs": 4,
+      "as": 0,
+      "s": "done",
+      "g": "H",
+      "round": "Matchday 11",
+      "ground": "Atlanta",
+      "goals": [
+        {
+          "min": "10",
+          "scorer": "Lamine Yamal",
+          "team": "ESP",
+          "penalty": false
+        },
+        {
+          "min": "21",
+          "scorer": "Mikel Oyarzabal",
+          "team": "ESP",
+          "penalty": false
+        },
+        {
+          "min": "24",
+          "scorer": "Mikel Oyarzabal",
+          "team": "ESP",
+          "penalty": false
+        },
+        {
+          "min": "49",
+          "scorer": "Hassan Al-Tambakti",
+          "team": "ESP",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "d": "2026-06-21",
+      "t": "18:00",
+      "h": "URU",
+      "hName": "Uruguay",
+      "a": "CPV",
+      "aName": "Cape Verde",
+      "hs": 2,
+      "as": 2,
+      "s": "done",
+      "g": "H",
+      "round": "Matchday 11",
+      "ground": "Miami (Miami Gardens)",
+      "goals": [
+        {
+          "min": "44",
+          "scorer": "Maxi Araújo",
+          "team": "URU",
+          "penalty": false
+        },
+        {
+          "min": "45+6",
+          "scorer": "Agustín Cano",
+          "team": "URU",
+          "penalty": false
+        },
+        {
+          "min": "21",
+          "scorer": "Kevin Pina",
+          "team": "CPV",
+          "penalty": false
+        },
+        {
+          "min": "61",
+          "scorer": "Hélio Varela",
+          "team": "CPV",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "d": "2026-06-26",
+      "t": "19:00",
+      "h": "CPV",
+      "hName": "Cape Verde",
+      "a": "KSA",
+      "aName": "Saudi Arabia",
+      "hs": 0,
+      "as": 0,
+      "s": "done",
+      "g": "H",
+      "round": "Matchday 16",
+      "ground": "Houston",
+      "goals": []
+    },
+    {
+      "id": 47,
+      "d": "2026-06-26",
+      "t": "18:00",
+      "h": "URU",
+      "hName": "Uruguay",
+      "a": "ESP",
+      "aName": "Spain",
+      "hs": 0,
+      "as": 1,
+      "s": "done",
+      "g": "H",
+      "round": "Matchday 16",
+      "ground": "Guadalajara (Zapopan)",
+      "goals": [
+        {
+          "min": "42",
+          "scorer": "Álex Baena",
+          "team": "ESP",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "d": "2026-06-16",
+      "t": "15:00",
+      "h": "FRA",
+      "hName": "France",
+      "a": "SEN",
+      "aName": "Senegal",
+      "hs": 3,
+      "as": 1,
+      "s": "done",
+      "g": "I",
+      "round": "Matchday 6",
+      "ground": "New York/New Jersey (East Rutherford)",
+      "goals": [
+        {
+          "min": "66",
+          "scorer": "Kylian Mbappé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "90+6",
+          "scorer": "Kylian Mbappé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "82",
+          "scorer": "Bradley Barcola",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "90+5",
+          "scorer": "Ibrahim Mbaye",
+          "team": "SEN",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "d": "2026-06-16",
+      "t": "18:00",
+      "h": "IRQ",
+      "hName": "Iraq",
+      "a": "NOR",
+      "aName": "Norway",
+      "hs": 1,
+      "as": 4,
+      "s": "done",
+      "g": "I",
+      "round": "Matchday 6",
+      "ground": "Boston (Foxborough)",
+      "goals": [
+        {
+          "min": "39",
+          "scorer": "Aymen Hussein",
+          "team": "IRQ",
+          "penalty": false
+        },
+        {
+          "min": "29",
+          "scorer": "Erling Haaland",
+          "team": "NOR",
+          "penalty": false
+        },
+        {
+          "min": "43",
+          "scorer": "Erling Haaland",
+          "team": "NOR",
+          "penalty": false
+        },
+        {
+          "min": "76",
+          "scorer": "Leo Østigard",
+          "team": "NOR",
+          "penalty": false
+        },
+        {
+          "min": "90+6",
+          "scorer": "Aymen Hussein",
+          "team": "NOR",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "d": "2026-06-22",
+      "t": "17:00",
+      "h": "FRA",
+      "hName": "France",
+      "a": "IRQ",
+      "aName": "Iraq",
+      "hs": 3,
+      "as": 0,
+      "s": "done",
+      "g": "I",
+      "round": "Matchday 12",
+      "ground": "Philadelphia",
+      "goals": [
+        {
+          "min": "14",
+          "scorer": "Kylian Mbappé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "54",
+          "scorer": "Kylian Mbappé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "66",
+          "scorer": "Ousmane Dembélé",
+          "team": "FRA",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "d": "2026-06-22",
+      "t": "20:00",
+      "h": "NOR",
+      "hName": "Norway",
+      "a": "SEN",
+      "aName": "Senegal",
+      "hs": 3,
+      "as": 2,
+      "s": "done",
+      "g": "I",
+      "round": "Matchday 12",
+      "ground": "New York/New Jersey (East Rutherford)",
+      "goals": [
+        {
+          "min": "43",
+          "scorer": "Marcus Holmgren Pedersen",
+          "team": "NOR",
+          "penalty": false
+        },
+        {
+          "min": "48",
+          "scorer": "Erling Haaland",
+          "team": "NOR",
+          "penalty": false
+        },
+        {
+          "min": "58",
+          "scorer": "Erling Haaland",
+          "team": "NOR",
+          "penalty": false
+        },
+        {
+          "min": "53",
+          "scorer": "Ismaïla Sarr",
+          "team": "SEN",
+          "penalty": false
+        },
+        {
+          "min": "90+3",
+          "scorer": "Ismaïla Sarr",
+          "team": "SEN",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "d": "2026-06-26",
+      "t": "15:00",
+      "h": "NOR",
+      "hName": "Norway",
+      "a": "FRA",
+      "aName": "France",
+      "hs": 1,
+      "as": 4,
+      "s": "done",
+      "g": "I",
+      "round": "Matchday 16",
+      "ground": "Boston (Foxborough)",
+      "goals": [
+        {
+          "min": "21",
+          "scorer": "Thelo Aasgaard",
+          "team": "NOR",
+          "penalty": false
+        },
+        {
+          "min": "7",
+          "scorer": "Ousmane Dembélé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "20",
+          "scorer": "Ousmane Dembélé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "32",
+          "scorer": "Ousmane Dembélé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "90+4",
+          "scorer": "Désiré Doué",
+          "team": "FRA",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "d": "2026-06-26",
+      "t": "15:00",
+      "h": "SEN",
+      "hName": "Senegal",
+      "a": "IRQ",
+      "aName": "Iraq",
+      "hs": 5,
+      "as": 0,
+      "s": "done",
+      "g": "I",
+      "round": "Matchday 16",
+      "ground": "Toronto",
+      "goals": [
+        {
+          "min": "4",
+          "scorer": "Habib Diarra",
+          "team": "SEN",
+          "penalty": false
+        },
+        {
+          "min": "56",
+          "scorer": "Ismaïla Sarr",
+          "team": "SEN",
+          "penalty": false
+        },
+        {
+          "min": "59",
+          "scorer": "Pape Gueye",
+          "team": "SEN",
+          "penalty": false
+        },
+        {
+          "min": "71",
+          "scorer": "Pape Gueye",
+          "team": "SEN",
+          "penalty": false
+        },
+        {
+          "min": "82",
+          "scorer": "Iliman Ndiaye",
+          "team": "SEN",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "d": "2026-06-16",
+      "t": "20:00",
+      "h": "ARG",
+      "hName": "Argentina",
+      "a": "DZA",
+      "aName": "Algeria",
+      "hs": 3,
+      "as": 0,
+      "s": "done",
+      "g": "J",
+      "round": "Matchday 6",
+      "ground": "Kansas City",
+      "goals": [
+        {
+          "min": "17",
+          "scorer": "Lionel Messi",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "60",
+          "scorer": "Lionel Messi",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "76",
+          "scorer": "Lionel Messi",
+          "team": "ARG",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "d": "2026-06-16",
+      "t": "21:00",
+      "h": "AUT",
+      "hName": "Austria",
+      "a": "JOR",
+      "aName": "Jordan",
+      "hs": 3,
+      "as": 1,
+      "s": "done",
+      "g": "J",
+      "round": "Matchday 6",
+      "ground": "San Francisco Bay Area (Santa Clara)",
+      "goals": [
+        {
+          "min": "21",
+          "scorer": "Romano Schmid",
+          "team": "AUT",
+          "penalty": false
+        },
+        {
+          "min": "76",
+          "scorer": "Yazan Al-Arab",
+          "team": "AUT",
+          "penalty": false
+        },
+        {
+          "min": "90+12",
+          "scorer": "Marko Arnautovic",
+          "team": "AUT",
+          "penalty": true
+        },
+        {
+          "min": "50",
+          "scorer": "Ali Olwan",
+          "team": "JOR",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "d": "2026-06-22",
+      "t": "12:00",
+      "h": "ARG",
+      "hName": "Argentina",
+      "a": "AUT",
+      "aName": "Austria",
+      "hs": 2,
+      "as": 0,
+      "s": "done",
+      "g": "J",
+      "round": "Matchday 12",
+      "ground": "Dallas (Arlington)",
+      "goals": [
+        {
+          "min": "38",
+          "scorer": "Lionel Messi",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "90+5",
+          "scorer": "Lionel Messi",
+          "team": "ARG",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "d": "2026-06-22",
+      "t": "20:00",
+      "h": "JOR",
+      "hName": "Jordan",
+      "a": "DZA",
+      "aName": "Algeria",
+      "hs": 1,
+      "as": 2,
+      "s": "done",
+      "g": "J",
+      "round": "Matchday 12",
+      "ground": "San Francisco Bay Area (Santa Clara)",
+      "goals": [
+        {
+          "min": "36",
+          "scorer": "Nizar Al-Rashdan",
+          "team": "JOR",
+          "penalty": false
+        },
+        {
+          "min": "69",
+          "scorer": "Nadhir Benbouali",
+          "team": "DZA",
+          "penalty": false
+        },
+        {
+          "min": "82",
+          "scorer": "Amine Gouiri",
+          "team": "DZA",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "d": "2026-06-27",
+      "t": "21:00",
+      "h": "DZA",
+      "hName": "Algeria",
+      "a": "AUT",
+      "aName": "Austria",
+      "hs": 3,
+      "as": 3,
+      "s": "done",
+      "g": "J",
+      "round": "Matchday 17",
+      "ground": "Kansas City",
+      "goals": [
+        {
+          "min": "45",
+          "scorer": "Rafik Belghali",
+          "team": "DZA",
+          "penalty": false
+        },
+        {
+          "min": "60",
+          "scorer": "Riyad Mahrez",
+          "team": "DZA",
+          "penalty": false
+        },
+        {
+          "min": "90+3",
+          "scorer": "Riyad Mahrez",
+          "team": "DZA",
+          "penalty": false
+        },
+        {
+          "min": "28",
+          "scorer": "Marko Arnautovic",
+          "team": "AUT",
+          "penalty": false
+        },
+        {
+          "min": "55",
+          "scorer": "Marcel Sabitzer",
+          "team": "AUT",
+          "penalty": false
+        },
+        {
+          "min": "90+6",
+          "scorer": "Sasa Kalajdzic",
+          "team": "AUT",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "d": "2026-06-27",
+      "t": "21:00",
+      "h": "JOR",
+      "hName": "Jordan",
+      "a": "ARG",
+      "aName": "Argentina",
+      "hs": 1,
+      "as": 3,
+      "s": "done",
+      "g": "J",
+      "round": "Matchday 17",
+      "ground": "Dallas (Arlington)",
+      "goals": [
+        {
+          "min": "55",
+          "scorer": "Mousa Al-Tamari",
+          "team": "JOR",
+          "penalty": false
+        },
+        {
+          "min": "19",
+          "scorer": "Giovani Lo Celso",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "31",
+          "scorer": "Lautaro Martínez",
+          "team": "ARG",
+          "penalty": true
+        },
+        {
+          "min": "80",
+          "scorer": "Lionel Messi",
+          "team": "ARG",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "d": "2026-06-17",
+      "t": "12:00",
+      "h": "POR",
+      "hName": "Portugal",
+      "a": "COD",
+      "aName": "DR Congo",
+      "hs": 1,
+      "as": 1,
+      "s": "done",
+      "g": "K",
+      "round": "Matchday 7",
+      "ground": "Houston",
+      "goals": [
+        {
+          "min": "6",
+          "scorer": "João Neves",
+          "team": "POR",
+          "penalty": false
+        },
+        {
+          "min": "45+5",
+          "scorer": "Yoane Wissa",
+          "team": "COD",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "d": "2026-06-17",
+      "t": "20:00",
+      "h": "UZB",
+      "hName": "Uzbekistan",
+      "a": "COL",
+      "aName": "Colombia",
+      "hs": 1,
+      "as": 3,
+      "s": "done",
+      "g": "K",
+      "round": "Matchday 7",
+      "ground": "Mexico City",
+      "goals": [
+        {
+          "min": "60",
+          "scorer": "Abbosbek Fayzullaev",
+          "team": "UZB",
+          "penalty": false
+        },
+        {
+          "min": "40",
+          "scorer": "Daniel Muñoz",
+          "team": "COL",
+          "penalty": false
+        },
+        {
+          "min": "65",
+          "scorer": "Luis Díaz",
+          "team": "COL",
+          "penalty": false
+        },
+        {
+          "min": "90+9",
+          "scorer": "Jáminton Campaz",
+          "team": "COL",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "d": "2026-06-23",
+      "t": "12:00",
+      "h": "POR",
+      "hName": "Portugal",
+      "a": "UZB",
+      "aName": "Uzbekistan",
+      "hs": 5,
+      "as": 0,
+      "s": "done",
+      "g": "K",
+      "round": "Matchday 13",
+      "ground": "Houston",
+      "goals": [
+        {
+          "min": "6",
+          "scorer": "Cristiano Ronaldo",
+          "team": "POR",
+          "penalty": false
+        },
+        {
+          "min": "39",
+          "scorer": "Cristiano Ronaldo",
+          "team": "POR",
+          "penalty": false
+        },
+        {
+          "min": "17",
+          "scorer": "Nuno Mendes",
+          "team": "POR",
+          "penalty": false
+        },
+        {
+          "min": "60",
+          "scorer": "Abduvohid Nematov",
+          "team": "POR",
+          "penalty": false
+        },
+        {
+          "min": "87",
+          "scorer": "Rafael Leão",
+          "team": "POR",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "d": "2026-06-23",
+      "t": "20:00",
+      "h": "COL",
+      "hName": "Colombia",
+      "a": "COD",
+      "aName": "DR Congo",
+      "hs": 1,
+      "as": 0,
+      "s": "done",
+      "g": "K",
+      "round": "Matchday 13",
+      "ground": "Guadalajara (Zapopan)",
+      "goals": [
+        {
+          "min": "76",
+          "scorer": "Daniel Muñoz",
+          "team": "COL",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "d": "2026-06-27",
+      "t": "19:30",
+      "h": "COL",
+      "hName": "Colombia",
+      "a": "POR",
+      "aName": "Portugal",
+      "hs": 0,
+      "as": 0,
+      "s": "done",
+      "g": "K",
+      "round": "Matchday 17",
+      "ground": "Miami (Miami Gardens)",
+      "goals": []
+    },
+    {
+      "id": 65,
+      "d": "2026-06-27",
+      "t": "19:30",
+      "h": "COD",
+      "hName": "DR Congo",
+      "a": "UZB",
+      "aName": "Uzbekistan",
+      "hs": 3,
+      "as": 1,
+      "s": "done",
+      "g": "K",
+      "round": "Matchday 17",
+      "ground": "Atlanta",
+      "goals": [
+        {
+          "min": "68",
+          "scorer": "Yoane Wissa",
+          "team": "COD",
+          "penalty": true
+        },
+        {
+          "min": "78",
+          "scorer": "Fiston Mayele",
+          "team": "COD",
+          "penalty": false
+        },
+        {
+          "min": "90+1",
+          "scorer": "Yoane Wissa",
+          "team": "COD",
+          "penalty": false
+        },
+        {
+          "min": "10",
+          "scorer": "Eldor Shomurodov",
+          "team": "UZB",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "d": "2026-06-17",
+      "t": "15:00",
+      "h": "ENG",
+      "hName": "England",
+      "a": "CRO",
+      "aName": "Croatia",
+      "hs": 4,
+      "as": 2,
+      "s": "done",
+      "g": "L",
+      "round": "Matchday 7",
+      "ground": "Dallas (Arlington)",
+      "goals": [
+        {
+          "min": "12",
+          "scorer": "Harry Kane",
+          "team": "ENG",
+          "penalty": true
+        },
+        {
+          "min": "42",
+          "scorer": "Harry Kane",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "47",
+          "scorer": "Jude Bellingham",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "85",
+          "scorer": "Marcus Rashford",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "36",
+          "scorer": "Martin Baturina",
+          "team": "CRO",
+          "penalty": false
+        },
+        {
+          "min": "45+5",
+          "scorer": "Petar Musa",
+          "team": "CRO",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "d": "2026-06-17",
+      "t": "19:00",
+      "h": "GHA",
+      "hName": "Ghana",
+      "a": "PAN",
+      "aName": "Panama",
+      "hs": 1,
+      "as": 0,
+      "s": "done",
+      "g": "L",
+      "round": "Matchday 7",
+      "ground": "Toronto",
+      "goals": [
+        {
+          "min": "90+5",
+          "scorer": "Caleb Yirenkyi",
+          "team": "GHA",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "d": "2026-06-23",
+      "t": "16:00",
+      "h": "ENG",
+      "hName": "England",
+      "a": "GHA",
+      "aName": "Ghana",
+      "hs": 0,
+      "as": 0,
+      "s": "done",
+      "g": "L",
+      "round": "Matchday 13",
+      "ground": "Boston (Foxborough)",
+      "goals": []
+    },
+    {
+      "id": 69,
+      "d": "2026-06-23",
+      "t": "19:00",
+      "h": "PAN",
+      "hName": "Panama",
+      "a": "CRO",
+      "aName": "Croatia",
+      "hs": 0,
+      "as": 1,
+      "s": "done",
+      "g": "L",
+      "round": "Matchday 13",
+      "ground": "Toronto",
+      "goals": [
+        {
+          "min": "54",
+          "scorer": "Ante Budimir",
+          "team": "CRO",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "d": "2026-06-27",
+      "t": "17:00",
+      "h": "PAN",
+      "hName": "Panama",
+      "a": "ENG",
+      "aName": "England",
+      "hs": 0,
+      "as": 2,
+      "s": "done",
+      "g": "L",
+      "round": "Matchday 17",
+      "ground": "New York/New Jersey (East Rutherford)",
+      "goals": [
+        {
+          "min": "62",
+          "scorer": "Jude Bellingham",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "67",
+          "scorer": "Harry Kane",
+          "team": "ENG",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "d": "2026-06-27",
+      "t": "17:00",
+      "h": "CRO",
+      "hName": "Croatia",
+      "a": "GHA",
+      "aName": "Ghana",
+      "hs": 2,
+      "as": 1,
+      "s": "done",
+      "g": "L",
+      "round": "Matchday 17",
+      "ground": "Philadelphia",
+      "goals": [
+        {
+          "min": "31",
+          "scorer": "Petar Sucic",
+          "team": "CRO",
+          "penalty": false
+        },
+        {
+          "min": "83",
+          "scorer": "Nikola Vlasic",
+          "team": "CRO",
+          "penalty": false
+        },
+        {
+          "min": "73",
+          "scorer": "Derrick Luckassen",
+          "team": "GHA",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "d": "2026-06-28",
+      "t": "12:00",
+      "h": "RSA",
+      "hName": "South Africa",
+      "a": "CAN",
+      "aName": "Canada",
+      "hs": 0,
+      "as": 1,
+      "s": "done",
+      "g": "Round of 32",
+      "round": "Round of 32",
+      "ground": "Los Angeles (Inglewood)",
+      "goals": [
+        {
+          "min": "90+2",
+          "scorer": "Stephan Eustáquio",
+          "team": "CAN",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "d": "2026-06-29",
+      "t": "16:30",
+      "h": "GER",
+      "hName": "Germany",
+      "a": "PAR",
+      "aName": "Paraguay",
+      "hs": 1,
+      "as": 1,
+      "s": "done",
+      "g": "Round of 32",
+      "round": "Round of 32",
+      "ground": "Boston (Foxborough)",
+      "goals": [
+        {
+          "min": "54",
+          "scorer": "Kai Havertz",
+          "team": "GER",
+          "penalty": false
+        },
+        {
+          "min": "42",
+          "scorer": "Julio Enciso",
+          "team": "PAR",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "d": "2026-06-29",
+      "t": "19:00",
+      "h": "NED",
+      "hName": "Netherlands",
+      "a": "MAR",
+      "aName": "Morocco",
+      "hs": 1,
+      "as": 1,
+      "s": "done",
+      "g": "Round of 32",
+      "round": "Round of 32",
+      "ground": "Monterrey (Guadalupe)",
+      "goals": [
+        {
+          "min": "72",
+          "scorer": "Cody Gakpo",
+          "team": "NED",
+          "penalty": false
+        },
+        {
+          "min": "90+1",
+          "scorer": "Issa Diop",
+          "team": "MAR",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "d": "2026-06-29",
+      "t": "12:00",
+      "h": "BRA",
+      "hName": "Brazil",
+      "a": "JPN",
+      "aName": "Japan",
+      "hs": 2,
+      "as": 1,
+      "s": "done",
+      "g": "Round of 32",
+      "round": "Round of 32",
+      "ground": "Houston",
+      "goals": [
+        {
+          "min": "56",
+          "scorer": "Casemiro",
+          "team": "BRA",
+          "penalty": false
+        },
+        {
+          "min": "90+5",
+          "scorer": "Gabriel Martinelli",
+          "team": "BRA",
+          "penalty": false
+        },
+        {
+          "min": "29",
+          "scorer": "Kaishu Sano",
+          "team": "JPN",
+          "penalty": false
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "d": "2026-06-30",
+      "t": "17:00",
+      "h": "FRA",
+      "hName": "France",
+      "a": "SWE",
+      "aName": "Sweden",
+      "hs": 0,
+      "as": 0,
+      "s": "upcoming",
+      "g": "Round of 32",
+      "round": "Round of 32",
+      "ground": "New York/New Jersey (East Rutherford)",
+      "goals": []
+    },
+    {
+      "id": 77,
+      "d": "2026-06-30",
+      "t": "12:00",
+      "h": "CIV",
+      "hName": "Ivory Coast",
+      "a": "NOR",
+      "aName": "Norway",
+      "hs": 0,
+      "as": 0,
+      "s": "upcoming",
+      "g": "Round of 32",
+      "round": "Round of 32",
+      "ground": "Dallas (Arlington)",
+      "goals": []
+    },
+    {
+      "id": 78,
+      "d": "2026-06-30",
+      "t": "19:00",
+      "h": "MEX",
+      "hName": "Mexico",
+      "a": "ECU",
+      "aName": "Ecuador",
+      "hs": 0,
+      "as": 0,
+      "s": "upcoming",
+      "g": "Round of 32",
+      "round": "Round of 32",
+      "ground": "Mexico City",
+      "goals": []
+    },
+    {
+      "id": 79,
+      "d": "2026-07-01",
+      "t": "12:00",
+      "h": "ENG",
+      "hName": "England",
+      "a": "COD",
+      "aName": "DR Congo",
+      "hs": 0,
+      "as": 0,
+      "s": "upcoming",
+      "g": "Round of 32",
+      "round": "Round of 32",
+      "ground": "Atlanta",
+      "goals": []
+    },
+    {
+      "id": 80,
+      "d": "2026-07-01",
+      "t": "17:00",
+      "h": "USA",
+      "hName": "USA",
+      "a": "BOS",
+      "aName": "Bosnia & Herzegovina",
+      "hs": 0,
+      "as": 0,
+      "s": "upcoming",
+      "g": "Round of 32",
+      "round": "Round of 32",
+      "ground": "San Francisco Bay Area (Santa Clara)",
+      "goals": []
+    },
+    {
+      "id": 81,
+      "d": "2026-07-01",
+      "t": "13:00",
+      "h": "BEL",
+      "hName": "Belgium",
+      "a": "SEN",
+      "aName": "Senegal",
+      "hs": 0,
+      "as": 0,
+      "s": "upcoming",
+      "g": "Round of 32",
+      "round": "Round of 32",
+      "ground": "Seattle",
+      "goals": []
+    },
+    {
+      "id": 82,
+      "d": "2026-07-02",
+      "t": "19:00",
+      "h": "POR",
+      "hName": "Portugal",
+      "a": "CRO",
+      "aName": "Croatia",
+      "hs": 0,
+      "as": 0,
+      "s": "upcoming",
+      "g": "Round of 32",
+      "round": "Round of 32",
+      "ground": "Toronto",
+      "goals": []
+    },
+    {
+      "id": 83,
+      "d": "2026-07-02",
+      "t": "12:00",
+      "h": "ESP",
+      "hName": "Spain",
+      "a": "AUT",
+      "aName": "Austria",
+      "hs": 0,
+      "as": 0,
+      "s": "upcoming",
+      "g": "Round of 32",
+      "round": "Round of 32",
+      "ground": "Los Angeles (Inglewood)",
+      "goals": []
+    },
+    {
+      "id": 84,
+      "d": "2026-07-02",
+      "t": "20:00",
+      "h": "SUI",
+      "hName": "Switzerland",
+      "a": "DZA",
+      "aName": "Algeria",
+      "hs": 0,
+      "as": 0,
+      "s": "upcoming",
+      "g": "Round of 32",
+      "round": "Round of 32",
+      "ground": "Vancouver",
+      "goals": []
+    },
+    {
+      "id": 85,
+      "d": "2026-07-03",
+      "t": "18:00",
+      "h": "ARG",
+      "hName": "Argentina",
+      "a": "CPV",
+      "aName": "Cape Verde",
+      "hs": 0,
+      "as": 0,
+      "s": "upcoming",
+      "g": "Round of 32",
+      "round": "Round of 32",
+      "ground": "Miami (Miami Gardens)",
+      "goals": []
+    },
+    {
+      "id": 86,
+      "d": "2026-07-03",
+      "t": "20:30",
+      "h": "COL",
+      "hName": "Colombia",
+      "a": "GHA",
+      "aName": "Ghana",
+      "hs": 0,
+      "as": 0,
+      "s": "upcoming",
+      "g": "Round of 32",
+      "round": "Round of 32",
+      "ground": "Kansas City",
+      "goals": []
+    },
+    {
+      "id": 87,
+      "d": "2026-07-03",
+      "t": "13:00",
+      "h": "AUS",
+      "hName": "Australia",
+      "a": "EGY",
+      "aName": "Egypt",
+      "hs": 0,
+      "as": 0,
+      "s": "upcoming",
+      "g": "Round of 32",
+      "round": "Round of 32",
+      "ground": "Dallas (Arlington)",
+      "goals": []
+    },
+    {
+      "id": 88,
+      "d": "2026-07-18",
+      "t": "17:00",
+      "h": "L10",
+      "hName": "L101",
+      "a": "L10",
+      "aName": "L102",
+      "hs": 0,
+      "as": 0,
+      "s": "upcoming",
+      "g": "Match for third place",
+      "round": "Match for third place",
+      "ground": "Miami (Miami Gardens)",
+      "goals": []
+    }
+  ]
 }
