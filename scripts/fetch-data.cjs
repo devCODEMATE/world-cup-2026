@@ -1,6 +1,6 @@
 'use strict';
 // ══════════════════════════════════════════════
-//  fetch-data.cjs
+//  fetch-data.js
 //  Runs via GitHub Actions every hour.
 //  Pulls real World Cup 2026 data from openfootball
 //  (public domain, no API key required):
@@ -37,12 +37,12 @@ function teamCode(name) {
     'Austria':'AUT','Japan':'JPN','Senegal':'SEN','Ivory Coast':'CIV',
     'Uruguay':'URU','Ghana':'GHA','Australia':'AUS','South Korea':'KOR',
     'Egypt':'EGY','IR Iran':'IRN','Iran':'IRN','Bosnia & Herz.':'BIH',
-    'Bosnia and Herzegovina':'BIH','Sweden':'SWE','Ecuador':'ECU',
+    'Bosnia & Herzegovina':'BIH','Bosnia and Herzegovina':'BIH','Sweden':'SWE','Ecuador':'ECU',
     'Paraguay':'PAR','Congo DR':'COD','DR Congo':'COD','Cape Verde':'CPV',
     'Saudi Arabia':'KSA','New Zealand':'NZL','Panama':'PAN','Jordan':'JOR',
     'Algeria':'DZA','South Africa':'RSA','Canada':'CAN','Qatar':'QAT',
     'Scotland':'SCO','Haiti':'HTI','Turkiye':'TUR','Turkey':'TUR',
-    'Curacao':'CUW','Tunisia':'TUN','Uzbekistan':'UZB','Czech Republic':'CZE',
+    'Curacao':'CUW','Curaçao':'CUW','Tunisia':'TUN','Uzbekistan':'UZB','Czech Republic':'CZE',
     'Czechia':'CZE','Iraq':'IRQ',
   };
   if (KNOWN[name]) return KNOWN[name];
@@ -59,10 +59,13 @@ async function main() {
 
     console.log(`Source returned ${rawMatches.length} matches`);
 
+    const isPlaceholder = name => /^[WL]\d+$/.test(name) || /^[123][A-L](\/[A-L])*$/.test(name);
+
     // Map to our app format
     const matches = rawMatches
-      // Skip placeholder knockout matches like "W101" vs "W102" (winner TBD)
-      .filter(m => !/^W\d+$/.test(m.team1) && !/^W\d+$/.test(m.team2))
+      // Skip placeholder knockout matches whose teams aren't decided yet
+      // e.g. "W101" (winner of match 101), "2A" (runner-up Group A), "3A/B/C/D/F" (best 3rd place)
+      .filter(m => !isPlaceholder(m.team1) && !isPlaceholder(m.team2))
       .map((m, i) => {
         const isDone = !!(m.score && m.score.ft);
         const hs = isDone ? m.score.ft[0] : 0;

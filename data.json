@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T14:46:26.786Z",
+  "updatedAt": "2026-06-30T15:44:52.790Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -182,7 +182,7 @@
       "t": "15:00",
       "h": "CAN",
       "hName": "Canada",
-      "a": "BOS",
+      "a": "BIH",
       "aName": "Bosnia & Herzegovina",
       "hs": 1,
       "as": 1,
@@ -200,7 +200,7 @@
         {
           "min": "21",
           "scorer": "Jovo Lukić",
-          "team": "BOS",
+          "team": "BIH",
           "penalty": false
         }
       ]
@@ -240,7 +240,7 @@
       "t": "12:00",
       "h": "SUI",
       "hName": "Switzerland",
-      "a": "BOS",
+      "a": "BIH",
       "aName": "Bosnia & Herzegovina",
       "hs": 4,
       "as": 1,
@@ -276,7 +276,7 @@
         {
           "min": "90+3",
           "scorer": "Ermin Mahmic",
-          "team": "BOS",
+          "team": "BIH",
           "penalty": false
         }
       ]
@@ -373,7 +373,7 @@
       "id": 11,
       "d": "2026-06-24",
       "t": "12:00",
-      "h": "BOS",
+      "h": "BIH",
       "hName": "Bosnia & Herzegovina",
       "a": "QAT",
       "aName": "Qatar",
@@ -387,19 +387,19 @@
         {
           "min": "29",
           "scorer": "Kerim Alajbegovic",
-          "team": "BOS",
+          "team": "BIH",
           "penalty": false
         },
         {
           "min": "34",
           "scorer": "Mahmoud Abunada",
-          "team": "BOS",
+          "team": "BIH",
           "penalty": false
         },
         {
           "min": "80",
           "scorer": "Ermin Mahmic",
-          "team": "BOS",
+          "team": "BIH",
           "penalty": false
         },
         {
@@ -805,7 +805,7 @@
       "t": "12:00",
       "h": "GER",
       "hName": "Germany",
-      "a": "CUR",
+      "a": "CUW",
       "aName": "Curaçao",
       "hs": 7,
       "as": 1,
@@ -859,7 +859,7 @@
         {
           "min": "21",
           "scorer": "Livano Comenencia",
-          "team": "CUR",
+          "team": "CUW",
           "penalty": false
         }
       ]
@@ -928,7 +928,7 @@
       "t": "19:00",
       "h": "ECU",
       "hName": "Ecuador",
-      "a": "CUR",
+      "a": "CUW",
       "aName": "Curaçao",
       "hs": 0,
       "as": 0,
@@ -942,7 +942,7 @@
       "id": 28,
       "d": "2026-06-25",
       "t": "16:00",
-      "h": "CUR",
+      "h": "CUW",
       "hName": "Curaçao",
       "a": "CIV",
       "aName": "Ivory Coast",
@@ -2695,7 +2695,7 @@
       "t": "17:00",
       "h": "USA",
       "hName": "USA",
-      "a": "BOS",
+      "a": "BIH",
       "aName": "Bosnia & Herzegovina",
       "hs": 0,
       "as": 0,
@@ -2815,22 +2815,6 @@
       "g": "Round of 32",
       "round": "Round of 32",
       "ground": "Dallas (Arlington)",
-      "goals": []
-    },
-    {
-      "id": 88,
-      "d": "2026-07-18",
-      "t": "17:00",
-      "h": "L10",
-      "hName": "L101",
-      "a": "L10",
-      "aName": "L102",
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
-      "g": "Match for third place",
-      "round": "Match for third place",
-      "ground": "Miami (Miami Gardens)",
       "goals": []
     }
   ]
