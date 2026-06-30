@@ -106,10 +106,13 @@ let STANDINGS = {};
 // ── helper: convert data.json match → app match format ──
 function normalizeMatch(m, idx) {
   return {
+    num: m.num ?? null,
     d:  m.d,
     t:  m.t,
     h:  m.h,
     a:  m.a,
+    hRef: m.hRef ?? null,
+    aRef: m.aRef ?? null,
     hs: m.hs,
     as: m.as,
     s:  m.s,
@@ -225,20 +228,27 @@ function openMatchModal(m) {
        <span class="sep"> — </span>
        <span class="${awayWon?'w':'l'}">${m.as}</span>`;
 
-  // Goals — straight from data.json, sorted by minute
+  // Goals — grouped by team, each in its own column under its flag
   let goalsHTML = '';
   if (m.goals?.length) {
-    const sorted = [...m.goals].sort((a, b) => parseInt(a.min) - parseInt(b.min));
-    goalsHTML = `<div class="modal-section">⚽ Goals</div>`;
-    sorted.forEach(g => {
-      const penaltyTag = g.penalty ? ' <span style="color:#444">(P)</span>' : '';
-      goalsHTML += `
-        <div class="goal-event">
-          <span class="minute">${g.min}'</span>
-          <span class="scorer">${g.scorer}${penaltyTag}</span>
-          <span class="team-tag">${g.team}</span>
-        </div>`;
-    });
+    const homeGoals = m.goals.filter(g => g.team === m.h).sort((a,b) => parseInt(a.min) - parseInt(b.min));
+    const awayGoals = m.goals.filter(g => g.team === m.a).sort((a,b) => parseInt(a.min) - parseInt(b.min));
+
+    const goalLine = g => {
+      const penaltyTag = g.penalty ? ` <span style="color:#444">(P)</span>` : '';
+      return `<div class="goal-line"><span class="minute">${g.min}'</span><span class="scorer">${g.scorer}${penaltyTag}</span></div>`;
+    };
+
+    goalsHTML = `
+      <div class="modal-section">⚽ Goals</div>
+      <div class="goals-cols">
+        <div class="goals-col">
+          ${homeGoals.length ? homeGoals.map(goalLine).join('') : `<p class="goals-empty">No goals</p>`}
+        </div>
+        <div class="goals-col goals-col-away">
+          ${awayGoals.length ? awayGoals.map(goalLine).join('') : `<p class="goals-empty">No goals</p>`}
+        </div>
+      </div>`;
   } else if (!upcoming) {
     goalsHTML = `<div class="modal-section">⚽ Goals</div>
       <p style="font-size:12px;color:#444;padding:8px 0">
@@ -312,6 +322,64 @@ function buildMatches() {
   document.getElementById('matches-list').innerHTML = html;
 }
 
+// ── Win probability — calculated from each team's group stage
+// performance (points + goal difference), not from an external API.
+// This is an estimate for entertainment purposes, not a real prediction.
+function teamStrength(code) {
+  // Find this team's row in whichever group they finished in
+  for (const teams of Object.values(STANDINGS)) {
+    const row = teams.find(t => t.c === code);
+    if (row) {
+      // Points matter most; goal difference breaks ties between
+      // similarly-ranked teams. +1 baseline avoids zero/negative scores.
+      return Math.max(row.pts * 3 + row.gd, 1);
+    }
+  }
+  return 5; // unknown team (e.g. hasn't played group stage in our data) — neutral baseline
+}
+
+function winProbability(hCode, aCode) {
+  const hStr = teamStrength(hCode);
+  const aStr = teamStrength(aCode);
+  const total = hStr + aStr;
+
+  // Raw split between the two teams
+  let ph = (hStr / total) * 100;
+  let pa = (aStr / total) * 100;
+
+  // Carve out a draw probability: bigger when the teams are close in
+  // strength, smaller when one team clearly dominates
+  const gap = Math.abs(ph - pa);
+  const draw = Math.max(10, 26 - gap * 0.3);
+
+  ph = ph * (1 - draw / 100);
+  pa = pa * (1 - draw / 100);
+
+  // Keep results within a believable range — football always has upsets
+  ph = Math.min(Math.max(ph, 8), 85);
+  pa = Math.min(Math.max(pa, 8), 85);
+  const pd = 100 - ph - pa;
+
+  return { ph, pd: Math.max(pd, 6), pa };
+}
+
+function probabilityBarHTML(m) {
+  const { ph, pd, pa } = winProbability(m.h, m.a);
+  return `
+    <div class="prob-wrap">
+      <div class="prob-labels">
+        <span class="pl-home">${m.h} ${ph.toFixed(0)}%</span>
+        <span class="pl-draw">Draw ${pd.toFixed(0)}%</span>
+        <span class="pl-away">${m.a} ${pa.toFixed(0)}%</span>
+      </div>
+      <div class="prob-track">
+        <div class="pb-home" style="width:${ph}%"></div>
+        <div class="pb-draw" style="width:${pd}%"></div>
+        <div class="pb-away"></div>
+      </div>
+    </div>`;
+}
+
 function matchCard(m) {
   const upcoming = m.s === 'upcoming';
   const homeWon  = !upcoming && m.hs > m.as;
@@ -328,6 +396,8 @@ function matchCard(m) {
   const winnerTag = (!upcoming && m.hs !== m.as)
     ? `<div class="winner-tag">✓ ${homeWon ? (TEAMS[m.h]?.n || m.h) : (TEAMS[m.a]?.n || m.a)} won</div>`
     : '';
+
+  const probHTML = upcoming ? probabilityBarHTML(m) : '';
 
   const label = m.g === 'R32' ? 'Round of 32' : `Group ${m.g}`;
 
@@ -348,6 +418,7 @@ function matchCard(m) {
           </div>
         </div>
         ${winnerTag}
+        ${probHTML}
       </div>
     </div>`;
 }
@@ -446,10 +517,15 @@ function renderSearch(q) {
     const ms=ih?m.hs:m.as, os=ih?m.as:m.hs;
     const r=ms>os?'W':ms<os?'L':'D';
     const bg=r==='W'?'var(--orange)':r==='D'?'#444':'#8b2222';
+    const icon = r==='W'
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L19 7"/></svg>'
+      : r==='L'
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 9h14M5 15h14"/></svg>';
     return `<div class="recent-row">
-      <div class="res-badge" style="background:${bg}">${r}</div>
+      <div class="res-badge" style="background:${bg}" title="${r==='W'?'Win':r==='L'?'Loss':'Draw'}">${icon}</div>
       ${flagImg(opp,true)}
-      <span class="res-opp">${opp}</span>
+      <span class="res-opp">${TEAMS[opp]?.n || opp}</span>
       <span class="res-score">${ms}–${os}</span>
     </div>`;
   }).join('');
@@ -478,31 +554,98 @@ function renderSearch(q) {
 //  RENDER — KNOCKOUT (Round of 32)
 // ══════════════════════════════════════════════
 
+// ── result card: shows who advanced vs who's out ──
+function knockoutResultCard(m) {
+  const homeWon = m.hs > m.as;
+  const awayWon = m.as > m.hs;
+
+  const side = (code, won) => `
+    <div class="ko-side ${won ? 'ko-side-win' : 'ko-side-out'}">
+      ${flagImg(code)}
+      <span class="ko-side-code">${code}</span>
+      <svg class="ko-side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+        ${won ? '<path d="M5 12l5 5L19 7"/>' : '<path d="M6 6l12 12M18 6L6 18"/>'}
+      </svg>
+    </div>`;
+
+  return `
+    <div class="match-card" onclick='openMatchModal(MATCHES.find(x=>x.h==="${m.h}"&&x.a==="${m.a}"&&x.d==="${m.d}"))' style="cursor:pointer">
+      <div class="card-stripe stripe-done"></div>
+      <div class="card-body">
+        <div class="card-meta">${fmtDate(m.d)} · ${m.g === 'R32' ? 'Round of 32' : m.g}</div>
+        <div class="ko-result-row">
+          ${side(m.h, homeWon)}
+          <span class="ko-result-score">${m.hs}–${m.as}</span>
+          ${side(m.a, awayWon)}
+        </div>
+      </div>
+    </div>`;
+}
+
+// ── Knockout result card: clear winner (✓) / eliminated (✗) ──
+function knockoutResultCard(m) {
+  const isDraw  = m.hs === m.as;
+  const homeWon = !isDraw && m.hs > m.as;
+  const awayWon = !isDraw && m.as > m.hs;
+
+  const sideClass = won => isDraw ? '' : (won ? 'ko-side-won' : 'ko-side-out');
+
+  const resultRow = isDraw
+    ? `<div class="ko-result-row ko-result-pens"><span class="ko-tag ko-tag-pens">Decided on penalties — result pending</span></div>`
+    : `<div class="ko-result-row">
+        <span class="ko-tag ${homeWon?'ko-tag-win':'ko-tag-out'}">${homeWon?'✓ advances':'✗ eliminated'}</span>
+        <span class="ko-tag ${awayWon?'ko-tag-win':'ko-tag-out'}">${awayWon?'✓ advances':'✗ eliminated'}</span>
+      </div>`;
+
+  return `
+    <div class="match-card" onclick='openMatchModal(MATCHES.find(x=>x.h==="${m.h}"&&x.a==="${m.a}"&&x.d==="${m.d}"))' style="cursor:pointer">
+      <div class="card-stripe stripe-done"></div>
+      <div class="card-body">
+        <div class="card-meta">${fmtDate(m.d)} · ${m.t}hs</div>
+        <div class="match-row">
+          <div class="team-side ${sideClass(homeWon)}">
+            ${flagImg(m.h)}
+            <span class="team-abbr">${m.h}</span>
+          </div>
+          <div class="score-center">
+            <span class="score-num ${isDraw?'':homeWon?'score-win':'score-lose'}">${m.hs}</span>
+            <span class="score-sep">—</span>
+            <span class="score-num ${isDraw?'':awayWon?'score-win':'score-lose'}">${m.as}</span>
+          </div>
+          <div class="team-side right ${sideClass(awayWon)}">
+            <span class="team-abbr">${m.a}</span>
+            ${flagImg(m.a)}
+          </div>
+        </div>
+        ${resultRow}
+      </div>
+    </div>`;
+}
+
 function buildKnockout() {
   const el = document.getElementById('panel-knockout');
   if (!el) return;
 
   const r32 = MATCHES.filter(m => m.g === 'R32');
   const done = r32.filter(m => m.s === 'done');
-  const upcoming = r32.filter(m => m.s === 'upcoming');
+  const upcoming = r32.filter(m => m.s === 'upcoming').sort((a, b) => (a.d + a.t).localeCompare(b.d + b.t));
+
+  const decided = done.filter(m => m.hs !== m.as);
 
   let html = `
     <div style="background:#1c1200;border-radius:12px;padding:12px 16px;margin-bottom:14px;border-left:4px solid var(--orange)">
       <p style="font-size:10px;font-weight:700;color:var(--orange);letter-spacing:2px;margin-bottom:4px">KNOCKOUT STAGE</p>
-      <p style="font-size:13px;color:#888">Round of 32 · ${r32.length} matches</p>
+      <p style="font-size:13px;color:#888">${done.length} of ${r32.length} played · ${decided.length} teams through to Round of 16</p>
     </div>`;
 
   if (done.length) {
     html += `<div class="section-label">Results</div>`;
-    done.forEach(m => html += matchCard(m));
+    [...done].sort((a, b) => (b.d + b.t).localeCompare(a.d + a.t)).forEach(m => html += knockoutResultCard(m));
   }
 
   if (upcoming.length) {
-    const upDates = [...new Set(upcoming.map(m => m.d))].sort();
-    upDates.forEach(date => {
-      html += `<div class="section-label">Upcoming · ${fmtDate(date)}</div>`;
-      upcoming.filter(m => m.d === date).forEach(m => html += matchCard(m));
-    });
+    html += `<div class="section-label">Upcoming</div>`;
+    upcoming.forEach(m => html += matchCard(m));
   }
 
   if (!done.length && !upcoming.length) {
@@ -524,6 +667,7 @@ function buildKnockout() {
 
   el.innerHTML = html;
 }
+
 
 // ══════════════════════════════════════════════
 //  RENDER — CHAMPION
@@ -560,7 +704,12 @@ function buildChamp() {
           </div>
           <span class="cd-trophy">🏆</span>
         </div>
-        <div style="margin-top:24px;font-size:22px;letter-spacing:6px">🏆 ⚽ 🌍</div>
+        <div class="host-flags">
+          <img src="https://flagcdn.com/w80/us.png" alt="USA" class="host-flag">
+          <img src="https://flagcdn.com/w80/mx.png" alt="Mexico" class="host-flag">
+          <img src="https://flagcdn.com/w80/ca.png" alt="Canada" class="host-flag">
+        </div>
+        <p class="host-caption">Hosted by USA · Mexico · Canada</p>
       </div>`;
 
     function syncChamp() {
@@ -678,6 +827,33 @@ const extraCSS = `
   .goal-event .minute{color:var(--orange);font-weight:800;font-size:11px;width:36px;flex-shrink:0}
   .goal-event .scorer{font-weight:700}
   .goal-event .team-tag{margin-left:auto;font-size:10px;color:#555;font-weight:700}
+  .ko-round{background:var(--card);border-radius:var(--radius);margin-bottom:9px;overflow:hidden}
+  .ko-round-header{width:100%;display:flex;align-items:center;justify-content:space-between;padding:13px 15px;background:none;border:none;cursor:pointer;text-align:left}
+  .ko-round-title{font-size:13px;font-weight:800;color:#ccc}
+  .ko-round-meta{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;color:var(--muted)}
+  .ko-chevron{width:16px;height:16px;stroke:var(--muted);transition:transform .2s}
+  .ko-chevron.open{transform:rotate(180deg)}
+  .ko-round-body{padding:0 9px 9px}
+  .goals-cols{display:flex;gap:10px}
+  .goals-col{flex:1;display:flex;flex-direction:column;gap:6px}
+  .goals-col-away{align-items:flex-end;text-align:right}
+  .goal-line{display:flex;align-items:baseline;gap:6px;font-size:12px;color:#ccc}
+  .goals-col-away .goal-line{flex-direction:row-reverse}
+  .goal-line .minute{color:var(--orange);font-weight:800;font-size:11px;flex-shrink:0}
+  .goal-line .scorer{font-weight:700}
+  .goals-empty{font-size:11px;color:#444}
+  .res-badge svg{width:11px;height:11px;stroke:#fff}
+  .host-flags{display:flex;justify-content:center;gap:8px;margin-top:24px}
+  .host-flag{width:38px;height:26px;border-radius:5px;object-fit:cover;border:1px solid #2a2a2e}
+  .host-caption{font-size:10px;color:var(--muted);margin-top:8px;letter-spacing:.5px}
+  .bracket-hint{font-size:10px;color:var(--muted);text-align:center;margin-top:4px}
+  .ko-side-out{opacity:.45}
+  .ko-result-row{display:flex;justify-content:space-between;margin-top:8px}
+  .ko-tag{font-size:9px;font-weight:800;letter-spacing:.5px;padding:2px 7px;border-radius:5px}
+  .ko-tag-win{color:#1d9e75;background:rgba(29,158,117,.12)}
+  .ko-tag-out{color:#a32d2d;background:rgba(163,45,45,.12)}
+  .ko-result-pens{justify-content:center}
+  .ko-tag-pens{color:var(--orange);background:rgba(255,107,26,.1)}
 `;
 const style = document.createElement('style');
 style.textContent = extraCSS;
