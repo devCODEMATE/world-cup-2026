@@ -95,143 +95,35 @@ const TEAMS = {
 };
 
 // ══════════════════════════════════════════════
-//  MATCHES — verified real results
-//  Sources: FIFA official, ESPN, Guardian
-//  s: 'done' | 'upcoming'
-//  g: group letter | 'R32' (Round of 32)
-//  ph/pd/pa: win probabilities (upcoming only)
+//  DATA LOADING — fetch real data from data.json
+//  Generated automatically every hour by GitHub
+//  Actions from openfootball/worldcup.json
 // ══════════════════════════════════════════════
 
-const MATCHES = [
-  // ── GROUP A ──
-  { d:'2026-06-11', t:'19:00', h:'MEX', a:'RSA', hs:2, as:0, s:'done', g:'A' },
-  { d:'2026-06-11', t:'22:00', h:'KOR', a:'CZE', hs:2, as:1, s:'done', g:'A' },
-  { d:'2026-06-18', t:'16:00', h:'RSA', a:'CZE', hs:1, as:1, s:'done', g:'A' },
-  { d:'2026-06-18', t:'19:00', h:'KOR', a:'MEX', hs:0, as:1, s:'done', g:'A' },
-  { d:'2026-06-24', t:'18:00', h:'MEX', a:'CZE', hs:3, as:0, s:'done', g:'A' },
-  { d:'2026-06-24', t:'18:00', h:'KOR', a:'RSA', hs:0, as:1, s:'done', g:'A' },
+let MATCHES = [];
+let STANDINGS = {};
 
-  // ── GROUP B ──
-  { d:'2026-06-12', t:'16:00', h:'CAN', a:'BIH', hs:0, as:0, s:'done', g:'B' },
-  { d:'2026-06-13', t:'19:00', h:'QAT', a:'SUI', hs:1, as:3, s:'done', g:'B' },
-  { d:'2026-06-19', t:'16:00', h:'BIH', a:'SUI', hs:1, as:4, s:'done', g:'B' },
-  { d:'2026-06-19', t:'19:00', h:'QAT', a:'CAN', hs:0, as:6, s:'done', g:'B' },
-  { d:'2026-06-25', t:'18:00', h:'QAT', a:'BIH', hs:1, as:3, s:'done', g:'B' },
-  { d:'2026-06-25', t:'18:00', h:'CAN', a:'SUI', hs:1, as:2, s:'done', g:'B' },
-
-  // ── GROUP C ──
-  { d:'2026-06-13', t:'16:00', h:'HTI', a:'SCO', hs:2, as:4, s:'done', g:'C' },
-  { d:'2026-06-13', t:'22:00', h:'BRA', a:'MAR', hs:3, as:0, s:'done', g:'C' },
-  { d:'2026-06-19', t:'16:00', h:'MAR', a:'SCO', hs:1, as:0, s:'done', g:'C' },
-  { d:'2026-06-19', t:'19:00', h:'HTI', a:'BRA', hs:0, as:3, s:'done', g:'C' },
-  { d:'2026-06-25', t:'18:00', h:'HTI', a:'MAR', hs:2, as:4, s:'done', g:'C' },
-  { d:'2026-06-25', t:'18:00', h:'BRA', a:'SCO', hs:3, as:0, s:'done', g:'C' },
-
-  // ── GROUP D ──
-  { d:'2026-06-12', t:'19:00', h:'USA', a:'PAR', hs:0, as:0, s:'done', g:'D' },
-  { d:'2026-06-13', t:'22:00', h:'AUS', a:'TUR', hs:0, as:0, s:'done', g:'D' },
-  { d:'2026-06-19', t:'22:00', h:'AUS', a:'USA', hs:0, as:2, s:'done', g:'D' },
-  { d:'2026-06-19', t:'16:00', h:'PAR', a:'TUR', hs:1, as:0, s:'done', g:'D' },
-  { d:'2026-06-25', t:'18:00', h:'AUS', a:'PAR', hs:0, as:0, s:'done', g:'D' },
-  { d:'2026-06-25', t:'18:00', h:'USA', a:'TUR', hs:2, as:3, s:'done', g:'D' },
-
-  // ── GROUP E ──
-  { d:'2026-06-14', t:'16:00', h:'CIV', a:'ECU', hs:0, as:0, s:'done', g:'E' },
-  { d:'2026-06-14', t:'19:00', h:'GER', a:'CUW', hs:0, as:0, s:'done', g:'E' },
-  { d:'2026-06-20', t:'16:00', h:'CIV', a:'GER', hs:1, as:2, s:'done', g:'E' },
-  { d:'2026-06-20', t:'19:00', h:'CUW', a:'ECU', hs:0, as:0, s:'done', g:'E' },
-  { d:'2026-06-26', t:'18:00', h:'CIV', a:'CUW', hs:2, as:0, s:'done', g:'E' },
-  { d:'2026-06-26', t:'18:00', h:'GER', a:'ECU', hs:1, as:2, s:'done', g:'E' },
-
-  // ── GROUP F ──
-  { d:'2026-06-14', t:'22:00', h:'NED', a:'JPN', hs:0, as:0, s:'done', g:'F' },
-  { d:'2026-06-14', t:'16:00', h:'SWE', a:'TUN', hs:0, as:0, s:'done', g:'F' },
-  { d:'2026-06-20', t:'22:00', h:'SWE', a:'NED', hs:1, as:5, s:'done', g:'F' },
-  { d:'2026-06-20', t:'19:00', h:'JPN', a:'TUN', hs:4, as:0, s:'done', g:'F' },
-  { d:'2026-06-26', t:'18:00', h:'SWE', a:'JPN', hs:1, as:1, s:'done', g:'F' },
-  { d:'2026-06-26', t:'18:00', h:'NED', a:'TUN', hs:3, as:1, s:'done', g:'F' },
-
-  // ── GROUP G ──
-  { d:'2026-06-15', t:'16:00', h:'IRN', a:'NZL', hs:0, as:0, s:'done', g:'G' },
-  { d:'2026-06-15', t:'19:00', h:'BEL', a:'EGY', hs:0, as:0, s:'done', g:'G' },
-  { d:'2026-06-21', t:'16:00', h:'EGY', a:'BEL', hs:1, as:1, s:'done', g:'G' },
-  { d:'2026-06-21', t:'19:00', h:'NZL', a:'IRN', hs:2, as:2, s:'done', g:'G' },
-  { d:'2026-06-26', t:'18:00', h:'IRN', a:'EGY', hs:1, as:1, s:'done', g:'G' },
-  { d:'2026-06-26', t:'18:00', h:'BEL', a:'NZL', hs:5, as:1, s:'done', g:'G' },
-
-  // ── GROUP H ──
-  { d:'2026-06-15', t:'22:00', h:'KSA', a:'URU', hs:1, as:1, s:'done', g:'H' },
-  { d:'2026-06-15', t:'16:00', h:'ESP', a:'CPV', hs:0, as:0, s:'done', g:'H' },
-  { d:'2026-06-21', t:'22:00', h:'CPV', a:'ESP', hs:0, as:0, s:'done', g:'H' },
-  { d:'2026-06-21', t:'16:00', h:'URU', a:'KSA', hs:1, as:1, s:'done', g:'H' },
-  { d:'2026-06-26', t:'18:00', h:'KSA', a:'CPV', hs:0, as:0, s:'done', g:'H' },
-  { d:'2026-06-26', t:'18:00', h:'ESP', a:'URU', hs:1, as:0, s:'done', g:'H' },
-
-  // ── GROUP I ──
-  { d:'2026-06-16', t:'16:00', h:'FRA', a:'SEN', hs:1, as:3, s:'done', g:'I' },
-  { d:'2026-06-16', t:'19:00', h:'IRQ', a:'NOR', hs:4, as:1, s:'done', g:'I' },
-  { d:'2026-06-22', t:'16:00', h:'SEN', a:'FRA', hs:1, as:3, s:'done', g:'I' },
-  { d:'2026-06-22', t:'19:00', h:'NOR', a:'IRQ', hs:4, as:1, s:'done', g:'I' },
-  { d:'2026-06-26', t:'18:00', h:'FRA', a:'NOR', hs:4, as:1, s:'done', g:'I' },
-  { d:'2026-06-26', t:'18:00', h:'IRQ', a:'SEN', hs:0, as:5, s:'done', g:'I' },
-
-  // ── GROUP J ──
-  { d:'2026-06-16', t:'22:00', h:'ARG', a:'DZA', hs:3, as:0, s:'done', g:'J' },
-  { d:'2026-06-16', t:'16:00', h:'AUT', a:'JOR', hs:1, as:3, s:'done', g:'J' },
-  { d:'2026-06-22', t:'16:00', h:'DZA', a:'JOR', hs:2, as:1, s:'done', g:'J' },
-  { d:'2026-06-22', t:'22:00', h:'AUT', a:'ARG', hs:0, as:2, s:'done', g:'J' },
-  { d:'2026-06-27', t:'18:00', h:'AUT', a:'DZA', hs:3, as:3, s:'done', g:'J' },
-  { d:'2026-06-27', t:'18:00', h:'ARG', a:'JOR', hs:3, as:1, s:'done', g:'J' },
-
-  // ── GROUP K ──
-  { d:'2026-06-17', t:'16:00', h:'POR', a:'COD', hs:1, as:1, s:'done', g:'K' },
-  { d:'2026-06-17', t:'19:00', h:'UZB', a:'COL', hs:3, as:1, s:'done', g:'K' },
-  { d:'2026-06-23', t:'16:00', h:'COD', a:'COL', hs:0, as:1, s:'done', g:'K' },
-  { d:'2026-06-23', t:'19:00', h:'UZB', a:'POR', hs:0, as:5, s:'done', g:'K' },
-  { d:'2026-06-27', t:'18:00', h:'POR', a:'COL', hs:0, as:0, s:'done', g:'K' },
-  { d:'2026-06-27', t:'18:00', h:'UZB', a:'COD', hs:1, as:3, s:'done', g:'K' },
-
-  // ── GROUP L ──
-  { d:'2026-06-17', t:'22:00', h:'GHA', a:'PAN', hs:0, as:1, s:'done', g:'L' },
-  { d:'2026-06-17', t:'16:00', h:'ENG', a:'CRO', hs:2, as:4, s:'done', g:'L' },
-  { d:'2026-06-23', t:'16:00', h:'CRO', a:'PAN', hs:1, as:0, s:'done', g:'L' },
-  { d:'2026-06-23', t:'22:00', h:'GHA', a:'ENG', hs:0, as:0, s:'done', g:'L' },
-  { d:'2026-06-27', t:'18:00', h:'GHA', a:'CRO', hs:1, as:2, s:'done', g:'L' },
-  { d:'2026-06-27', t:'18:00', h:'ENG', a:'PAN', hs:2, as:0, s:'done', g:'L' },
-
-  // ── ROUND OF 32 ──
-  // Source: ESPN, Guardian — verified
-  { d:'2026-06-28', t:'15:00', h:'RSA', a:'CAN', hs:0, as:1, s:'done', g:'R32' },
-
-  // Upcoming R32 — probabilities from API
-  { d:'2026-06-29', t:'11:00', h:'BRA', a:'JPN', hs:0, as:0, s:'upcoming', g:'R32', ph:56.4, pd:25.3, pa:18.3 },
-  { d:'2026-06-29', t:'14:30', h:'GER', a:'PAR', hs:0, as:0, s:'upcoming', g:'R32', ph:71.2, pd:18.1, pa:10.7 },
-  { d:'2026-06-29', t:'19:00', h:'NED', a:'MAR', hs:0, as:0, s:'upcoming', g:'R32', ph:41.7, pd:30.5, pa:27.8 },
-  { d:'2026-06-30', t:'11:00', h:'CIV', a:'NOR', hs:0, as:0, s:'upcoming', g:'R32', ph:26.0, pd:27.1, pa:46.9 },
-  { d:'2026-06-30', t:'15:00', h:'FRA', a:'SWE', hs:0, as:0, s:'upcoming', g:'R32', ph:77.0, pd:14.4, pa:8.6  },
-  { d:'2026-06-30', t:'19:00', h:'MEX', a:'ECU', hs:0, as:0, s:'upcoming', g:'R32', ph:43.0, pd:32.3, pa:24.7 },
-  { d:'2026-07-01', t:'10:00', h:'ENG', a:'COD', hs:0, as:0, s:'upcoming', g:'R32', ph:76.2, pd:16.2, pa:7.6  },
-  { d:'2026-07-01', t:'14:00', h:'BEL', a:'SEN', hs:0, as:0, s:'upcoming', g:'R32', ph:43.6, pd:29.1, pa:27.3 },
-  { d:'2026-07-01', t:'18:00', h:'USA', a:'BIH', hs:0, as:0, s:'upcoming', g:'R32', ph:71.5, pd:18.3, pa:10.2 },
-  { d:'2026-07-02', t:'13:00', h:'ESP', a:'AUT', hs:0, as:0, s:'upcoming', g:'R32', ph:73.9, pd:17.3, pa:8.8  },
-  { d:'2026-07-02', t:'17:00', h:'ARG', a:'KOR', hs:0, as:0, s:'upcoming', g:'R32', ph:82.1, pd:11.2, pa:6.7  },
-  { d:'2026-07-02', t:'21:00', h:'POR', a:'PAR', hs:0, as:0, s:'upcoming', g:'R32', ph:68.4, pd:19.3, pa:12.3 },
-  { d:'2026-07-03', t:'13:00', h:'COL', a:'CRO', hs:0, as:0, s:'upcoming', g:'R32', ph:52.1, pd:26.4, pa:21.5 },
-  { d:'2026-07-03', t:'17:00', h:'URU', a:'TUR', hs:0, as:0, s:'upcoming', g:'R32', ph:48.3, pd:27.1, pa:24.6 },
-  { d:'2026-07-03', t:'21:00', h:'USA', a:'SUI', hs:0, as:0, s:'upcoming', g:'R32', ph:55.2, pd:24.8, pa:20.0 },
-  { d:'2026-07-04', t:'18:00', h:'JOR', a:'ESP', hs:0, as:0, s:'upcoming', g:'R32', ph:12.3, pd:18.4, pa:69.3 },
-];
-
-// ══════════════════════════════════════════════
-//  STANDINGS — auto-calculated from MATCHES
-//  No hardcoding — updates automatically when
-//  you change a match result above
-// ══════════════════════════════════════════════
+// ── helper: convert data.json match → app match format ──
+function normalizeMatch(m, idx) {
+  return {
+    d:  m.d,
+    t:  m.t,
+    h:  m.h,
+    a:  m.a,
+    hs: m.hs,
+    as: m.as,
+    s:  m.s,
+    g:  m.g,
+    // upcoming win-probability bars aren't in data.json yet —
+    // omitted until a future data source provides them
+    goals: m.goals || [],
+  };
+}
 
 function buildStandingsFromMatches(matches) {
   const table = {};
   matches
-    .filter(m => m.s === 'done' && m.g && m.g !== 'R32')
+    .filter(m => m.s === 'done' && m.g && m.g !== 'R32' && m.g.length === 1)
     .forEach(m => {
       if (!table[m.g]) table[m.g] = {};
       [m.h, m.a].forEach(code => {
@@ -258,81 +150,46 @@ function buildStandingsFromMatches(matches) {
   return sorted;
 }
 
-const STANDINGS = buildStandingsFromMatches(MATCHES);
+// ── show a simple loading state in the matches list ──
+function showLoadingState() {
+  const el = document.getElementById('matches-list');
+  if (el) {
+    el.innerHTML = `
+      <div style="text-align:center;padding:50px 20px;color:#444">
+        <div class="floating" style="font-size:30px;margin-bottom:10px">⚽</div>
+        <p style="font-size:13px;font-weight:600;letter-spacing:1px">Loading matches...</p>
+      </div>`;
+  }
+}
 
-// ══════════════════════════════════════════════
-//  MATCH STATS — verified goals only
-//  scorer: null = not verified yet
-//  stats: null  = not available yet
-// ══════════════════════════════════════════════
+function showErrorState(message) {
+  const el = document.getElementById('matches-list');
+  if (el) {
+    el.innerHTML = `
+      <div style="text-align:center;padding:50px 20px;color:#444">
+        <p style="font-size:13px;font-weight:600">⚠️ ${message}</p>
+        <p style="font-size:11px;margin-top:6px;color:#333">Try refreshing the page.</p>
+      </div>`;
+  }
+}
 
-const MATCH_STATS = {
-  // ── GROUP J (verified) ──
-  'ARG-DZA': {
-    goals: [
-      { min:'16', scorer:'Messi',   team:'ARG' },
-      { min:'52', scorer:'Messi',   team:'ARG' },
-      { min:'78', scorer:'Messi',   team:'ARG' },
-    ],
-    stats: null,
-  },
-  'ARG-JOR': {
-    goals: [
-      { min:'12', scorer:'Messi',   team:'ARG' },
-      { min:'39', scorer:'Álvarez', team:'ARG' },
-      { min:'55', scorer:'Al-Taamari', team:'JOR' },
-      { min:'77', scorer:'Di María',team:'ARG' },
-    ],
-    stats: null,
-  },
-  'AUT-JOR': {
-    goals: [
-      { min:'38', scorer:'Sabitzer',   team:'AUT' },
-      { min:'72', scorer:'Arnautovic', team:'AUT' },
-      { min:'61', scorer:'Al-Taamari', team:'JOR' },
-      { min:'83', scorer:'Al-Taamari', team:'JOR' },
-      { min:'89', scorer:'Al-Taamari', team:'JOR' },
-    ],
-    stats: null,
-  },
-  'AUT-ARG': {
-    goals: [
-      { min:'22', scorer:'Messi',      team:'ARG' },
-      { min:'51', scorer:'Álvarez',    team:'ARG' },
-    ],
-    stats: null,
-  },
-  'DZA-JOR': {
-    goals: [
-      { min:'31', scorer:'Mahrez',  team:'DZA' },
-      { min:'74', scorer:'Belaïli', team:'DZA' },
-      { min:'45', scorer:'Al-Taamari', team:'JOR' },
-    ],
-    stats: null,
-  },
-  'AUT-DZA': {
-    goals: [
-      { min:'14', scorer:'Mahrez',     team:'DZA' },
-      { min:'29', scorer:'Belaïli',    team:'DZA' },
-      { min:'44', scorer:'Sabitzer',   team:'AUT' },
-      { min:'66', scorer:'OG',         team:'AUT' },
-      { min:'71', scorer:'Brahimi',    team:'DZA' },
-      { min:'88', scorer:'Arnautovic', team:'AUT' },
-    ],
-    stats: null,
-  },
+// ── fetch data.json and initialize the whole app ──
+async function loadData() {
+  showLoadingState();
+  try {
+    const res = await fetch('data.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
 
-  // ── ROUND OF 32 (verified) ──
-  'RSA-CAN': {
-    goals: [
-      { min:'90+2', scorer:'Stephen Eustáquio', team:'CAN' },
-    ],
-    stats: null,
-  },
+    MATCHES   = (data.matches || []).map(normalizeMatch);
+    STANDINGS = buildStandingsFromMatches(MATCHES);
 
-  // ── All other matches ──
-  // Goals not verified yet — add as confirmed
-};
+    initApp();
+  } catch (err) {
+    console.error('Failed to load data.json:', err);
+    showErrorState('Could not load match data.');
+  }
+}
 
 // ══════════════════════════════════════════════
 //  HELPERS
@@ -358,8 +215,6 @@ function fmtDate(d) {
 // ══════════════════════════════════════════════
 
 function openMatchModal(m) {
-  const key      = `${m.h}-${m.a}`;
-  const stats    = MATCH_STATS[key];
   const upcoming = m.s === 'upcoming';
   const homeWon  = !upcoming && m.hs > m.as;
   const awayWon  = !upcoming && m.as > m.hs;
@@ -370,98 +225,45 @@ function openMatchModal(m) {
        <span class="sep"> — </span>
        <span class="${awayWon?'w':'l'}">${m.as}</span>`;
 
-  // Goals — only show verified data
+  // Goals — straight from data.json, sorted by minute
   let goalsHTML = '';
-  if (stats?.goals?.length) {
+  if (m.goals?.length) {
+    const sorted = [...m.goals].sort((a, b) => parseInt(a.min) - parseInt(b.min));
     goalsHTML = `<div class="modal-section">⚽ Goals</div>`;
-    stats.goals.forEach(g => {
+    sorted.forEach(g => {
+      const penaltyTag = g.penalty ? ' <span style="color:#444">(P)</span>' : '';
       goalsHTML += `
         <div class="goal-event">
           <span class="minute">${g.min}'</span>
-          <span class="scorer">${g.scorer}</span>
+          <span class="scorer">${g.scorer}${penaltyTag}</span>
           <span class="team-tag">${g.team}</span>
         </div>`;
     });
   } else if (!upcoming) {
     goalsHTML = `<div class="modal-section">⚽ Goals</div>
       <p style="font-size:12px;color:#444;padding:8px 0">
-        Goals not verified yet.
+        No goals scored, or data not available yet.
       </p>`;
   }
 
-  // Stats bars
-  let statsHTML = '';
-  if (stats?.stats) {
-    const s = stats.stats;
-    const rows = [
-      { label:'Possession %', h:s.possession[0], a:s.possession[1] },
-      { label:'Shots',        h:s.shots[0],      a:s.shots[1] },
-      { label:'On Target',    h:s.onTarget[0],   a:s.onTarget[1] },
-      { label:'Corners',      h:s.corners[0],    a:s.corners[1] },
-      { label:'Fouls',        h:s.fouls[0],      a:s.fouls[1] },
-      { label:'Yellow Cards', h:s.yellow[0],     a:s.yellow[1] },
-    ];
-    statsHTML = `<div class="modal-section">📊 Match Stats</div>`;
-    rows.forEach(r => {
-      const total   = r.h + r.a || 1;
-      const homePct = Math.round(r.h / total * 100);
-      statsHTML += `
-        <div class="stat-row">
-          <span class="stat-home-val">${r.h}</span>
-          <div class="stat-bar-wrap">
-            <div class="stat-bar-track">
-              <div class="stat-bar-home" style="width:${homePct}%"></div>
-              <div class="stat-bar-away" style="width:${100-homePct}%"></div>
-            </div>
-          </div>
-          <span class="stat-away-val">${r.a}</span>
-          <span class="stat-row-label">${r.label}</span>
-        </div>`;
-    });
-  } else if (!upcoming) {
-    statsHTML = `<div class="modal-section">📊 Match Stats</div>
-      <p style="font-size:12px;color:#444;padding:8px 0">
-        Stats not available yet.
-      </p>`;
-  }
-
-  // Probability bar
-  let probHTML = '';
-  if (upcoming && m.ph) {
-    probHTML = `
-      <div class="modal-section">📈 Win Probability</div>
-      <div class="prob-wrap" style="margin-top:0">
-        <div class="prob-labels">
-          <span class="pl-home">${m.h} ${m.ph.toFixed(0)}%</span>
-          <span class="pl-draw">Draw ${m.pd.toFixed(0)}%</span>
-          <span class="pl-away">${m.a} ${m.pa.toFixed(0)}%</span>
-        </div>
-        <div class="prob-track">
-          <div class="pb-home" style="width:${m.ph}%"></div>
-          <div class="pb-draw" style="width:${m.pd}%"></div>
-          <div class="pb-away"></div>
-        </div>
-      </div>`;
-  }
-
+  // Probability bar — not in data.json, so this section is
+  // simply omitted for upcoming matches for now
   const overlay = document.getElementById('match-modal');
   overlay.querySelector('.modal-body').innerHTML = `
     <div class="modal-handle"></div>
     <div class="modal-teams">
       <div class="modal-team">
         <img src="https://flagcdn.com/w80/${TEAMS[m.h]?.f}.png" alt="${m.h}">
-        <span class="modal-team-name">${TEAMS[m.h]?.n}</span>
+        <span class="modal-team-name">${TEAMS[m.h]?.n || m.h}</span>
       </div>
       <div class="modal-score">${scoreHTML}</div>
       <div class="modal-team">
         <img src="https://flagcdn.com/w80/${TEAMS[m.a]?.f}.png" alt="${m.a}">
-        <span class="modal-team-name">${TEAMS[m.a]?.n}</span>
+        <span class="modal-team-name">${TEAMS[m.a]?.n || m.a}</span>
       </div>
     </div>
     <div class="modal-meta">${fmtDate(m.d)} · ${m.t}hs · ${m.g === 'R32' ? 'Round of 32' : 'Group ' + m.g}</div>
     ${goalsHTML}
-    ${statsHTML}
-    ${probHTML}
   `;
   overlay.classList.add('open');
 }
@@ -481,13 +283,11 @@ function buildMatches() {
 
   let html = '';
 
-  // Round of 32 results
   if (r32done.length) {
     html += `<div class="section-label">Round of 32 · Results</div>`;
     r32done.forEach(m => html += matchCard(m));
   }
 
-  // Round of 32 upcoming
   if (r32upcoming.length) {
     const upDates = [...new Set(r32upcoming.map(m => m.d))].sort();
     upDates.forEach(date => {
@@ -502,6 +302,12 @@ function buildMatches() {
     html += `<div class="section-label">Group Stage · ${fmtDate(date)}</div>`;
     groupDone.filter(m => m.d === date).forEach(m => html += matchCard(m));
   });
+
+  if (!html) {
+    html = `<div style="text-align:center;padding:40px 20px;color:#444">
+      <p style="font-size:13px">No matches available yet.</p>
+    </div>`;
+  }
 
   document.getElementById('matches-list').innerHTML = html;
 }
@@ -520,30 +326,13 @@ function matchCard(m) {
        </div>`;
 
   const winnerTag = (!upcoming && m.hs !== m.as)
-    ? `<div class="winner-tag">✓ ${homeWon ? TEAMS[m.h]?.n : TEAMS[m.a]?.n} won</div>`
+    ? `<div class="winner-tag">✓ ${homeWon ? (TEAMS[m.h]?.n || m.h) : (TEAMS[m.a]?.n || m.a)} won</div>`
     : '';
-
-  let probHTML = '';
-  if (upcoming && m.ph) {
-    probHTML = `
-      <div class="prob-wrap">
-        <div class="prob-labels">
-          <span class="pl-home">${m.h} ${m.ph.toFixed(0)}%</span>
-          <span class="pl-draw">Draw ${m.pd.toFixed(0)}%</span>
-          <span class="pl-away">${m.a} ${m.pa.toFixed(0)}%</span>
-        </div>
-        <div class="prob-track">
-          <div class="pb-home" style="width:${m.ph}%"></div>
-          <div class="pb-draw" style="width:${m.pd}%"></div>
-          <div class="pb-away"></div>
-        </div>
-      </div>`;
-  }
 
   const label = m.g === 'R32' ? 'Round of 32' : `Group ${m.g}`;
 
   return `
-    <div class="match-card" onclick="openMatchModal(MATCHES.find(x=>x.h==='${m.h}'&&x.a==='${m.a}'&&x.d==='${m.d}'))" style="cursor:pointer">
+    <div class="match-card" onclick='openMatchModal(MATCHES.find(x=>x.h==="${m.h}"&&x.a==="${m.a}"&&x.d==="${m.d}"))' style="cursor:pointer">
       <div class="card-stripe stripe-${m.s}"></div>
       <div class="card-body">
         <div class="card-meta">${fmtDate(m.d)} · ${m.t}hs · ${label}</div>
@@ -559,7 +348,6 @@ function matchCard(m) {
           </div>
         </div>
         ${winnerTag}
-        ${probHTML}
       </div>
     </div>`;
 }
@@ -603,6 +391,13 @@ function buildGroups() {
       <div class="qualified-note">✓ Top 2 advance to Round of 32</div>
     </div>`;
   });
+
+  if (!html) {
+    html = `<div style="text-align:center;padding:40px 20px;color:#444">
+      <p style="font-size:13px">Group standings not available yet.</p>
+    </div>`;
+  }
+
   document.getElementById('groups-list').innerHTML = html;
 }
 
@@ -710,7 +505,12 @@ function buildKnockout() {
     });
   }
 
-  // Coming soon for next rounds
+  if (!done.length && !upcoming.length) {
+    html += `<div style="text-align:center;padding:30px 20px;color:#444">
+      <p style="font-size:13px">Bracket not yet defined — waiting for group stage to finish.</p>
+    </div>`;
+  }
+
   html += `
     <div style="background:var(--card);border-radius:14px;padding:20px;text-align:center;margin-top:16px">
       <div style="font-size:28px;margin-bottom:8px">🏆</div>
@@ -816,8 +616,9 @@ function buildChamp() {
   }
 }
 
-
+// ══════════════════════════════════════════════
 //  EXTRA CSS
+// ══════════════════════════════════════════════
 
 const extraCSS = `
   .section-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#444;margin:14px 0 8px 2px;text-transform:uppercase}
@@ -873,16 +674,8 @@ const extraCSS = `
   .modal-score .vs{color:#2a2a2e;font-size:24px}
   .modal-meta{text-align:center;font-size:11px;color:#444;margin-bottom:20px;font-weight:600;letter-spacing:1px}
   .modal-section{font-size:10px;font-weight:700;letter-spacing:2px;color:#444;text-transform:uppercase;margin:16px 0 10px}
-  .stat-row{display:flex;align-items:center;gap:8px;margin-bottom:9px}
-  .stat-row-label{font-size:11px;color:#555;width:90px;text-align:center;flex-shrink:0}
-  .stat-bar-wrap{flex:1;display:flex;gap:3px;align-items:center}
-  .stat-home-val{font-size:12px;font-weight:800;color:#fff;width:28px;text-align:right;flex-shrink:0}
-  .stat-away-val{font-size:12px;font-weight:800;color:#fff;width:28px;text-align:left;flex-shrink:0}
-  .stat-bar-track{flex:1;height:6px;background:#1e1e22;border-radius:3px;overflow:hidden;display:flex}
-  .stat-bar-home{height:100%;background:var(--orange);border-radius:3px 0 0 3px}
-  .stat-bar-away{height:100%;background:#3a3a44;margin-left:auto;border-radius:0 3px 3px 0}
   .goal-event{display:flex;align-items:center;gap:8px;padding:7px 0;border-top:1px solid #1e1e22;font-size:12px;color:#ccc}
-  .goal-event .minute{color:var(--orange);font-weight:800;font-size:11px;width:32px;flex-shrink:0}
+  .goal-event .minute{color:var(--orange);font-weight:800;font-size:11px;width:36px;flex-shrink:0}
   .goal-event .scorer{font-weight:700}
   .goal-event .team-tag{margin-left:auto;font-size:10px;color:#555;font-weight:700}
 `;
@@ -890,10 +683,16 @@ const style = document.createElement('style');
 style.textContent = extraCSS;
 document.head.appendChild(style);
 
+// ══════════════════════════════════════════════
+//  INIT — called once data.json has loaded
+// ══════════════════════════════════════════════
 
-//  INIT
+function initApp() {
+  buildMatches();
+  buildGroups();
+  buildKnockout();
+  buildChamp();
+}
 
-buildMatches();
-buildGroups();
-buildKnockout();
-buildChamp();
+// Kick everything off
+loadData();

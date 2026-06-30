@@ -82,6 +82,17 @@ async function main() {
         const hCode = teamCode(m.team1);
         const aCode = teamCode(m.team2);
 
+        // Normalize the round label: group stage matches get the
+        // group letter (e.g. "A"), Round of 32 matches get "R32"
+        let groupCode;
+        if (m.group) {
+          groupCode = m.group.replace('Group ', '');
+        } else if (m.round === 'Round of 32') {
+          groupCode = 'R32';
+        } else {
+          groupCode = m.round || '';
+        }
+
         return {
           id:    i,
           d:     m.date,
@@ -92,7 +103,7 @@ async function main() {
           aName: m.team2,
           hs, as,
           s:     isDone ? 'done' : 'upcoming',
-          g:     m.group ? m.group.replace('Group ', '') : (m.round || ''),
+          g:     groupCode,
           round: m.round,
           ground: m.ground,
           goals: [
