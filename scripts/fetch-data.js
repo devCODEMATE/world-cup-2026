@@ -1,30 +1,22 @@
-
 'use strict';
 // ══════════════════════════════════════════════
 //  fetch-data.js
 //  Runs via GitHub Actions every hour.
-//  Calls API-Football, generates data.json
-//  API key is stored in GitHub Secrets — never in code.
+//  Pulls real World Cup 2026 data from openfootball
+//  (public domain, no API key required):
+//  https://github.com/openfootball/worldcup.json
 // ══════════════════════════════════════════════
 
 const https = require('https');
 const fs    = require('fs');
 
-const API_KEY    = process.env.FOOTBALL_API_KEY;
-const BASE_URL   = 'v3.football.api-sports.io';
-const LEAGUE     = 1;      // FIFA World Cup
-const SEASON     = 2026;
+const SOURCE_URL =
+  'https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json';
 
 // ── helper: make an HTTPS GET request ─────────
-function get(path) {
+function get(url) {
   return new Promise((resolve, reject) => {
-    const options = {
-      hostname: BASE_URL,
-      path,
-      method: 'GET',
-      headers: { 'x-apisports-key': API_KEY },
-    };
-    https.get(options, res => {
+    https.get(url, res => {
       let raw = '';
       res.on('data', chunk => raw += chunk);
       res.on('end', () => {
@@ -35,114 +27,87 @@ function get(path) {
   });
 }
 
+// ── helper: build a 3-letter code from a team name ─
+function teamCode(name) {
+  const KNOWN = {
+    'Argentina':'ARG','Brazil':'BRA','France':'FRA','England':'ENG',
+    'Spain':'ESP','Germany':'GER','Portugal':'POR','Netherlands':'NED',
+    'Belgium':'BEL','Colombia':'COL','Mexico':'MEX','USA':'USA',
+    'Morocco':'MAR','Norway':'NOR','Croatia':'CRO','Switzerland':'SUI',
+    'Austria':'AUT','Japan':'JPN','Senegal':'SEN','Ivory Coast':'CIV',
+    'Uruguay':'URU','Ghana':'GHA','Australia':'AUS','South Korea':'KOR',
+    'Egypt':'EGY','IR Iran':'IRN','Iran':'IRN','Bosnia & Herz.':'BIH',
+    'Bosnia and Herzegovina':'BIH','Sweden':'SWE','Ecuador':'ECU',
+    'Paraguay':'PAR','Congo DR':'COD','DR Congo':'COD','Cape Verde':'CPV',
+    'Saudi Arabia':'KSA','New Zealand':'NZL','Panama':'PAN','Jordan':'JOR',
+    'Algeria':'DZA','South Africa':'RSA','Canada':'CAN','Qatar':'QAT',
+    'Scotland':'SCO','Haiti':'HTI','Turkiye':'TUR','Turkey':'TUR',
+    'Curacao':'CUW','Tunisia':'TUN','Uzbekistan':'UZB','Czech Republic':'CZE',
+    'Czechia':'CZE','Iraq':'IRQ',
+  };
+  if (KNOWN[name]) return KNOWN[name];
+  return name.substring(0, 3).toUpperCase();
+}
+
 // ── main ───────────────────────────────────────
 async function main() {
-  if (!API_KEY) {
-    console.error('❌  FOOTBALL_API_KEY not set');
-    process.exit(1);
-  }
-
-  console.log('📡  Fetching World Cup 2026 data...');
+  console.log('📡  Fetching World Cup 2026 data from openfootball...');
 
   try {
-    // 1. All fixtures (results + upcoming)
-    const fixturesRes = await get(
-      `/fixtures?league=${LEAGUE}&season=${SEASON}`
-    );
+    const source = await get(SOURCE_URL);
+    const rawMatches = source.matches || [];
 
-    // 2. Standings (group tables)
-    const standingsRes = await get(
-      `/standings?league=${LEAGUE}&season=${SEASON}`
-    );
+    console.log(`Source returned ${rawMatches.length} matches`);
 
-    // 3. Top scorers
-    const scorersRes = await get(
-      `/players/topscorers?league=${LEAGUE}&season=${SEASON}`
-    );
+    // Map to our app format
+    const matches = rawMatches
+      // Skip placeholder knockout matches like "W101" vs "W102" (winner TBD)
+      .filter(m => !/^W\d+$/.test(m.team1) && !/^W\d+$/.test(m.team2))
+      .map((m, i) => {
+        const isDone = !!(m.score && m.score.ft);
+        const hs = isDone ? m.score.ft[0] : 0;
+        const as = isDone ? m.score.ft[1] : 0;
 
-    // ── build the data object ──────────────────
-    const fixtures  = fixturesRes.response  || [];
-    const standings = standingsRes.response || [];
-    const scorers   = scorersRes.response   || [];
+        const mapGoals = (goalsArr, teamCode_) =>
+          (goalsArr || []).map(g => ({
+            min:    g.minute,
+            scorer: g.name,
+            team:   teamCode_,
+            penalty: !!g.penalty,
+          }));
 
-    // Map fixtures to our app format
-    const matches = fixtures.map(f => {
-      const isLive = ['1H','HT','2H','ET','P','BT'].includes(
-        f.fixture.status.short
-      );
-      const isDone = f.fixture.status.short === 'FT' ||
-                     f.fixture.status.short === 'AET'||
-                     f.fixture.status.short === 'PEN';
-      const status = isDone ? 'done' : isLive ? 'live' : 'upcoming';
+        const hCode = teamCode(m.team1);
+        const aCode = teamCode(m.team2);
 
-      return {
-        id:      f.fixture.id,
-        d:       f.fixture.date.slice(0, 10),          // YYYY-MM-DD
-        t:       f.fixture.date.slice(11, 16),         // HH:MM (UTC)
-        h:       f.teams.home.name,
-        hCode:   f.teams.home.name.substring(0, 3).toUpperCase(),
-        hLogo:   f.teams.home.logo,
-        a:       f.teams.away.name,
-        aCode:   f.teams.away.name.substring(0, 3).toUpperCase(),
-        aLogo:   f.teams.away.logo,
-        hs:      f.goals.home  ?? 0,
-        as:      f.goals.away  ?? 0,
-        s:       status,
-        g:       f.league.round,                       // e.g. "Group Stage - 1"
-        elapsed: f.fixture.status.elapsed ?? null,
-        // goals events
-        goals: (f.events || [])
-          .filter(e => e.type === 'Goal')
-          .map(e => ({
-            min:    e.time.elapsed + (e.time.extra ? `+${e.time.extra}` : ''),
-            scorer: e.player.name,
-            team:   e.team.name,
-            type:   e.detail,                          // "Normal Goal", "Own Goal", "Penalty"
-          })),
-      };
-    });
-
-    // Map standings
-    const groups = {};
-    if (standings.length && standings[0].league?.standings) {
-      standings[0].league.standings.forEach(group => {
-        group.forEach(row => {
-          const g = row.group; // "Group A", etc.
-          if (!groups[g]) groups[g] = [];
-          groups[g].push({
-            c:   row.team.name.substring(0, 3).toUpperCase(),
-            n:   row.team.name,
-            logo:row.team.logo,
-            p:   row.all.played,
-            w:   row.all.win,
-            d:   row.all.draw,
-            l:   row.all.lose,
-            gf:  row.all.goals.for,
-            ga:  row.all.goals.against,
-            gd:  row.goalsDiff,
-            pts: row.points,
-          });
-        });
+        return {
+          id:    i,
+          d:     m.date,
+          t:     (m.time || '').split(' ')[0],   // strip UTC offset, keep HH:MM
+          h:     hCode,
+          hName: m.team1,
+          a:     aCode,
+          aName: m.team2,
+          hs, as,
+          s:     isDone ? 'done' : 'upcoming',
+          g:     m.group ? m.group.replace('Group ', '') : (m.round || ''),
+          round: m.round,
+          ground: m.ground,
+          goals: [
+            ...mapGoals(m.goals1, hCode),
+            ...mapGoals(m.goals2, aCode),
+          ],
+        };
       });
-    }
-
-    // Top 10 scorers
-    const topScorers = scorers.slice(0, 10).map(s => ({
-      name:  s.player.name,
-      team:  s.statistics[0]?.team?.name || '',
-      goals: s.statistics[0]?.goals?.total || 0,
-    }));
 
     // ── write data.json ────────────────────────
     const output = {
       updatedAt: new Date().toISOString(),
+      source: 'openfootball/worldcup.json (public domain, updated ~daily)',
       matches,
-      groups,
-      topScorers,
     };
 
     fs.writeFileSync('data.json', JSON.stringify(output, null, 2));
-    console.log(`✅  data.json updated — ${matches.length} matches, ${Object.keys(groups).length} groups`);
+    console.log(`✅  data.json updated — ${matches.length} matches`);
 
   } catch (err) {
     console.error('❌  Error fetching data:', err.message);
@@ -151,8 +116,3 @@ async function main() {
 }
 
 main();
-
-const fixturesRes = await get(
-  `/fixtures?league=${LEAGUE}&season=${SEASON}`
-);
-console.log('Fixtures response:', JSON.stringify(fixturesRes).slice(0, 500));
