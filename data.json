@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T21:39:40.836Z",
+  "updatedAt": "2026-07-01T23:05:09.908Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3029,13 +3029,44 @@
       "a": "SEN",
       "aName": "Senegal",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 2,
+      "as": 2,
+      "s": "done",
       "g": "R32",
       "round": "Round of 32",
       "ground": "Seattle",
-      "goals": []
+      "goals": [
+        {
+          "min": "86",
+          "scorer": "Romelu Lukaku",
+          "team": "BEL",
+          "penalty": false
+        },
+        {
+          "min": "89",
+          "scorer": "Youri Tielemans",
+          "team": "BEL",
+          "penalty": false
+        },
+        {
+          "min": "120+5",
+          "scorer": "Youri Tielemans",
+          "team": "BEL",
+          "penalty": true
+        },
+        {
+          "min": "25",
+          "scorer": "Habib Diarra",
+          "team": "SEN",
+          "penalty": false
+        },
+        {
+          "min": "51",
+          "scorer": "Ismaïla Sarr",
+          "team": "SEN",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 82,
