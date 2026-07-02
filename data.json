@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02T20:56:48.436Z",
+  "updatedAt": "2026-07-02T22:04:29.519Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3111,13 +3111,32 @@
       "a": "AUT",
       "aName": "Austria",
       "aRef": null,
-      "hs": 0,
+      "hs": 3,
       "as": 0,
-      "s": "upcoming",
+      "s": "done",
       "g": "R32",
       "round": "Round of 32",
       "ground": "Los Angeles (Inglewood)",
-      "goals": []
+      "goals": [
+        {
+          "min": "36",
+          "scorer": "Mikel Oyarzabal",
+          "team": "ESP",
+          "penalty": false
+        },
+        {
+          "min": "66",
+          "scorer": "Pedro Porro",
+          "team": "ESP",
+          "penalty": false
+        },
+        {
+          "min": "89",
+          "scorer": "Mikel Oyarzabal",
+          "team": "ESP",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 84,
