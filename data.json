@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02T23:57:59.552Z",
+  "updatedAt": "2026-07-03T03:18:10.216Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3092,13 +3092,32 @@
       "a": "CRO",
       "aName": "Croatia",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 2,
+      "as": 1,
+      "s": "done",
       "g": "R32",
       "round": "Round of 32",
       "ground": "Toronto",
-      "goals": []
+      "goals": [
+        {
+          "min": "68",
+          "scorer": "Cristiano Ronaldo",
+          "team": "POR",
+          "penalty": true
+        },
+        {
+          "min": "90+4",
+          "scorer": "Gonçalo Ramos",
+          "team": "POR",
+          "penalty": false
+        },
+        {
+          "min": "53",
+          "scorer": "Ivan Perisic",
+          "team": "CRO",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 83,
