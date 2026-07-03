@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T03:18:10.216Z",
+  "updatedAt": "2026-07-03T06:55:21.919Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3168,13 +3168,26 @@
       "a": "DZA",
       "aName": "Algeria",
       "aRef": null,
-      "hs": 0,
+      "hs": 2,
       "as": 0,
-      "s": "upcoming",
+      "s": "done",
       "g": "R32",
       "round": "Round of 32",
       "ground": "Vancouver",
-      "goals": []
+      "goals": [
+        {
+          "min": "10",
+          "scorer": "Breel Embolo",
+          "team": "SUI",
+          "penalty": false
+        },
+        {
+          "min": "46",
+          "scorer": "Dan Ndoye",
+          "team": "SUI",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 85,
