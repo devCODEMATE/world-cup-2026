@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T17:57:50.788Z",
+  "updatedAt": "2026-07-04T19:12:42.291Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3328,12 +3328,31 @@
       "aName": "Morocco",
       "aRef": null,
       "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "as": 3,
+      "s": "done",
       "g": "R16",
       "round": "Round of 16",
       "ground": "Houston",
-      "goals": []
+      "goals": [
+        {
+          "min": "50",
+          "scorer": "Azzedine Ounahi",
+          "team": "MAR",
+          "penalty": false
+        },
+        {
+          "min": "82",
+          "scorer": "Azzedine Ounahi",
+          "team": "MAR",
+          "penalty": false
+        },
+        {
+          "min": "90+8",
+          "scorer": "Soufiane Rahimi",
+          "team": "MAR",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 90,
