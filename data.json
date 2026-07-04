@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T22:50:50.798Z",
+  "updatedAt": "2026-07-04T23:55:12.506Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3309,12 +3309,19 @@
       "aName": "France",
       "aRef": null,
       "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "as": 1,
+      "s": "done",
       "g": "R16",
       "round": "Round of 16",
       "ground": "Philadelphia",
-      "goals": []
+      "goals": [
+        {
+          "min": "70",
+          "scorer": "Kylian Mbappé",
+          "team": "FRA",
+          "penalty": true
+        }
+      ]
     },
     {
       "id": 89,
