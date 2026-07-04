@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T23:57:43.142Z",
+  "updatedAt": "2026-07-04T02:52:43.784Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3200,13 +3200,44 @@
       "a": "CPV",
       "aName": "Cape Verde",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 1,
+      "as": 1,
+      "s": "done",
       "g": "R32",
       "round": "Round of 32",
       "ground": "Miami (Miami Gardens)",
-      "goals": []
+      "goals": [
+        {
+          "min": "29",
+          "scorer": "Lionel Messi",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "92",
+          "scorer": "Lisandro Martínez",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "111",
+          "scorer": "Diney Borges",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "59",
+          "scorer": "Deroy Duarte",
+          "team": "CPV",
+          "penalty": false
+        },
+        {
+          "min": "103",
+          "scorer": "Sidny Lopes Cabral",
+          "team": "CPV",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 86,
