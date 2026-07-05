@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T21:54:36.667Z",
+  "updatedAt": "2026-07-05T22:55:05.392Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3372,13 +3372,32 @@
       "a": "NOR",
       "aName": "Norway",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 1,
+      "as": 2,
+      "s": "done",
       "g": "R16",
       "round": "Round of 16",
       "ground": "New York/New Jersey (East Rutherford)",
-      "goals": []
+      "goals": [
+        {
+          "min": "90+10",
+          "scorer": "Neymar",
+          "team": "BRA",
+          "penalty": true
+        },
+        {
+          "min": "79",
+          "scorer": "Erling Haaland",
+          "team": "NOR",
+          "penalty": false
+        },
+        {
+          "min": "90",
+          "scorer": "Erling Haaland",
+          "team": "NOR",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 91,
