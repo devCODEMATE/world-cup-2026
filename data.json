@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T23:59:32.763Z",
+  "updatedAt": "2026-07-06T03:59:57.014Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3410,13 +3410,44 @@
       "a": "ENG",
       "aName": "England",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 2,
+      "as": 3,
+      "s": "done",
       "g": "R16",
       "round": "Round of 16",
       "ground": "Mexico City",
-      "goals": []
+      "goals": [
+        {
+          "min": "42",
+          "scorer": "Julián Quiñones",
+          "team": "MEX",
+          "penalty": false
+        },
+        {
+          "min": "69",
+          "scorer": "Raúl Jiménez",
+          "team": "MEX",
+          "penalty": true
+        },
+        {
+          "min": "36",
+          "scorer": "Jude Bellingham",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "38",
+          "scorer": "Jude Bellingham",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "60",
+          "scorer": "Harry Kane",
+          "team": "ENG",
+          "penalty": true
+        }
+      ]
     },
     {
       "id": 92,
