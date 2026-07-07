@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T00:00:47.779Z",
+  "updatedAt": "2026-07-07T04:43:51.256Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3486,13 +3486,44 @@
       "a": "BEL",
       "aName": "Belgium",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 1,
+      "as": 4,
+      "s": "done",
       "g": "R16",
       "round": "Round of 16",
       "ground": "Seattle",
-      "goals": []
+      "goals": [
+        {
+          "min": "31",
+          "scorer": "Malik Tillman",
+          "team": "USA",
+          "penalty": false
+        },
+        {
+          "min": "9",
+          "scorer": "Charles De Ketelaere",
+          "team": "BEL",
+          "penalty": false
+        },
+        {
+          "min": "33",
+          "scorer": "Charles De Ketelaere",
+          "team": "BEL",
+          "penalty": false
+        },
+        {
+          "min": "57",
+          "scorer": "Hans Vanaken",
+          "team": "BEL",
+          "penalty": false
+        },
+        {
+          "min": "90+3",
+          "scorer": "Romelu Lukaku",
+          "team": "BEL",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 94,
