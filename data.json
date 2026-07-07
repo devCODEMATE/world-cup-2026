@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T22:53:32.105Z",
+  "updatedAt": "2026-07-07T23:51:37.719Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3588,7 +3588,7 @@
       "aRef": null,
       "hs": 0,
       "as": 0,
-      "s": "upcoming",
+      "s": "done",
       "g": "R16",
       "round": "Round of 16",
       "ground": "Vancouver",
