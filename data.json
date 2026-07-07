@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T17:07:12.380Z",
+  "updatedAt": "2026-07-07T19:44:28.808Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3536,13 +3536,44 @@
       "a": "EGY",
       "aName": "Egypt",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 3,
+      "as": 2,
+      "s": "done",
       "g": "R16",
       "round": "Round of 16",
       "ground": "Atlanta",
-      "goals": []
+      "goals": [
+        {
+          "min": "79",
+          "scorer": "Cristian Romero",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "83",
+          "scorer": "Lionel Messi",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "90+2",
+          "scorer": "Enzo Fernández",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "15",
+          "scorer": "Yasser Ibrahim",
+          "team": "EGY",
+          "penalty": false
+        },
+        {
+          "min": "67",
+          "scorer": "Mostafa Zico",
+          "team": "EGY",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 95,
