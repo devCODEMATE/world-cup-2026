@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-09T21:15:22.691Z",
+  "updatedAt": "2026-07-09T23:04:15.598Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3605,13 +3605,26 @@
       "a": "MAR",
       "aName": "Morocco",
       "aRef": null,
-      "hs": 0,
+      "hs": 2,
       "as": 0,
-      "s": "upcoming",
+      "s": "done",
       "g": "QF",
       "round": "Quarter-final",
       "ground": "Boston (Foxborough)",
-      "goals": []
+      "goals": [
+        {
+          "min": "60",
+          "scorer": "Kylian Mbappé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "66",
+          "scorer": "Ousmane Dembélé",
+          "team": "FRA",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 97,
