@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-10T20:16:11.709Z",
+  "updatedAt": "2026-07-10T21:54:00.786Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3637,13 +3637,32 @@
       "a": "BEL",
       "aName": "Belgium",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 2,
+      "as": 1,
+      "s": "done",
       "g": "QF",
       "round": "Quarter-final",
       "ground": "Los Angeles (Inglewood)",
-      "goals": []
+      "goals": [
+        {
+          "min": "30",
+          "scorer": "Fabián Ruiz",
+          "team": "ESP",
+          "penalty": false
+        },
+        {
+          "min": "88",
+          "scorer": "Mikel Merino",
+          "team": "ESP",
+          "penalty": false
+        },
+        {
+          "min": "41",
+          "scorer": "Charles De Ketelaere",
+          "team": "BEL",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 98,
