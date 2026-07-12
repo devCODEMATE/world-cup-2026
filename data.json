@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-11T23:46:14.609Z",
+  "updatedAt": "2026-07-12T01:58:59.003Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3675,13 +3675,32 @@
       "a": "ENG",
       "aName": "England",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 1,
+      "as": 1,
+      "s": "done",
       "g": "QF",
       "round": "Quarter-final",
       "ground": "Miami (Miami Gardens)",
-      "goals": []
+      "goals": [
+        {
+          "min": "36",
+          "scorer": "Andreas Schjelderup",
+          "team": "NOR",
+          "penalty": false
+        },
+        {
+          "min": "45+2",
+          "scorer": "Jude Bellingham",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "93",
+          "scorer": "Jude Bellingham",
+          "team": "ENG",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 99,
