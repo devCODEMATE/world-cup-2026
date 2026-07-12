@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-12T14:48:28.846Z",
+  "updatedAt": "2026-07-12T15:52:11.073Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3770,12 +3770,12 @@
       "num": 102,
       "d": "2026-07-15",
       "t": "15:00",
-      "h": null,
-      "hName": null,
-      "hRef": 99,
-      "a": null,
-      "aName": null,
-      "aRef": 100,
+      "h": "ENG",
+      "hName": "England",
+      "hRef": null,
+      "a": "ARG",
+      "aName": "Argentina",
+      "aRef": null,
       "hs": 0,
       "as": 0,
       "s": "upcoming",
