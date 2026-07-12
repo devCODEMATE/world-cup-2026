@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-12T01:58:59.003Z",
+  "updatedAt": "2026-07-12T05:31:48.119Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3713,13 +3713,38 @@
       "a": "SUI",
       "aName": "Switzerland",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 1,
+      "as": 1,
+      "s": "done",
       "g": "QF",
       "round": "Quarter-final",
       "ground": "Kansas City",
-      "goals": []
+      "goals": [
+        {
+          "min": "10",
+          "scorer": "Alexis Mac Allister",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "112",
+          "scorer": "Julián Álvarez",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "120+1",
+          "scorer": "Lautaro Martínez",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "67",
+          "scorer": "Dan Ndoye",
+          "team": "SUI",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 100,
