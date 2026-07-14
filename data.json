@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-14T20:52:12.209Z",
+  "updatedAt": "2026-07-14T21:51:06.521Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3758,12 +3758,25 @@
       "aName": "Spain",
       "aRef": null,
       "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "as": 2,
+      "s": "done",
       "g": "SF",
       "round": "Semi-final",
       "ground": "Dallas (Arlington)",
-      "goals": []
+      "goals": [
+        {
+          "min": "22",
+          "scorer": "Mikel Oyarzabal",
+          "team": "ESP",
+          "penalty": true
+        },
+        {
+          "min": "58",
+          "scorer": "Pedro Porro",
+          "team": "ESP",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 101,
