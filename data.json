@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-15T20:11:18.656Z",
+  "updatedAt": "2026-07-15T21:51:35.051Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3789,13 +3789,32 @@
       "a": "ARG",
       "aName": "Argentina",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 1,
+      "as": 2,
+      "s": "done",
       "g": "SF",
       "round": "Semi-final",
       "ground": "Atlanta",
-      "goals": []
+      "goals": [
+        {
+          "min": "55",
+          "scorer": "Anthony Gordon",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "86",
+          "scorer": "Enzo Fernández",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "92",
+          "scorer": "Lautaro Martínez",
+          "team": "ARG",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 102,
@@ -3805,8 +3824,8 @@
       "h": "FRA",
       "hName": "France",
       "hRef": null,
-      "a": null,
-      "aName": null,
+      "a": "ENG",
+      "aName": "England",
       "aRef": null,
       "hs": 0,
       "as": 0,
@@ -3824,9 +3843,9 @@
       "h": "ESP",
       "hName": "Spain",
       "hRef": null,
-      "a": null,
-      "aName": null,
-      "aRef": 102,
+      "a": "ARG",
+      "aName": "Argentina",
+      "aRef": null,
       "hs": 0,
       "as": 0,
       "s": "upcoming",
