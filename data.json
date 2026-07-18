@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-18T22:40:45.516Z",
+  "updatedAt": "2026-07-18T23:44:23.418Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3827,13 +3827,74 @@
       "a": "ENG",
       "aName": "England",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 4,
+      "as": 6,
+      "s": "done",
       "g": "P3",
       "round": "Match for third place",
       "ground": "Miami (Miami Gardens)",
-      "goals": []
+      "goals": [
+        {
+          "min": "48",
+          "scorer": "Kylian Mbappé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "54",
+          "scorer": "Bradley Barcola",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "66",
+          "scorer": "Kylian Mbappé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "90+6",
+          "scorer": "Ousmane Dembélé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "3",
+          "scorer": "Declan Rice",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "18",
+          "scorer": "Ezri Konsa",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "37",
+          "scorer": "Bukayo Saka",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "45+1",
+          "scorer": "Bukayo Saka",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "87",
+          "scorer": "Bukayo Saka",
+          "team": "ENG",
+          "penalty": true
+        },
+        {
+          "min": "90+8",
+          "scorer": "Jude Bellingham",
+          "team": "ENG",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 103,
