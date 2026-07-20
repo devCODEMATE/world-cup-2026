@@ -769,8 +769,8 @@ function buildChamp() {
             style="width:220px;max-width:80%;height:auto">
         </div>
         <div style="font-size:22px;letter-spacing:4px;margin-bottom:8px">🎊 🎉 🎊</div>
-        <div style="font-size:30px;font-weight:900;letter-spacing:2px">${WINNER}</div>
-        <div style="font-size:14px;color:#888;margin-bottom:12px">${t.n}</div>
+        <div style="font-size:30px;font-weight:900;letter-spacing:2px">${({ARG:'ARGENTINA',ESP:'ESPAÑA'})[WINNER] || WINNER}</div>
+        <div style="font-size:14px;color:#888;margin-bottom:12px">${({ARG:'Campeona del Mundo 2026 🏆',ESP:'Campeona del Mundo 2026 🏆'})[WINNER] || t.n}</div>
         <img src="https://flagcdn.com/w160/${t.f}.png" alt="${t.n}"
           style="width:72px;height:48px;border-radius:7px;object-fit:cover;border:2px solid var(--orange);margin-bottom:16px">
         <div style="background:#1a1a1e;border-radius:12px;padding:14px">
