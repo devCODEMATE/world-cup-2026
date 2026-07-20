@@ -39,7 +39,7 @@ function updateCountdown() {
   const diff = FINAL_DATE - new Date();
   if (diff <= 0) {
     const el = document.getElementById('countdown');
-    if (el) el.textContent = CHAMPION ? '🏆 España campeona del mundo' : '🏆 Final is today!';
+    if (el) el.textContent = CHAMPION ? '🏆 Spain are world champions' : '🏆 Final is today!';
     return;
   }
   const d = Math.floor(diff / 86400000);
@@ -611,7 +611,7 @@ function renderSearch(q) {
     return `<div class="next-box">${flagImg(opp,true)}<span class="next-opp">${TEAMS[opp]?.n||opp}</span><span class="next-time">${fmtDate(next.d)} · ${next.t}</span></div>`;
   })() : '';
 
-  const recentHTML = played.slice(-4).reverse().map(m => {
+  const recentHTML = played.slice().reverse().map(m => {
     const ih=m.h===code, opp=ih?m.a:m.h;
     const ms=ih?m.hs:m.as, os=ih?m.as:m.hs;
     const r=ms>os?'W':ms<os?'L':'D';
@@ -645,7 +645,7 @@ function renderSearch(q) {
         <div class="stat-box"><div class="stat-val">${gc}</div><div class="stat-lbl">AGAINST</div></div>
       </div>
       ${next ? `<div class="recent-label">NEXT MATCH</div>${nextHTML}` : ''}
-      ${recentHTML ? `<div class="recent-label" style="margin-top:10px">LAST RESULTS</div>${recentHTML}` : ''}
+      ${recentHTML ? `<div class="recent-label" style="margin-top:10px">ALL RESULTS</div>${recentHTML}` : ''}
     </div>`;
 }
 
@@ -801,12 +801,12 @@ function buildChamp() {
         <div class="section-label" style="text-align:center;margin-bottom:4px">🏆 WORLD CHAMPION 🏆</div>
         <p style="font-size:11px;color:#444;margin-bottom:16px;letter-spacing:1px">FIFA WORLD CUP 2026</p>
         <div class="floating" style="margin-bottom:12px">
-          <img src="images/champion-esp-2026.png" alt="${t.n} campeón"
+          <img src="images/champion-esp-2026.png" alt="${t.n} champion"
             style="width:220px;max-width:80%;height:auto">
         </div>
         <div style="font-size:22px;letter-spacing:4px;margin-bottom:8px">🎊 🎉 🎊</div>
-        <div style="font-size:30px;font-weight:900;letter-spacing:2px">${({ARG:'ARGENTINA',ESP:'ESPAÑA'})[WINNER] || WINNER}</div>
-        <div style="font-size:14px;color:#888;margin-bottom:12px">${({ARG:'Campeona del Mundo 2026 🏆',ESP:'Campeona del Mundo 2026 🏆'})[WINNER] || t.n}</div>
+        <div style="font-size:30px;font-weight:900;letter-spacing:2px">${t.n.toUpperCase()}</div>
+        <div style="font-size:14px;color:#888;margin-bottom:12px">2026 World Champions 🏆</div>
         <img src="https://flagcdn.com/w160/${t.f}.png" alt="${t.n}"
           style="width:72px;height:48px;border-radius:7px;object-fit:cover;border:2px solid var(--orange);margin-bottom:16px">
         <div style="background:#1a1a1e;border-radius:12px;padding:14px">
