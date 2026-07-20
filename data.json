@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02T12:04:24.709Z",
+  "updatedAt": "2026-07-20T12:10:32.478Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -2878,14 +2878,14 @@
           "penalty": false
         },
         {
-          "min": "53",
-          "scorer": "Bradley Barcola",
+          "min": "74",
+          "scorer": "Kylian Mbappé",
           "team": "FRA",
           "penalty": false
         },
         {
-          "min": "74",
-          "scorer": "Kylian Mbappé",
+          "min": "53",
+          "scorer": "Bradley Barcola",
           "team": "FRA",
           "penalty": false
         }
@@ -3092,13 +3092,32 @@
       "a": "CRO",
       "aName": "Croatia",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 2,
+      "as": 1,
+      "s": "done",
       "g": "R32",
       "round": "Round of 32",
       "ground": "Toronto",
-      "goals": []
+      "goals": [
+        {
+          "min": "68",
+          "scorer": "Cristiano Ronaldo",
+          "team": "POR",
+          "penalty": true
+        },
+        {
+          "min": "90+4",
+          "scorer": "Gonçalo Ramos",
+          "team": "POR",
+          "penalty": false
+        },
+        {
+          "min": "53",
+          "scorer": "Ivan Perisic",
+          "team": "CRO",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 83,
@@ -3111,13 +3130,32 @@
       "a": "AUT",
       "aName": "Austria",
       "aRef": null,
-      "hs": 0,
+      "hs": 3,
       "as": 0,
-      "s": "upcoming",
+      "s": "done",
       "g": "R32",
       "round": "Round of 32",
       "ground": "Los Angeles (Inglewood)",
-      "goals": []
+      "goals": [
+        {
+          "min": "36",
+          "scorer": "Mikel Oyarzabal",
+          "team": "ESP",
+          "penalty": false
+        },
+        {
+          "min": "89",
+          "scorer": "Mikel Oyarzabal",
+          "team": "ESP",
+          "penalty": false
+        },
+        {
+          "min": "66",
+          "scorer": "Pedro Porro",
+          "team": "ESP",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 84,
@@ -3130,13 +3168,26 @@
       "a": "DZA",
       "aName": "Algeria",
       "aRef": null,
-      "hs": 0,
+      "hs": 2,
       "as": 0,
-      "s": "upcoming",
+      "s": "done",
       "g": "R32",
       "round": "Round of 32",
       "ground": "Vancouver",
-      "goals": []
+      "goals": [
+        {
+          "min": "10",
+          "scorer": "Breel Embolo",
+          "team": "SUI",
+          "penalty": false
+        },
+        {
+          "min": "46",
+          "scorer": "Dan Ndoye",
+          "team": "SUI",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 85,
@@ -3149,13 +3200,44 @@
       "a": "CPV",
       "aName": "Cape Verde",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 1,
+      "as": 1,
+      "s": "done",
       "g": "R32",
       "round": "Round of 32",
       "ground": "Miami (Miami Gardens)",
-      "goals": []
+      "goals": [
+        {
+          "min": "29",
+          "scorer": "Lionel Messi",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "92",
+          "scorer": "Lisandro Martínez",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "111",
+          "scorer": "Diney Borges",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "59",
+          "scorer": "Deroy Duarte",
+          "team": "CPV",
+          "penalty": false
+        },
+        {
+          "min": "103",
+          "scorer": "Sidny Lopes Cabral",
+          "team": "CPV",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 86,
@@ -3168,13 +3250,20 @@
       "a": "GHA",
       "aName": "Ghana",
       "aRef": null,
-      "hs": 0,
+      "hs": 1,
       "as": 0,
-      "s": "upcoming",
+      "s": "done",
       "g": "R32",
       "round": "Round of 32",
       "ground": "Kansas City",
-      "goals": []
+      "goals": [
+        {
+          "min": "14",
+          "scorer": "Jhon Arias",
+          "team": "COL",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 87,
@@ -3187,13 +3276,26 @@
       "a": "EGY",
       "aName": "Egypt",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 1,
+      "as": 1,
+      "s": "done",
       "g": "R32",
       "round": "Round of 32",
       "ground": "Dallas (Arlington)",
-      "goals": []
+      "goals": [
+        {
+          "min": "55",
+          "scorer": "Mohamed Hany",
+          "team": "AUS",
+          "penalty": false
+        },
+        {
+          "min": "13",
+          "scorer": "Emam Ashour",
+          "team": "EGY",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 88,
@@ -3207,12 +3309,19 @@
       "aName": "France",
       "aRef": null,
       "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "as": 1,
+      "s": "done",
       "g": "R16",
       "round": "Round of 16",
       "ground": "Philadelphia",
-      "goals": []
+      "goals": [
+        {
+          "min": "70",
+          "scorer": "Kylian Mbappé",
+          "team": "FRA",
+          "penalty": true
+        }
+      ]
     },
     {
       "id": 89,
@@ -3226,12 +3335,31 @@
       "aName": "Morocco",
       "aRef": null,
       "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "as": 3,
+      "s": "done",
       "g": "R16",
       "round": "Round of 16",
       "ground": "Houston",
-      "goals": []
+      "goals": [
+        {
+          "min": "50",
+          "scorer": "Azzedine Ounahi",
+          "team": "MAR",
+          "penalty": false
+        },
+        {
+          "min": "82",
+          "scorer": "Azzedine Ounahi",
+          "team": "MAR",
+          "penalty": false
+        },
+        {
+          "min": "90+8",
+          "scorer": "Soufiane Rahimi",
+          "team": "MAR",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 90,
@@ -3244,13 +3372,32 @@
       "a": "NOR",
       "aName": "Norway",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 1,
+      "as": 2,
+      "s": "done",
       "g": "R16",
       "round": "Round of 16",
       "ground": "New York/New Jersey (East Rutherford)",
-      "goals": []
+      "goals": [
+        {
+          "min": "90+10",
+          "scorer": "Neymar",
+          "team": "BRA",
+          "penalty": true
+        },
+        {
+          "min": "79",
+          "scorer": "Erling Haaland",
+          "team": "NOR",
+          "penalty": false
+        },
+        {
+          "min": "90",
+          "scorer": "Erling Haaland",
+          "team": "NOR",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 91,
@@ -3263,32 +3410,70 @@
       "a": "ENG",
       "aName": "England",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 2,
+      "as": 3,
+      "s": "done",
       "g": "R16",
       "round": "Round of 16",
       "ground": "Mexico City",
-      "goals": []
+      "goals": [
+        {
+          "min": "42",
+          "scorer": "Julián Quiñones",
+          "team": "MEX",
+          "penalty": false
+        },
+        {
+          "min": "69",
+          "scorer": "Raúl Jiménez",
+          "team": "MEX",
+          "penalty": true
+        },
+        {
+          "min": "36",
+          "scorer": "Jude Bellingham",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "38",
+          "scorer": "Jude Bellingham",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "60",
+          "scorer": "Harry Kane",
+          "team": "ENG",
+          "penalty": true
+        }
+      ]
     },
     {
       "id": 92,
       "num": 93,
       "d": "2026-07-06",
       "t": "14:00",
-      "h": null,
-      "hName": null,
-      "hRef": 83,
-      "a": null,
-      "aName": null,
-      "aRef": 84,
+      "h": "POR",
+      "hName": "Portugal",
+      "hRef": null,
+      "a": "ESP",
+      "aName": "Spain",
+      "aRef": null,
       "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "as": 1,
+      "s": "done",
       "g": "R16",
       "round": "Round of 16",
       "ground": "Dallas (Arlington)",
-      "goals": []
+      "goals": [
+        {
+          "min": "90+1",
+          "scorer": "Mikel Merino",
+          "team": "ESP",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 93,
@@ -3301,47 +3486,109 @@
       "a": "BEL",
       "aName": "Belgium",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 1,
+      "as": 4,
+      "s": "done",
       "g": "R16",
       "round": "Round of 16",
       "ground": "Seattle",
-      "goals": []
+      "goals": [
+        {
+          "min": "31",
+          "scorer": "Malik Tillman",
+          "team": "USA",
+          "penalty": false
+        },
+        {
+          "min": "9",
+          "scorer": "Charles De Ketelaere",
+          "team": "BEL",
+          "penalty": false
+        },
+        {
+          "min": "33",
+          "scorer": "Charles De Ketelaere",
+          "team": "BEL",
+          "penalty": false
+        },
+        {
+          "min": "57",
+          "scorer": "Hans Vanaken",
+          "team": "BEL",
+          "penalty": false
+        },
+        {
+          "min": "90+3",
+          "scorer": "Romelu Lukaku",
+          "team": "BEL",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 94,
       "num": 95,
       "d": "2026-07-07",
       "t": "12:00",
-      "h": null,
-      "hName": null,
-      "hRef": 86,
-      "a": null,
-      "aName": null,
-      "aRef": 88,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "h": "ARG",
+      "hName": "Argentina",
+      "hRef": null,
+      "a": "EGY",
+      "aName": "Egypt",
+      "aRef": null,
+      "hs": 3,
+      "as": 2,
+      "s": "done",
       "g": "R16",
       "round": "Round of 16",
       "ground": "Atlanta",
-      "goals": []
+      "goals": [
+        {
+          "min": "79",
+          "scorer": "Cristian Romero",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "83",
+          "scorer": "Lionel Messi",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "90+2",
+          "scorer": "Enzo Fernández",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "15",
+          "scorer": "Yasser Ibrahim",
+          "team": "EGY",
+          "penalty": false
+        },
+        {
+          "min": "67",
+          "scorer": "Mostafa Zico",
+          "team": "EGY",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 95,
       "num": 96,
       "d": "2026-07-07",
       "t": "13:00",
-      "h": null,
-      "hName": null,
-      "hRef": 85,
-      "a": null,
-      "aName": null,
-      "aRef": 87,
+      "h": "SUI",
+      "hName": "Switzerland",
+      "hRef": null,
+      "a": "COL",
+      "aName": "Colombia",
+      "aRef": null,
       "hs": 0,
       "as": 0,
-      "s": "upcoming",
+      "s": "done",
       "g": "R16",
       "round": "Round of 16",
       "ground": "Vancouver",
@@ -3352,152 +3599,328 @@
       "num": 97,
       "d": "2026-07-09",
       "t": "16:00",
-      "h": null,
-      "hName": null,
-      "hRef": 89,
-      "a": null,
-      "aName": null,
-      "aRef": 90,
-      "hs": 0,
+      "h": "FRA",
+      "hName": "France",
+      "hRef": null,
+      "a": "MAR",
+      "aName": "Morocco",
+      "aRef": null,
+      "hs": 2,
       "as": 0,
-      "s": "upcoming",
+      "s": "done",
       "g": "QF",
       "round": "Quarter-final",
       "ground": "Boston (Foxborough)",
-      "goals": []
+      "goals": [
+        {
+          "min": "60",
+          "scorer": "Kylian Mbappé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "66",
+          "scorer": "Ousmane Dembélé",
+          "team": "FRA",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 97,
       "num": 98,
       "d": "2026-07-10",
       "t": "12:00",
-      "h": null,
-      "hName": null,
-      "hRef": 93,
-      "a": null,
-      "aName": null,
-      "aRef": 94,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "h": "ESP",
+      "hName": "Spain",
+      "hRef": null,
+      "a": "BEL",
+      "aName": "Belgium",
+      "aRef": null,
+      "hs": 2,
+      "as": 1,
+      "s": "done",
       "g": "QF",
       "round": "Quarter-final",
       "ground": "Los Angeles (Inglewood)",
-      "goals": []
+      "goals": [
+        {
+          "min": "30",
+          "scorer": "Fabián Ruiz",
+          "team": "ESP",
+          "penalty": false
+        },
+        {
+          "min": "88",
+          "scorer": "Mikel Merino",
+          "team": "ESP",
+          "penalty": false
+        },
+        {
+          "min": "41",
+          "scorer": "Charles De Ketelaere",
+          "team": "BEL",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 98,
       "num": 99,
       "d": "2026-07-11",
       "t": "17:00",
-      "h": null,
-      "hName": null,
-      "hRef": 91,
-      "a": null,
-      "aName": null,
-      "aRef": 92,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "h": "NOR",
+      "hName": "Norway",
+      "hRef": null,
+      "a": "ENG",
+      "aName": "England",
+      "aRef": null,
+      "hs": 1,
+      "as": 1,
+      "s": "done",
       "g": "QF",
       "round": "Quarter-final",
       "ground": "Miami (Miami Gardens)",
-      "goals": []
+      "goals": [
+        {
+          "min": "36",
+          "scorer": "Andreas Schjelderup",
+          "team": "NOR",
+          "penalty": false
+        },
+        {
+          "min": "45+2",
+          "scorer": "Jude Bellingham",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "93",
+          "scorer": "Jude Bellingham",
+          "team": "ENG",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 99,
       "num": 100,
       "d": "2026-07-11",
       "t": "20:00",
-      "h": null,
-      "hName": null,
-      "hRef": 95,
-      "a": null,
-      "aName": null,
-      "aRef": 96,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "h": "ARG",
+      "hName": "Argentina",
+      "hRef": null,
+      "a": "SUI",
+      "aName": "Switzerland",
+      "aRef": null,
+      "hs": 1,
+      "as": 1,
+      "s": "done",
       "g": "QF",
       "round": "Quarter-final",
       "ground": "Kansas City",
-      "goals": []
+      "goals": [
+        {
+          "min": "10",
+          "scorer": "Alexis Mac Allister",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "112",
+          "scorer": "Julián Álvarez",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "120+1",
+          "scorer": "Lautaro Martínez",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "67",
+          "scorer": "Dan Ndoye",
+          "team": "SUI",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 100,
       "num": 101,
       "d": "2026-07-14",
       "t": "14:00",
-      "h": null,
-      "hName": null,
-      "hRef": 97,
-      "a": null,
-      "aName": null,
-      "aRef": 98,
+      "h": "FRA",
+      "hName": "France",
+      "hRef": null,
+      "a": "ESP",
+      "aName": "Spain",
+      "aRef": null,
       "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "as": 2,
+      "s": "done",
       "g": "SF",
       "round": "Semi-final",
       "ground": "Dallas (Arlington)",
-      "goals": []
+      "goals": [
+        {
+          "min": "22",
+          "scorer": "Mikel Oyarzabal",
+          "team": "ESP",
+          "penalty": true
+        },
+        {
+          "min": "58",
+          "scorer": "Pedro Porro",
+          "team": "ESP",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 101,
       "num": 102,
       "d": "2026-07-15",
       "t": "15:00",
-      "h": null,
-      "hName": null,
-      "hRef": 99,
-      "a": null,
-      "aName": null,
-      "aRef": 100,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "h": "ENG",
+      "hName": "England",
+      "hRef": null,
+      "a": "ARG",
+      "aName": "Argentina",
+      "aRef": null,
+      "hs": 1,
+      "as": 2,
+      "s": "done",
       "g": "SF",
       "round": "Semi-final",
       "ground": "Atlanta",
-      "goals": []
+      "goals": [
+        {
+          "min": "55",
+          "scorer": "Anthony Gordon",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "86",
+          "scorer": "Enzo Fernández",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "92",
+          "scorer": "Lautaro Martínez",
+          "team": "ARG",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 102,
       "num": 103,
       "d": "2026-07-18",
       "t": "17:00",
-      "h": null,
-      "hName": null,
+      "h": "FRA",
+      "hName": "France",
       "hRef": null,
-      "a": null,
-      "aName": null,
+      "a": "ENG",
+      "aName": "England",
       "aRef": null,
-      "hs": 0,
-      "as": 0,
-      "s": "upcoming",
+      "hs": 4,
+      "as": 6,
+      "s": "done",
       "g": "P3",
       "round": "Match for third place",
       "ground": "Miami (Miami Gardens)",
-      "goals": []
+      "goals": [
+        {
+          "min": "48",
+          "scorer": "Kylian Mbappé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "54",
+          "scorer": "Bradley Barcola",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "66",
+          "scorer": "Kylian Mbappé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "90+6",
+          "scorer": "Ousmane Dembélé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "3",
+          "scorer": "Declan Rice",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "18",
+          "scorer": "Ezri Konsa",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "37",
+          "scorer": "Bukayo Saka",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "45+1",
+          "scorer": "Bukayo Saka",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "87",
+          "scorer": "Bukayo Saka",
+          "team": "ENG",
+          "penalty": true
+        },
+        {
+          "min": "90+8",
+          "scorer": "Jude Bellingham",
+          "team": "ENG",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 103,
       "num": 104,
       "d": "2026-07-19",
       "t": "15:00",
-      "h": null,
-      "hName": null,
-      "hRef": 101,
-      "a": null,
-      "aName": null,
-      "aRef": 102,
+      "h": "ESP",
+      "hName": "Spain",
+      "hRef": null,
+      "a": "ARG",
+      "aName": "Argentina",
+      "aRef": null,
       "hs": 0,
       "as": 0,
-      "s": "upcoming",
+      "s": "done",
       "g": "FINAL",
       "round": "Final",
       "ground": "New York/New Jersey (East Rutherford)",
-      "goals": []
+      "goals": [
+        {
+          "min": "106",
+          "scorer": "Ferran Torres",
+          "team": "ESP",
+          "penalty": false
+        }
+      ]
     }
   ]
 }
