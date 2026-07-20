@@ -121,6 +121,7 @@ function normalizeMatch(m, idx) {
     as: m.as,
     s:  m.s,
     g:  m.g,
+    penalties: m.penalties ?? null,
     // upcoming win-probability bars aren't in data.json yet —
     // omitted until a future data source provides them
     goals: m.goals || [],
@@ -217,6 +218,32 @@ function fmtDate(d) {
   return `${DAYS[dt.getDay()]} ${MONTHS[m-1]} ${dd}`;
 }
 
+// ── Knockout round codes & labels — a group code is a single letter
+// (A-L); anything else is a knockout round ──
+const ROUND_LABELS = {
+  R32:   'Round of 32',
+  R16:   'Round of 16',
+  QF:    'Quarter-final',
+  SF:    'Semi-final',
+  P3:    'Match for third place',
+  FINAL: 'Final',
+};
+const KNOCKOUT_ORDER = ['R32', 'R16', 'QF', 'SF', 'P3', 'FINAL'];
+function isGroupCode(g) { return /^[A-L]$/.test(g); }
+function roundLabel(g) { return ROUND_LABELS[g] || `Group ${g}`; }
+
+// ── Winner detection that accounts for penalty shootouts ──
+// m.penalties, when present, is a "home-away" string like "3-4"
+function matchResult(m) {
+  const isDraw = m.hs === m.as;
+  if (!isDraw) return { homeWon: m.hs > m.as, awayWon: m.as > m.hs, wentToPens: false };
+  if (m.penalties) {
+    const [hp, ap] = m.penalties.split('-').map(Number);
+    return { homeWon: hp > ap, awayWon: ap > hp, wentToPens: true };
+  }
+  return { homeWon: false, awayWon: false, wentToPens: false };
+}
+
 // ══════════════════════════════════════════════
 //  MODAL
 // ══════════════════════════════════════════════
@@ -276,7 +303,7 @@ function openMatchModal(m) {
         <span class="modal-team-name">${TEAMS[m.a]?.n || m.a}</span>
       </div>
     </div>
-    <div class="modal-meta">${fmtDate(m.d)} · ${m.t}hs · ${m.g === 'R32' ? 'Round of 32' : 'Group ' + m.g}</div>
+    <div class="modal-meta">${fmtDate(m.d)} · ${m.t}hs · ${roundLabel(m.g)}</div>
     ${goalsHTML}
   `;
   overlay.classList.add('open');
@@ -291,26 +318,33 @@ function closeModal() {
 // ══════════════════════════════════════════════
 
 function buildMatches() {
-  const r32done     = MATCHES.filter(m => m.s === 'done'     && m.g === 'R32');
-  const r32upcoming = MATCHES.filter(m => m.s === 'upcoming' && m.g === 'R32');
-  const groupDone   = MATCHES.filter(m => m.s === 'done'     && m.g !== 'R32');
+  const groupMatches    = MATCHES.filter(m => isGroupCode(m.g));
+  const knockoutMatches = MATCHES.filter(m => !isGroupCode(m.g));
 
   let html = '';
 
-  if (r32done.length) {
-    html += `<div class="section-label">Round of 32 · Results</div>`;
-    r32done.forEach(m => html += matchCard(m));
-  }
+  // Knockout rounds, most recent first (Final → Round of 32)
+  [...KNOCKOUT_ORDER].reverse().forEach(code => {
+    const roundMatches = knockoutMatches.filter(m => m.g === code);
+    if (!roundMatches.length) return;
+    const done     = roundMatches.filter(m => m.s === 'done');
+    const upcoming = roundMatches.filter(m => m.s === 'upcoming');
 
-  if (r32upcoming.length) {
-    const upDates = [...new Set(r32upcoming.map(m => m.d))].sort();
-    upDates.forEach(date => {
-      html += `<div class="section-label">Round of 32 · ${fmtDate(date)}</div>`;
-      r32upcoming.filter(m => m.d === date).forEach(m => html += matchCard(m));
-    });
-  }
+    if (done.length) {
+      html += `<div class="section-label">${roundLabel(code)} · Results</div>`;
+      done.forEach(m => html += matchCard(m));
+    }
+    if (upcoming.length) {
+      const upDates = [...new Set(upcoming.map(m => m.d))].sort();
+      upDates.forEach(date => {
+        html += `<div class="section-label">${roundLabel(code)} · ${fmtDate(date)}</div>`;
+        upcoming.filter(m => m.d === date).forEach(m => html += matchCard(m));
+      });
+    }
+  });
 
-  // Group stage results — last 4 days
+  // Group stage results — last 4 days played
+  const groupDone = groupMatches.filter(m => m.s === 'done');
   const doneDates = [...new Set(groupDone.map(m => m.d))].sort().reverse().slice(0, 4);
   doneDates.forEach(date => {
     html += `<div class="section-label">Group Stage · ${fmtDate(date)}</div>`;
@@ -386,8 +420,9 @@ function probabilityBarHTML(m) {
 
 function matchCard(m) {
   const upcoming = m.s === 'upcoming';
-  const homeWon  = !upcoming && m.hs > m.as;
-  const awayWon  = !upcoming && m.as > m.hs;
+  const { homeWon, awayWon, wentToPens } = upcoming
+    ? { homeWon: false, awayWon: false, wentToPens: false }
+    : matchResult(m);
 
   const scoreHTML = upcoming
     ? `<div class="score-center"><span class="score-vs">vs</span></div>`
@@ -397,13 +432,14 @@ function matchCard(m) {
         <span class="score-num ${awayWon?'score-win':'score-lose'}">${m.as}</span>
        </div>`;
 
-  const winnerTag = (!upcoming && m.hs !== m.as)
-    ? `<div class="winner-tag">✓ ${homeWon ? (TEAMS[m.h]?.n || m.h) : (TEAMS[m.a]?.n || m.a)} won</div>`
+  const winnerName = homeWon ? (TEAMS[m.h]?.n || m.h) : (TEAMS[m.a]?.n || m.a);
+  const winnerTag = (!upcoming && (homeWon || awayWon))
+    ? `<div class="winner-tag">✓ ${winnerName} won${wentToPens ? ` (pens ${m.penalties})` : ''}</div>`
     : '';
 
   const probHTML = upcoming ? probabilityBarHTML(m) : '';
 
-  const label = m.g === 'R32' ? 'Round of 32' : `Group ${m.g}`;
+  const label = roundLabel(m.g);
 
   return `
     <div class="match-card" onclick='openMatchModal(MATCHES.find(x=>x.h==="${m.h}"&&x.a==="${m.a}"&&x.d==="${m.d}"))' style="cursor:pointer">
@@ -618,19 +654,22 @@ function renderSearch(q) {
 // ══════════════════════════════════════════════
 
 // ── Knockout result card: clear winner (✓) / eliminated (✗) ──
+// Accounts for penalty shootouts via matchResult() — a drawn scoreline
+// with m.penalties set still shows a definite winner, not "pending"
 function knockoutResultCard(m) {
-  const isDraw  = m.hs === m.as;
-  const homeWon = !isDraw && m.hs > m.as;
-  const awayWon = !isDraw && m.as > m.hs;
+  const { homeWon, awayWon, wentToPens } = matchResult(m);
 
-  const sideClass = won => isDraw ? '' : (won ? 'ko-side-won' : 'ko-side-out');
+  const sideClass = won => (won ? 'ko-side-won' : 'ko-side-out');
 
-  const resultRow = isDraw
-    ? `<div class="ko-result-row ko-result-pens"><span class="ko-tag ko-tag-pens">Decided on penalties — result pending</span></div>`
-    : `<div class="ko-result-row">
-        <span class="ko-tag ${homeWon?'ko-tag-win':'ko-tag-out'}">${homeWon?'✓ advances':'✗ eliminated'}</span>
-        <span class="ko-tag ${awayWon?'ko-tag-win':'ko-tag-out'}">${awayWon?'✓ advances':'✗ eliminated'}</span>
-      </div>`;
+  const pensNote = wentToPens
+    ? `<div class="ko-result-row ko-result-pens"><span class="ko-tag ko-tag-pens">Penalties: ${m.penalties}</span></div>`
+    : '';
+
+  const resultRow = `
+    <div class="ko-result-row">
+      <span class="ko-tag ${homeWon?'ko-tag-win':'ko-tag-out'}">${homeWon?'✓ advances':'✗ eliminated'}</span>
+      <span class="ko-tag ${awayWon?'ko-tag-win':'ko-tag-out'}">${awayWon?'✓ advances':'✗ eliminated'}</span>
+    </div>`;
 
   return `
     <div class="match-card" onclick='openMatchModal(MATCHES.find(x=>x.h==="${m.h}"&&x.a==="${m.a}"&&x.d==="${m.d}"))' style="cursor:pointer">
@@ -643,15 +682,16 @@ function knockoutResultCard(m) {
             <span class="team-abbr">${m.h}</span>
           </div>
           <div class="score-center">
-            <span class="score-num ${isDraw?'':homeWon?'score-win':'score-lose'}">${m.hs}</span>
+            <span class="score-num ${homeWon?'score-win':'score-lose'}">${m.hs}</span>
             <span class="score-sep">—</span>
-            <span class="score-num ${isDraw?'':awayWon?'score-win':'score-lose'}">${m.as}</span>
+            <span class="score-num ${awayWon?'score-win':'score-lose'}">${m.as}</span>
           </div>
           <div class="team-side right ${sideClass(awayWon)}">
             <span class="team-abbr">${m.a}</span>
             ${flagImg(m.a)}
           </div>
         </div>
+        ${pensNote}
         ${resultRow}
       </div>
     </div>`;
@@ -661,44 +701,36 @@ function buildKnockout() {
   const el = document.getElementById('panel-knockout');
   if (!el) return;
 
-  const r32 = MATCHES.filter(m => m.g === 'R32');
-  const done = r32.filter(m => m.s === 'done');
-  const upcoming = r32.filter(m => m.s === 'upcoming').sort((a, b) => (a.d + a.t).localeCompare(b.d + b.t));
-
-  const decided = done.filter(m => m.hs !== m.as);
+  const knockoutMatches = MATCHES.filter(m => !isGroupCode(m.g));
+  const totalDone = knockoutMatches.filter(m => m.s === 'done').length;
 
   let html = `
     <div style="background:#1c1200;border-radius:12px;padding:12px 16px;margin-bottom:14px;border-left:4px solid var(--orange)">
       <p style="font-size:10px;font-weight:700;color:var(--orange);letter-spacing:2px;margin-bottom:4px">KNOCKOUT STAGE</p>
-      <p style="font-size:13px;color:#888">${done.length} of ${r32.length} played · ${decided.length} teams through to Round of 16</p>
+      <p style="font-size:13px;color:#888">${totalDone} of ${knockoutMatches.length} played · full bracket, Round of 32 → Final</p>
     </div>`;
 
-  if (done.length) {
-    html += `<div class="section-label">Results</div>`;
-    [...done].sort((a, b) => (b.d + b.t).localeCompare(a.d + a.t)).forEach(m => html += knockoutResultCard(m));
-  }
-
-  if (upcoming.length) {
-    html += `<div class="section-label">Upcoming</div>`;
-    upcoming.forEach(m => html += matchCard(m));
-  }
-
-  if (!done.length && !upcoming.length) {
+  if (!knockoutMatches.length) {
     html += `<div style="text-align:center;padding:30px 20px;color:#444">
       <p style="font-size:13px">Bracket not yet defined — waiting for group stage to finish.</p>
     </div>`;
+    el.innerHTML = html;
+    return;
   }
 
-  html += `
-    <div style="background:var(--card);border-radius:14px;padding:20px;text-align:center;margin-top:16px">
-      <div style="font-size:28px;margin-bottom:8px">🏆</div>
-      <p style="font-size:11px;font-weight:700;color:var(--orange);letter-spacing:2px;margin-bottom:6px">COMING SOON</p>
-      <p style="font-size:12px;color:#444;line-height:1.7">
-        Round of 16 · Quarter-finals<br>
-        Semi-finals · Final<br>
-        <span style="color:#333">Jul 4 → Jul 19</span>
-      </p>
-    </div>`;
+  KNOCKOUT_ORDER.forEach(code => {
+    const roundMatches = knockoutMatches.filter(m => m.g === code);
+    if (!roundMatches.length) return;
+
+    const done     = roundMatches.filter(m => m.s === 'done')
+      .sort((a, b) => (a.d + a.t).localeCompare(b.d + b.t));
+    const upcoming = roundMatches.filter(m => m.s === 'upcoming')
+      .sort((a, b) => (a.d + a.t).localeCompare(b.d + b.t));
+
+    html += `<div class="section-label">${roundLabel(code)}</div>`;
+    done.forEach(m => html += knockoutResultCard(m));
+    upcoming.forEach(m => html += matchCard(m));
+  });
 
   el.innerHTML = html;
 }
