@@ -734,7 +734,8 @@ function buildKnockout() {
 
 function buildChamp() {
   // Change null to team code when confirmed — e.g. 'ARG'
-  const WINNER = null;
+- const WINNER = null;
++ const WINNER = 'ESP';
   const el = document.getElementById('champ-content');
 
   if (!WINNER) {
