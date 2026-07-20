@@ -613,34 +613,6 @@ function renderSearch(q) {
 //  RENDER — KNOCKOUT (Round of 32)
 // ══════════════════════════════════════════════
 
-// ── result card: shows who advanced vs who's out ──
-function knockoutResultCard(m) {
-  const homeWon = m.hs > m.as;
-  const awayWon = m.as > m.hs;
-
-  const side = (code, won) => `
-    <div class="ko-side ${won ? 'ko-side-win' : 'ko-side-out'}">
-      ${flagImg(code)}
-      <span class="ko-side-code">${code}</span>
-      <svg class="ko-side-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-        ${won ? '<path d="M5 12l5 5L19 7"/>' : '<path d="M6 6l12 12M18 6L6 18"/>'}
-      </svg>
-    </div>`;
-
-  return `
-    <div class="match-card" onclick='openMatchModal(MATCHES.find(x=>x.h==="${m.h}"&&x.a==="${m.a}"&&x.d==="${m.d}"))' style="cursor:pointer">
-      <div class="card-stripe stripe-done"></div>
-      <div class="card-body">
-        <div class="card-meta">${fmtDate(m.d)} · ${m.g === 'R32' ? 'Round of 32' : m.g}</div>
-        <div class="ko-result-row">
-          ${side(m.h, homeWon)}
-          <span class="ko-result-score">${m.hs}–${m.as}</span>
-          ${side(m.a, awayWon)}
-        </div>
-      </div>
-    </div>`;
-}
-
 // ── Knockout result card: clear winner (✓) / eliminated (✗) ──
 function knockoutResultCard(m) {
   const isDraw  = m.hs === m.as;
@@ -733,9 +705,9 @@ function buildKnockout() {
 // ══════════════════════════════════════════════
 
 function buildChamp() {
-  // Change null to team code when confirmed — e.g. 'ARG'
-- const WINNER = null;
-+ const WINNER = 'ESP';
+  // España campeón del mundo 2026 — final ganada 1-0 a Argentina
+  // con gol de Ferran Torres en el 106' (tiempo extra)
+  const WINNER = 'ESP';
   const el = document.getElementById('champ-content');
 
   if (!WINNER) {
