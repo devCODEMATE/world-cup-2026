@@ -764,25 +764,9 @@ function buildChamp() {
       <div style="text-align:center;padding:24px 20px 30px">
         <div class="section-label" style="text-align:center;margin-bottom:4px">🏆 WORLD CHAMPION 🏆</div>
         <p style="font-size:11px;color:#444;margin-bottom:16px;letter-spacing:1px">FIFA WORLD CUP 2026</p>
-        <div class="floating" style="margin-bottom:12px;display:inline-block">
-          <svg width="150" height="230" viewBox="0 0 150 230" fill="none">
-            <circle cx="75" cy="34" r="22" fill="#FBBF7A"/>
-            <ellipse cx="75" cy="18" rx="20" ry="9" fill="#4a3000"/>
-            <path d="M36 92 Q36 72 75 72 Q114 72 114 92 L120 155 H30 Z" fill="#FF6B1A"/>
-            <path d="M36 92 Q20 76 10 52 Q7 43 14 41 Q21 39 25 50 Q34 72 46 84 Z" fill="#FBBF7A"/>
-            <path d="M114 92 Q130 76 140 52 Q143 43 136 41 Q129 39 125 50 Q116 72 104 84 Z" fill="#FBBF7A"/>
-            <line x1="10" y1="52" x2="10" y2="10" stroke="#ccc" stroke-width="3" stroke-linecap="round"/>
-            <image href="https://flagcdn.com/w80/${t.f}.png" x="-8" y="6" width="42" height="28" clip-path="url(#fc)"/>
-            <defs><clipPath id="fc"><rect x="-8" y="6" width="42" height="28" rx="3"/></clipPath></defs>
-            <path d="M52 155 L44 210 Q42 218 52 219 Q62 220 64 212 L70 162 Z" fill="#FF6B1A"/>
-            <path d="M98 155 L106 210 Q108 218 98 219 Q88 220 86 212 L80 162 Z" fill="#FF6B1A"/>
-            <ellipse cx="47" cy="218" rx="11" ry="5" fill="#222"/>
-            <ellipse cx="103" cy="218" rx="11" ry="5" fill="#222"/>
-            <text x="140" y="54" font-size="20" text-anchor="middle">🏆</text>
-            <circle cx="68" cy="32" r="2.5" fill="#5a3000"/>
-            <circle cx="82" cy="32" r="2.5" fill="#5a3000"/>
-            <path d="M67 42 Q75 49 83 42" stroke="#5a3000" stroke-width="2" stroke-linecap="round" fill="none"/>
-          </svg>
+        <div class="floating" style="margin-bottom:12px">
+          <img src="images/champion-esp-2026.png" alt="${t.n} campeón"
+            style="width:220px;max-width:80%;height:auto">
         </div>
         <div style="font-size:22px;letter-spacing:4px;margin-bottom:8px">🎊 🎉 🎊</div>
         <div style="font-size:30px;font-weight:900;letter-spacing:2px">${WINNER}</div>
