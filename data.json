@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T09:51:47.580Z",
+  "updatedAt": "2026-07-20T12:10:32.478Z",
   "source": "openfootball/worldcup.json (public domain, updated ~daily)",
   "matches": [
     {
@@ -3909,11 +3909,18 @@
       "aRef": null,
       "hs": 0,
       "as": 0,
-      "s": "upcoming",
+      "s": "done",
       "g": "FINAL",
       "round": "Final",
       "ground": "New York/New Jersey (East Rutherford)",
-      "goals": []
+      "goals": [
+        {
+          "min": "106",
+          "scorer": "Ferran Torres",
+          "team": "ESP",
+          "penalty": false
+        }
+      ]
     }
   ]
 }
