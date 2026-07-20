@@ -22,7 +22,7 @@
 
 | Search | Top Scorers | Champion |
 |--------|-------------|----------|
-| ![Search](images/search-2026.png) | ![Top Scorers](images/scorers-2026.png) | ![Champion](images/champion-2026.png) |
+| ![Search](images/search-2026.png) | ![Top Scorers](images/scores-2026.png) | ![Champion](images/champion-2026.png) |
 
 </div>
 
