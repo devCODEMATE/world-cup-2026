@@ -2020,7 +2020,20 @@
       "g": "SF",
       "round": "Semi-final",
       "ground": "",
-      "goals": []
+      "goals": [
+        {
+          "min": "21",
+          "scorer": "Mikel Oyarzabal",
+          "team": "ESP",
+          "penalty": true
+        },
+        {
+          "min": "57",
+          "scorer": "Pedro Porro",
+          "team": "ESP",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 101,
@@ -2040,7 +2053,26 @@
       "g": "SF",
       "round": "Semi-final",
       "ground": "",
-      "goals": []
+      "goals": [
+        {
+          "min": "55",
+          "scorer": "Anthony Gordon",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "85",
+          "scorer": "Enzo Fernández",
+          "team": "ARG",
+          "penalty": false
+        },
+        {
+          "min": "90+2",
+          "scorer": "Lautaro Martínez",
+          "team": "ARG",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 102,
@@ -2060,7 +2092,68 @@
       "g": "P3",
       "round": "Match for third place",
       "ground": "",
-      "goals": []
+      "goals": [
+        {
+          "min": "3",
+          "scorer": "Declan Rice",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "18",
+          "scorer": "Ezri Konsa",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "37",
+          "scorer": "Bukayo Saka",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "45+1",
+          "scorer": "Bukayo Saka",
+          "team": "ENG",
+          "penalty": false
+        },
+        {
+          "min": "48",
+          "scorer": "Kylian Mbappé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "54",
+          "scorer": "Bradley Barcola",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "66",
+          "scorer": "Kylian Mbappé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "87",
+          "scorer": "Bukayo Saka",
+          "team": "ENG",
+          "penalty": true
+        },
+        {
+          "min": "90+6",
+          "scorer": "Ousmane Dembélé",
+          "team": "FRA",
+          "penalty": false
+        },
+        {
+          "min": "90+8",
+          "scorer": "Jude Bellingham",
+          "team": "ENG",
+          "penalty": false
+        }
+      ]
     },
     {
       "id": 103,
