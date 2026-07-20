@@ -32,10 +32,14 @@ document.querySelectorAll('[data-tab]').forEach(btn => {
 
 const FINAL_DATE = new Date('2026-07-19T20:00:00-03:00');
 
+// Champion confirmed after the final — mirrors WINNER in buildChamp()
+const CHAMPION = 'ESP';
+
 function updateCountdown() {
   const diff = FINAL_DATE - new Date();
   if (diff <= 0) {
-    document.getElementById('countdown').textContent = '🏆 Final is today!';
+    const el = document.getElementById('countdown');
+    if (el) el.textContent = CHAMPION ? '🏆 España campeona del mundo' : '🏆 Final is today!';
     return;
   }
   const d = Math.floor(diff / 86400000);
