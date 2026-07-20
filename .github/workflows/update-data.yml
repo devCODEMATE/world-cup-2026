@@ -1,9 +1,9 @@
 name: Update World Cup Data
 
 on:
-  schedule:
-    # Runs every hour
-    - cron: '0 * * * *'
+  # schedule:
+  #   Runs every hour — disabled: tournament finished, source is stale
+  #   - cron: '0 * * * *'
   workflow_dispatch:
     # Allows manual trigger from GitHub
 
